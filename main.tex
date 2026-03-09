@@ -10,7 +10,7 @@
 
 % 加载宏包、全部的配置
 \input{ustcsetup}
-
+\input{Format.tex}
 
 \begin{document}
 
@@ -23,16 +23,16 @@
 \tableofcontents
 % \listoffigures
 % \listoftables
-\listoffiguresandtables
+% \listoffiguresandtables
 % \include{chapters/notation}
 
 \mainmatter
 \include{chapters/intro}
-\include{chapters/floats}
-\include{chapters/math}
-\include{chapters/citations}
+% \include{chapters/floats}
+% \include{chapters/math}
+% \include{chapters/citations}
 
-\bibliography{bib/ustc}  % 参考文献使用 BibTeX 编译
+\bibliography{bib/bibliography}  % 参考文献使用 BibTeX 编译
 % \printbibliography       % 参考文献使用 BibLaTeX 编译
 
 \appendix
