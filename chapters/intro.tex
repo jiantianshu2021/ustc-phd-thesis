@@ -34,7 +34,19 @@ h=h_{i\bar{j}}\diff z^i\otimes \diff \overline{z}^j\quad \omega=\frac{i}{2} h_{i
 \]
 
 在$\Omega_X^\bullet$上，我们定义Lefschetz算子$L\coloneqq \cdot\wedge \omega$。
-由于$g_{\C}$诱导了$\Omega_X^\bullet$上的内积，我们有自然的伴随算子，将其记为$\Lambda$。
+由于$g_{\C}$诱导了$\Omega_X^\bullet$上的内积，我们有自然的伴随算子，将其记为$\Lambda$。在局部坐标下若有$(1,1)$-形式$\eta=\eta_{i\bar{j}}dz^i\wedge d\overline{z}^j$，我们有
+\[
+\Lambda\eta=\frac{2}{i}h^{\bar{i}j}\eta_{i\bar{j}}
+\]
+特别的对于光滑函数$f$，
+\[
+-2i\Lambda \partial\overline{\partial}f=\Delta_g f \footnote{在本篇文章中，我们约定Laplace算子为$\Delta=-\Div\cdot \nabla f$。}
+\]
+
+
+
+
+
 \section{向量丛与层}
 \section{抛物丛}
 全纯向量丛上的抛物结构最早应出自\cite{Me-Se}。文章作者通过研究平坦向量丛在非紧黎曼面上的无穷远渐进行为获得了抛物结构。本小节将简单介绍抛物结构的来源以及定义抛物结构的动机。
@@ -70,17 +82,36 @@ h=h_{i\bar{j}}\diff z^i\otimes \diff \overline{z}^j\quad \omega=\frac{i}{2} h_{i
 以上的内容成为了抛物丛定义的动机以及 Kobayashi--Hinchin 对应的雏形。
 % \section{脚注}
 \section{抛物Higgs丛}
-\subsection{抛物Higgs丛}
+
 令$X$为一个非紧黎曼面，$\overline{X}$为$X$的一个光滑紧化，令$\omega$为$\overline{X}$上的一个 K\"ahler 形式，其在$X$上的限制依然记为$\omega$。令$j:X\to \overline{X}$为其嵌入映射，令$Y=\overline{X}-X$. 
 \begin{definition}\label{regularsytemofhodgebundle}
-    一个$X^{alg}$上的\textbf{正则丛}是一个代数希格斯丛$E$并存在以下滤链：
+    一个$X^{alg}$上的\textbf{正则丛}是一个代数Higgs丛$E$并存在以下滤链：
     \[
     j_*^{alg}E=\bigcup_{\alpha\in \R^{Y}} E_{\alpha}
     \]
-其中$E_\alpha$皆为凝聚子层，我们赋予$\R^{Y}$自然的偏序结构。并且我们要求希格斯场满足
+其中$E_\alpha$皆为凝聚子层，我们赋予$\R^{Y}$自然的偏序结构。并且我们要求Higgs场满足
 \[
 \theta: E_\alpha \to E_\alpha\otimes \Omega_X^1\langle\log(Y)\rangle
 \]
+
+任给切向量$v\in T^{1,0}$，$\theta(v)$是周期域$G_0/K_0$的切向量，由\cite{griffiths1969locally}中的结论，周期域的全纯截面曲率在$\g^{-1,1}$方向上是严格负的，因此我们有
+\[
+\frac{R(\theta(v),\overline{\theta}(\bar{v}),\theta(v),\overline{\theta}(\bar{v}))}{|\theta(v)|^4}=-\langle [[\theta(v),\overline{\theta}(\bar{v})],\theta(v)],\theta(v)\rangle\leq -C
+\]
+取局部坐标$z$使得$\omega=\frac{i}{2}\diff z\wedge \diff \overline{z}$以及丛的酉标架。在此平凡化下
+\[\theta=\phi\diff z, \quad \overline{\theta}=\phi^\dagger \diff \overline{z}\]
+\[|\theta|^2=2\tr(\phi\phi^\dagger),\quad [\theta,\theta^\dagger]=(\phi\phi^\dagger-\phi^\dagger\phi)\diff z\wedge \diff \overline{z}\]
+\[
+i\Lambda[\theta,\theta^\dagger]=2(\phi\phi^\dagger-\phi^\dagger\phi)=2[\theta(\frac{\partial}{\partial z}), \overline{\theta}(\frac{\partial}{\partial \overline{z}})]=2[A,A^\dagger]\]
+
+\[
+   \langle [\frac{i}{2}\Lambda[\theta,\theta^\dagger],\theta],\theta\rangle=2\langle [[A,A^\dagger],A],A\rangle
+\]
+因此我们有
+\[
+\frac{\langle [2i\Lambda[\theta,\overline{\theta}],\theta],\theta\rangle}{|\theta|^2}\geq C|\theta|^2
+\]
+
 \end{definition}
 % Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 % incididunt ut labore et dolore magna aliqua.
