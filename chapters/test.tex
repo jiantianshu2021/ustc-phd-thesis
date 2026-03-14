@@ -1,0 +1,2702 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsthm,amsfonts}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{mathtools}
+
+\geometry{left=2.5cm,right=2.5cm,top=2.8cm,bottom=2.8cm}
+
+\title{Kähler 流形上饱和自反抛物层的\\Kobayashi--Hitchin 对应}
+\author{Tianshu Jiang \and Jiayu Li}
+\date{}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{remark}[theorem]{注}
+\newtheorem{example}[theorem]{例}
+
+\newcommand{\ii}{\sqrt{-1}}
+\newcommand{\ch}{\operatorname{ch}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Vol}{\operatorname{Vol}}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Id}{\operatorname{id}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\degw}{\deg_{\omega}}
+\newcommand{\muw}{\mu_{\omega}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\textbf{摘要}
+\end{center}
+
+本文中，我们利用 Hermitian--Yang--Mills 流的方法，在带有简单正规交叉除子的紧 Kähler 流形上研究抛物层情形下的 Kobayashi--Hitchin 对应。
+
+\vspace{1em}
+
+\noindent
+\textbf{数学主题分类：}53C07 \(\cdot\) 14J60 \(\cdot\) 32Q15
+
+\tableofcontents
+
+\section{引言}
+
+\subsection{背景}
+
+Kobayashi--Hitchin 对应这一概念，源于 M. S. Narasimhan 与 C. S. Seshadri \cite{NS} 的一项极具洞见的发现：在紧黎曼曲面上，基本群的不可约酉表示与其上次数为零的稳定全纯向量丛之间存在对应关系。随后在 S. K. Donaldson \cite{Donaldson1,Donaldson2}、S. Kobayashi \cite{Kobayashi1,Kobayashi2}、L\"ubke \cite{Luebke}、Hitchin \cite{Hitchin}、Uhlenbeck 与 Yau \cite{UY} 等人的持续推动下，这一理论发展成其现代形式：在紧 Kähler 流形 \(X\) 上实现如下“三位一体”：
+\[
+\text{复几何} \quad \Longleftrightarrow \quad \text{拓扑} \quad \Longleftrightarrow \quad \text{微分几何}
+\]
+\[
+\text{多稳定向量丛}
+\qquad
+\text{基本群 } \pi_1(X)\text{ 的半单射影酉表示}
+\qquad
+\text{Hermitian--Einstein 联络}.
+\]
+
+当我们研究 \(X\) 上稳定向量丛的模空间时，这一对应使模空间能够从不同视角交织出丰富的几何结构。
+
+另一个推广方向是考虑拟射影情形中的对应问题。V. Mehta 与 C. S. Seshadri \cite{MehtaSeshadri} 在研究带穿孔黎曼曲面 \(X^\circ\) 的基本群酉表示时开创了这一方向，这可看作是对 Narasimhan 与 Seshadri \cite{NS} 工作的推广。在他们的论文中，建立了 \(X^\circ\) 的基本群酉表示与其紧化 \(X\) 上稳定抛物丛概念之间的对应。受其启发，抛物向量丛的概念逐渐推广到更高维情形。为说明起见，我们先考虑最简单的情况。
+
+设 \((X,\omega)\) 是一个紧 Kähler 流形，\(D\) 是一个光滑不可约除子。一个抛物丛是一个二元组
+\[
+F_*=(F,\mathcal F),
+\]
+其中 \(F\to X\) 是底层全纯向量丛，而 \(\mathcal F\) 是沿除子给定的抛物结构。抛物结构 \(\mathcal F\) 是 \(F|_D\) 上一列递降的全纯子丛过滤：
+\[
+F|_D = F_0 \supset F_1 \supset F_2 \supset \cdots \supset F_\ell \supset 0,
+\]
+并为各 \(F_i\) 赋权
+\[
+0\le a_i < a_{i+1} <1.
+\]
+我们使用下标“\(*\)”来强调抛物结构；若省略“\(*\)”而只写 \(F\)，则表示抛物丛的底层丛。与普通向量丛情形一样，抛物丛也有相应的抛物 Chern 特征、次数、关于 \(\omega\) 的斜率稳定性等概念。关于抛物丛，还有其他刻画方式，可参见例如 \cite{Biswas,IyerSimpson,Mochizuki2003}。更一般地，也可以定义一般除子上的抛物层。它最初由 M. Maruyama 与 K. Yokogawa \cite{MaruyamaYokogawa} 为研究模问题而引入。但在本文中，我们遵循 T. Mochizuki 在 \cite[Chapter 3]{MochizukiBook} 中给出的定义。细节见第 2 节。
+
+自 1990 年代以来，抛物丛吸引了大量关注。更重要也更迷人的是研究带有 Higgs 场且沿除子具有对数奇性的抛物丛，因为这会导向拟射影光滑簇上的非阿贝尔 Hodge 对应，该方向由 C. T. Simpson \cite{SimpsonHarmonic} 开创。这个主题试图将上文“三位一体”中的对象替换为：拟射影簇上的半单局部系统、调和丛以及 Chern 类平凡的稳定抛物 Higgs 丛。J. Jost 与 K. Zuo \cite{JostZuo} 建立了前两类对象之间的桥梁，而 T. Mochizuki \cite{MochizukiBook} 建立了后两类对象之间的桥梁。O. Biquard \cite{BiquardLog} 处理了底空间为带光滑除子的 Kähler 流形的情形。若底空间为带简单正规交叉除子的 Kähler 流形，该问题仍然是开放的。如今，这一主题依然活跃，研究者试图把背景推广到带某些奇性的空间上的层，例如 Klt、Dlt 簇。当没有 Higgs 场时，这个问题也曾在不同背景下被例如 \cite{Li2000,LiNarasimhan,SteerWren} 考虑。
+
+特别地，第二作者在 \cite{Li2000} 中证明：对于带简单正规交叉除子 \(D\) 的紧 Kähler 流形 \((X,\omega)\)，一个抛物丛 \(F_*\) 关于 \(\omega\) 稳定，当且仅当在 \(F|_{X\setminus D}\) 上存在关于某个锥型 Kähler 度量 \(\omega_\delta\)（即在 \(D\) 附近有温和奇性的度量）的 Hermitian--Einstein 度量 \(H_\delta\)，并且 \(H_\delta\) 与抛物结构相容。作为结果，作者得到了抛物版本的 Bogomolov--Gieseker 不等式。
+
+\subsection{目的}
+
+值得注意的是，尽管第二作者所用的锥型度量 \(\omega_\delta\) 在流的意义下与 \(\omega\) 属于同一个上同调类，但只能得到关于 \(\omega_\delta\) 而不是 \(\omega\) 的 Hermitian--Einstein 度量，这并不十分理想。本文的目的，是将先前结果推广到半稳定抛物层的情形，并同时解决这一问题。下面简要描述我们的主要结果。
+
+设 \(F_*\) 是与 \((X,\omega,D)\) 相关的一个秩为 \(r\) 的饱和自反抛物层。记 \(\ch_k(\cdot)\) 为抛物层的第 \(k\) 个 Chern 特征算子。与通常一样，定义抛物层 \(F_*\) 的次数为
+\[
+\deg_\omega(F_*):=\ch_1(F_*)\cdot \frac{[\omega]^{n-1}}{(n-1)!},
+\]
+其斜率定义为
+\[
+\mu_\omega(F_*):=\frac{\deg_\omega(F_*)}{\rank(F_*)}.
+\]
+我们称 \(F_*\) 关于 Kähler 度量 \(\omega\) 是 \(\mu_\omega\)-稳定（或简称 \(\omega\)-稳定）的（分别地，半稳定的），如果对任意真抛物子层 \(S_*\) 都有
+\[
+\mu_\omega(S_*)<(\text{分别地 } \le)\,\mu_\omega(F_*).
+\]
+
+从第 2 节可知，\(F_*\) 在一个余维至少为 3 的解析子集 \(W\) 之外是局部阿贝尔的抛物丛。记
+\[
+X^\circ:=X-W,\qquad \mathcal F_*:=F_*|_{X^\circ}.
+\]
+在本文其余部分中，我们有时将 \(F\) 简称为 \(F\) 的正则部分，而将 \(F|_{X^\circ\setminus D}\) 称作 \(F_*\) 的正则部分。
+
+\begin{definition}
+称 \(F|_{X^\circ\setminus D}\) 上的一个 Hermitian 度量 \(H\) 与抛物层 \(F_*\)（或其抛物结构）相容，如果满足下列条件：
+\begin{enumerate}[label=\arabic*.]
+\item
+\[
+\frac{\sqrt{-1}}{2\pi}\Tr(F_H)
+\]
+表示 \(\ch_1(F_*)\)，其中 \(F_H\) 是 Chern 曲率张量。
+\item 对任意真抛物子层 \(S_*\subset F_*\)，设 \(H|_{S_*}\) 为 \(S_*\) 正则部分上的诱导度量，则在流的意义下有
+\[
+\ch_1(S_*)\le \frac{\sqrt{-1}}{2\pi}\Tr(F_{H|_{S_*}}).
+\]
+\end{enumerate}
+如果进一步满足
+\begin{itemize}
+\item \(F_H\in L^2(H,\omega)\)；
+\item \(\Lambda F_H\in L^\infty(H)\)，其中 \(\Lambda F_H\) 表示相对于 \(\omega\) 的收缩，
+\end{itemize}
+则称 \(H\) 是\textbf{可容许的}（admissible）。
+\end{definition}
+
+\begin{remark}
+当 \(F_*\) 是抛物丛时，条件 2 中的不等式可以加强为等式。但在层的情形中，这是我们所能期望的最好结果。
+\end{remark}
+
+自反层上的可容许度量这一概念最早由 S. Bando 与 Y. Siu 在 \cite{BandoSiu} 中引入，他们研究了自反层的 Kobayashi--Hitchin 问题。
+
+\begin{definition}
+设 \(F\) 是 Kähler 流形 \((X,\omega)\) 上的一个向量丛。若一个 Hermitian 度量 \(H\) 满足
+\[
+\sqrt{-1}\Lambda_\omega F_H-\lambda\cdot \Id_F=0
+\]
+在整个 \(X\) 上成立，其中 \(\lambda\) 是实常数，\(\Lambda_\omega\) 是 Lefschetz 算子的伴随，则称 \(H\) 为 \textbf{Hermitian--Einstein}（H-E）度量。
+\end{definition}
+
+\begin{definition}
+设 \(F\) 是 Kähler 流形 \((X,\omega)\) 上的一个向量丛。若一族由 \(t\in[0,\infty)\) 参数化的 Hermitian 度量 \(H(t)\) 满足
+\[
+\lim_{t\to\infty}\bigl\|\sqrt{-1}\Lambda_\omega F_{H(t)}-\lambda\cdot \Id_F\bigr\|_{L^\infty(X,H(t))}=0,
+\]
+则称其为\textbf{近似 Hermitian--Einstein}（approximate H-E）度量族。
+\end{definition}
+
+我们得到如下定理：
+
+\begin{theorem}[定理 6.14]
+设 \(F_*\) 是 \((X,\omega,D)\) 上的一个饱和自反抛物层。则 \(F_*\) 是 \(\mu_\omega\)-多稳定的，当且仅当在 \(F|_{X^\circ\setminus D}\) 上存在一个关于 \(\omega\) 的、与 \(F_*\) 相容的可容许 H-E 度量。
+\end{theorem}
+
+\begin{theorem}[定理 6.15]
+设 \(F_*\) 是 \((X,\omega,D)\) 上的一个饱和自反抛物层。则 \(F_*\) 是 \(\mu_\omega\)-半稳定的，当且仅当在 \(F|_{X^\circ\setminus D}\) 上存在一族关于 \(\omega\) 的、与 \(F_*\) 相容的可容许近似 H-E 度量。
+\end{theorem}
+
+作为推论，我们得到抛物版本的 Bogomolov--Gieseker 不等式。记
+\[
+\Delta(F_*):=\frac{\ch_1(F_*)^2}{2\rank(F_*)}-\ch_2(F_*)
+\]
+为 Bogomolov--Gieseker 判别式。
+
+\begin{corollary}[推论 6.16]
+若 \(F_*\) 关于 \(\omega\) 是 \(\mu_\omega\)-半稳定的，则
+\[
+\Delta(F_*)\cdot [\omega]^{n-2}\ge 0.
+\]
+此外，若 \(F_*\) 是多稳定的，则等号成立当且仅当 \(F|_{X\setminus D}\) 是一个向量丛，且它带有一个与抛物结构相容的射影平坦 H-E 联络。
+\end{corollary}
+
+为层建立 Bogomolov--Gieseker 不等式使我们在应用中有更大的灵活性。作为结果，我们还证明了：
+
+\begin{theorem}[定理 7.1]
+设 \(F_*\) 是紧 Kähler 流形 \((X,\omega)\) 上的一个饱和自反抛物层，并且它关于一个 nef 且 big 的类 \([\eta]\) 是半稳定的。那么关于 \([\eta]\) 的 Bogomolov--Gieseker 不等式成立，即
+\[
+\Delta(F_*)\cdot [\eta]^{n-2}\ge 0.
+\]
+\end{theorem}
+
+\subsection{文章结构}
+
+\begin{itemize}
+\item \S2：我们引入一个以抛物层为对象的阿贝尔范畴。粗略地说，一个抛物层 \(F_*\) 是一族仅在除子 \(D\) 上退化的层过滤。我们讨论态射、Chern 特征、次数、稳定性条件等概念。我们还证明，一个饱和自反抛物层 \(F_*\) 在余维至少为 3 的解析集之外是抛物丛。
+
+\item \S3：我们通过沿 \(W\) 上方的光滑中心连续爆破来解消 \(F_*\) 的奇性。总之，我们得到一个修改 \(\pi:\widetilde X\to X\)。设 \(E\) 为例外除子。为简化记号，我们对由 \(\pi\) 拉回的对象仍使用原记号。于是，在 \(\widetilde X\) 上，\(F\) 可以嵌入一个局部自由层 \(\mathcal E\) 中，且在 \(E\) 外 \(\mathcal E\) 与 \(F\) 同构。再经进一步爆破后，\(\mathcal E\) 将从 \(F_*\) 继承抛物结构。记该抛物丛为 \(\mathcal E_*\)。
+
+\item \S4：为了利用 Hermitian--Yang--Mills 流来变形 \(F_*\) 正则部分上的度量，我们首先在 \(\widetilde X-D\) 上构造一族由 \(\pi^*\omega\) 导出的锥型 Kähler 度量 \(\omega^\varepsilon_\delta\)。特别地，这族度量满足一个具有统一常数的 Sobolev 型不等式。相应地，我们在 \(\mathcal E_*\) 上构造一个奇异 Hermitian 度量 \(H^\varepsilon\)，它在 \(D\) 的严格变换上退化为零。然后我们证明，\(H^\varepsilon\) 的曲率张量能像普通向量丛那样给出 \(\mathcal E_*\) 的第一与第二 Chern 特征。我们相信所构造的这个抛物度量实际上给出所有抛物 Chern 特征。由于 \(\widetilde X\) 与 \(X\) 在 \(W\) 外同构，它也诱导出 \(F_*\) 正则部分上的一个度量。正如预期，\(H^\varepsilon\) 的曲率张量将给出 \(F_*\) 的第一与第二 Chern 特征。
+
+\item \S5：我们回顾向量丛相对于丛上的 Hermitian 度量与底流形上的 Kähler 形式的解析稳定性概念。更重要的是，我们证明 Hermitian 全纯向量丛 \((F|_{X^\circ\setminus D},H^\varepsilon)\) 的解析稳定性等价于抛物层 \(F_*\) 的稳定性。
+
+\item \S6：我们分析相对于锥型 Kähler 度量 \(\omega^\varepsilon_\delta\) 及初始度量 \(H^\varepsilon\) 的一族 Hermitian--Yang--Mills (H-Y-M) 流，在丛 \(\mathcal E|_{\widetilde X-D}\) 上：
+\[
+\begin{cases}
+H^{-1}\dfrac{dH}{dt}
+=
+-2\bigl(\sqrt{-1}\Lambda_{\omega^\varepsilon_\delta}F_H-\lambda^\varepsilon_\delta\cdot \Id_F\bigr),\\[0.7em]
+\det(H)=\det(H^\varepsilon),\\
+H(0)=H^\varepsilon.
+\end{cases}
+\]
+我们证明，当 \(\varepsilon,\delta\to 0\) 时，这族流收敛到定义在 \(F_*\) 正则部分上的流
+\[
+\begin{cases}
+H^{-1}\dfrac{dH}{dt}
+=
+-2\bigl(\sqrt{-1}\Lambda_\omega F_H-\lambda\cdot \Id_F\bigr),\\[0.7em]
+\det(H)=\det(H^\varepsilon),\\
+H(0)=H^\varepsilon,
+\end{cases}
+\]
+其中
+\[
+\lambda:=\frac{2\pi\cdot \mu_\omega(F_*)}{\Vol(X,\omega)}.
+\]
+然后我们证明，在稳定（分别地，半稳定）条件下，该流将收敛到 \(F|_{X^\circ\setminus D}\) 上一个与 \(F_*\) 相容的可容许 H-E 度量（分别地，一族可容许近似 H-E 度量）。我们也将证明其逆命题，其中 H-E 度量的可容许性是关键。
+
+\item \S7：作为应用，我们利用 Jordan--H\"older 过滤证明：关于 big 且 nef 类的半稳定抛物层满足 Bogomolov--Gieseker 型不等式。
+\end{itemize}
+
+\section{抛物层的基本概念}
+
+本节回顾抛物层的基本概念。这些概念可参见，例如 \cite[Chapter 3]{MochizukiBook}、\cite[Section 2]{IyerSimpson}、\cite[Section 1]{MaruyamaYokogawa}。这些文献中引入的抛物层定义略有差异，但本质思想是相似的。实际上，\cite{IyerSimpson} 中讨论了文献中出现的多种定义，在限制到局部阿贝尔抛物丛时它们是等价的。本文基本遵循 \cite{MochizukiBook} 中的定义。
+
+设 \((X,D)\) 是一对，其中 \(X\) 是复流形，\(D=\bigcup_{i\in I}D_i\) 是一个简单正规交叉除子。我们在指标集 \(I\) 上固定一个线性顺序。先引入与 \((X,D)\) 相关的抛物丛，再推广到层。如果说某个性质 \(P\) 在余维 \(k-1\) 上一般成立，意即 \(P\) 在一个余维为 \(k\) 的解析子集之外成立。
+
+\subsection{抛物丛}
+
+我们从相容过滤的概念开始。固定一个向量空间 \(V\)。
+
+\begin{definition}
+\(V\) 的一个\textbf{递减左连续过滤}是一个由 \(a\in[0,1)\) 索引的子空间族 \(\mathcal F=\{F_a\mid a\in[0,1)\}\)，满足：
+\begin{enumerate}[label=\arabic*.]
+\item 若 \(a\le b\)，则 \(F_a\supseteq F_b\)；
+\item \(F_0=V\)，且当 \(b\) 充分接近 1 时，\(F_b=0\)；
+\item 若 \(\varepsilon\) 充分小，则 \(F_{a-\varepsilon}=F_a\)。
+\end{enumerate}
+\end{definition}
+
+本文中出现的所有过滤都默认为递减且左连续，因此以下统称为过滤。
+
+给定一个过滤组 \(\mathcal F=\{{}^i\mathcal F\mid i\in I\}\)。对任意 \(J\subset I\) 及 \(\eta\in[0,1)^J\)，定义
+\[
+{}^J\mathcal F_\eta=\bigcap_{j\in J} {}^j\mathcal F_{\eta_j}.
+\]
+
+\begin{definition}
+一个过滤组 \(\mathcal F=\{{}^i\mathcal F\mid i\in I\}\) 称为\textbf{相容的}，如果它们 admit 一个共同分裂，即存在一个分解
+\[
+V=\bigoplus_{\eta\in[0,1)^I}U_\eta
+\]
+使得
+\[
+{}^I\mathcal F_\rho=\bigoplus_{\eta\ge \rho} U_\eta.
+\]
+\end{definition}
+
+对于复流形 \(M\) 上的一个相干层 \(V\)，我们以同样方式定义其子层的递减左连续过滤。若过滤 \(\mathcal F=\{F_a\mid a\in[0,1)\}\) 的各子层都是局部自由的，且对所有 \(a\)，
+\[
+\Gr_a:=F_a/F_{>a}
+\]
+也局部自由，则称该过滤是在向量丛范畴中的。
+
+\begin{definition}
+一个向量丛过滤组 \(\mathcal F=\{{}^i\mathcal F\mid i\in I\}\) 称为\textbf{相容的}，如果：
+\begin{enumerate}[label=\arabic*.]
+\item 对任意 \(x\in X\)，纤维上的过滤组 \(\mathcal F_x\) 按定义 2.2 相容；
+\item 对任意 \(J\subset I\) 与 \(\rho\in[0,1)^J\)，\({}^J\mathcal F_\rho\) 是一个子丛。
+\end{enumerate}
+\end{definition}
+
+设 \(F\) 是 \(X\) 上的一个向量丛。在每个不可约分支 \(D_i\) 上，可指定 \(F|_{D_i}\) 的一个向量丛过滤 \({}^i\mathcal F\)。于是得到过滤组 \(\mathcal F=\{{}^i\mathcal F\mid i\in I\}\)。对任意 \(J\subset I\)，记
+\[
+D_J=\bigcap_{j\in J}D_j.
+\]
+则 \({}^J\mathcal F\) 是向量丛 \(F|_{D_J}\) 上的一组过滤。
+
+\begin{definition}
+上述二元组 \((F,\mathcal F)\) 称为一个\textbf{抛物丛}，如果对所有 \(J\subset I\)，在 \(D_J\) 的任意不可约分支上，\({}^J\mathcal F\) 按定义 2.3 相容。称 \(\mathcal F\) 为 \(F\) 的抛物结构。
+\end{definition}
+
+\begin{definition}
+一个抛物丛 \((F,\mathcal F)\) 称为\textbf{局部阿贝尔的}，如果对每个 \(x\in X\)，存在其一个邻域 \(U_x\)，使得 \((F,\mathcal F)|_{U_x}\) 在抛物层范畴中同构于若干抛物线丛的直和（见下一小节定义）。
+\end{definition}
+
+N. Borne \cite{Borne} 证明了：
+
+\begin{theorem}
+给定 \((X,D)\) 上一个抛物丛 \((F,\mathcal F)\)。若由正合列
+\[
+0\to {}^iF_a\to F\to F|_{D_i}/{}^iF_a\to 0
+\]
+定义的各子层的所有交都是局部自由的，则 \((F,\mathcal F)\) 是局部阿贝尔的。
+\end{theorem}
+
+\begin{remark}
+若底空间是一个光滑代数簇，则 Borne 的定理更强：它说明该抛物丛在任意 Zariski 邻域中都同构于抛物线丛的直和。
+\end{remark}
+
+\subsection{抛物层}
+
+设 \(F\) 是一个无挠的 \( \mathcal O_X\)-相干层。
+
+\begin{definition}
+\(F\) 上的一个\textbf{抛物结构}是一个组
+\[
+\mathcal F=\{{}^i\mathcal F\mid i\in I\},
+\]
+其中每个 \({}^i\mathcal F_a\) 是由 \(a\in[0,1)\) 索引、长度有限 \(l_i\) 的递减左连续过滤，并满足：对任意 \(a\in[0,1)\)，
+\[
+{}^i\mathcal F_a\supset F(-D_i),
+\]
+且当 \(a\) 充分大时，
+\[
+{}^i\mathcal F_a=F(-D_i).
+\]
+\end{definition}
+
+对于 \(D_i\) 上的过滤 \({}^i\mathcal F\)，令
+\[
+{}^ia=\{{}^ia_0,{}^ia_1,\dots,{}^ia_{l_i}\}
+\]
+表示使
+\[
+{}^i\Gr_{{}^ia_k}F_*\neq 0
+\]
+的索引递增序列。通常称这些数为 \(D_i\) 上抛物结构的\textbf{权重}。称 \(F\) 为过滤中的\textbf{顶旗}（top flag），称 \(F(-D_i)\) 为\textbf{柄部}（handle）。
+
+\begin{definition}
+一个\textbf{抛物层}是一个二元组
+\[
+F_*=(F,\mathcal F),
+\]
+其中 \(F\) 是底层层，\(\mathcal F\) 是其上的抛物结构。
+\end{definition}
+
+\begin{definition}
+\(F_*=(F,\mathcal F)\) 的一个\textbf{抛物子层}定义为一个商无挠子层 \(E\)，并赋予其自然诱导的抛物结构。
+\end{definition}
+
+\begin{definition}
+一个态射 \(f:F_*\to G_*\) 定义为一个层态射 \(f:F\to G\)，并满足对所有 \(a\in[0,1)\) 及所有 \(i\)，
+\[
+f({}^iF_a)\subset {}^iG_a.
+\]
+\end{definition}
+
+记两个抛物层 \(F_*\) 与 \(G_*\) 间的态射集为
+\[
+\Hom(F_*,G_*).
+\]
+
+\begin{definition}
+复形
+\[
+\cdots\to E_*\to F_*\to G_*\to\cdots
+\]
+在 \(F_*\) 处正合，当且仅当对所有 \(i,a\)，复形
+\[
+\cdots\to {}^iE_a\to {}^iF_a\to {}^iG_a\to\cdots
+\]
+在 \({}^iF_a\) 处正合。
+\end{definition}
+
+一个抛物丛按如下方式给出一个抛物层。给定抛物丛 \(F_*\)，通过正合列
+\[
+0\to {}^iF_a\to F\to F|_{D_i}/{}^iF_a\to 0
+\]
+定义抛物结构 \({}^iF_a\)。
+
+反之，一个抛物层距离抛物丛有多远？下面的引理给出部分回答。
+
+我们称一个抛物层 \(F_*\) 是\textbf{自反的}，如果其底层层 \(F\) 是自反的。若对任意 \(i,a\)，商 \(F/{}^iF_a\) 都是无挠的 \(\mathcal O_{D_i}\)-模，则称 \(F_*\) 是\textbf{饱和的}。记
+\[
+{}^iF_a|_{D_J}:=\ker\bigl(J_{m*}({}^iF_a)\to J_{m*}(F)\bigr),
+\]
+其中 \(J_m\) 是 \(D_J\) 的嵌入。
+
+\begin{lemma}
+一个饱和自反抛物层的抛物结构中出现的任意若干子层的交仍然是自反的。
+\end{lemma}
+
+\begin{proof}
+T. Mochizuki \cite[Proposition 3.1.2]{MochizukiBook} 证明了所有 \({}^iF_a\) 都是自反的。于是引理由如下事实推出：一个自反层中的两个自反子层的交仍然自反。
+\end{proof}
+
+\begin{lemma}
+一个饱和自反抛物层在余维 2 上是一个局部阿贝尔的抛物丛。
+\end{lemma}
+
+\begin{proof}
+记该层为 \(F_*\)。由于 \(F\) 是自反的，它在一个余维为 3 的解析子集 \(Z_0\) 之外局部自由。对每个 \(D_i\)，由于 \(F/{}^iF_a\) 是无挠 \(\mathcal O_{D_i}\)-模，它在 \(D_i\) 内一个余维为 2 的解析子集 \(Z_i\) 之外局部自由。因此，在 \(\bigcup_{i\in I\cup\{0\}} Z_i\) 之外，对所有 \(i\)，\({}^i\mathcal F|_{D_i}\) 都是向量丛过滤。容易检验，对于 \(i\neq j\)，向量丛过滤 \({}^i\mathcal F|_{D_{ij}}\) 与 \({}^j\mathcal F|_{D_{ij}}\) 在 \(D_{ij}\) 内一个余维为 2 的解析子集 \(Z_{ij}\) 之外相容。因此，如果我们进一步去掉所有 \(Z_{ij}\) 以及满足 \(|J|\ge 3\) 的 \(D_J\)，则 \(F_*\) 将成为一个抛物丛。由上一个引理，所有 \({}^iF_a\) 的交都是自反的，因此它们在一个余维为 3 的解析子集 \(Z'\) 之外局部自由。去掉 \(Z'\) 后，\(F_*\) 即成为局部阿贝尔的。
+\end{proof}
+
+\begin{lemma}
+一个抛物层 admits 唯一的自反饱和化，它在余维 1 上与原抛物层同构。即：给定抛物层 \(F_*\)，存在唯一的饱和自反抛物层 \(F'_{*}\) 以及一个单态射
+\[
+m:F_*\to F'_*
+\]
+使得 \(m\) 在余维 1 上是同构。
+\end{lemma}
+
+\begin{proof}
+令 \(F'\) 为 \(F\) 的双对偶。它们在一个余维为 2 的解析子集 \(Z\) 外同构。由于 \(F'\) 是正规层，我们定义抛物结构 \(\mathcal F_1\) 为 \(F|_{X\setminus Z}\) 在 \(F'\) 中的唯一延拓。由 \cite[Theorem 2.2]{SiuTrautmann}，\(\mathcal F_1\) 中的子层是相干的。此外，\({}^i\mathcal F\) 的顶旗是 \(F'\)，柄部是 \(F'(-D_i)\)。因此 \(F'/{}^i(\mathcal F_1)_a\) 可视为 \(\mathcal O_{D_i}\)-模。最后，我们将 \(F'/{}^i(\mathcal F_1)_a\) 的 \(\mathcal O_{D_i}\)-挠子层在商映射下的逆像定义为 \({}^iF'_a\)。容易验证 \(F'_*=(F',\mathcal F')\) 满足要求。唯一性立即由引理 2.3 及“自反层是正规层”这一事实推出。
+\end{proof}
+
+\subsection{抛物 Chern 特征}
+
+从现在开始，假设 \(X\) 是一个紧 Kähler 流形。
+
+\begin{definition}
+一个抛物层 \(F_*\) 的\textbf{抛物 Chern 特征} \(\ch(F_*)\) 定义为
+\[
+\ch(F_*)=
+\ch(D)\,
+\frac{\int_0^1\cdots\int_0^1 e^{\sum_{i=1}^k a_i[D_i]}\cdot \ch({}^{I}F_a)\,da_1\cdots da_k}
+{\int_0^1\cdots\int_0^1 e^{\sum_{i=1}^k a_i[D_i]}\,da_1\cdots da_k},
+\]
+其中 \(k=|I|\)，且 \(a\in [0,1)^k\)。
+\end{definition}
+
+\begin{remark}
+本文中，我们使用的是 \cite{KaufmannLarkangWulcan} 中为紧复流形上的普通相干解析层提供的 Chern 特征函子；他们将光滑代数情形中的交叉理论（更精确地说，GRR 定理）推广到了光滑复解析情形。上述抛物 Chern 特征定义正是建立在他们对普通层的定义之上。然而，这一定义绝非标准。上述公式最初由 Iyer 与 Simpson 在 \cite{IyerSimpson} 中针对局部阿贝尔、具有有理权重的抛物丛得到。他们证明：一对由光滑概形与简单正规交叉除子组成的 \((X,D)\) 上的局部阿贝尔抛物丛范畴，与某个关联 Deligne--Mumford 栈 \(Z\) 上的向量丛范畴等价。然后他们利用这一等价定义了局部阿贝尔抛物丛的抛物 Chern 特征，并计算出上述显式公式。但对于更一般的抛物层、甚至一般抛物丛，并没有明显理由保证上述公式仍成立。我们采用它作为定义，理由如下。
+
+首先，这样定义的 Chern 特征具有良好的函子性质。例如，给定抛物层的短正合列
+\[
+0\to E_*\to F_*\to G_*\to 0,
+\]
+有
+\[
+\ch(F_*)=\ch(E_*)+\ch(G_*).
+\]
+事实上，这已经足够用于第 7 节中证明 Bogomolov--Gieseker 不等式。
+
+更重要的是，Taher 在 \cite{Taher} 中计算表明：对于在余维 1（分别地，余维 2）上局部阿贝尔的抛物丛，第一（分别地，第二）Chern 特征有如下更具体的公式。
+\end{remark}
+
+设 \(F_*\) 在余维 2 上是局部阿贝尔的抛物丛，例如一个饱和自反抛物层。记
+\[
+{}^i\Gr F_*:=\bigoplus_{a\in[0,1)}\bigl({}^i\Gr_aF_*:={}^iF_a/{}^iF_{>a}\bigr)
+\]
+为 \(\mathcal O_{D_i}\)-模的分次层。在 \(D_i\cap D_j\) 的任意不可约分支 \(P\) 上，定义
+\[
+{}^P\Gr_{(a_i,a_j)}F_*:=
+{}^P F_{a_i,a_j}\Big/\sum_{x>a_i,\ y>a_j} {}^P F_{x,y}.
+\]
+则有
+\begin{align}
+\ch_1(F_*)
+&=
+\ch_1(F)+
+\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot \rank_{D_i}({}^i\Gr_aF_*)\cdot [D_i],
+\end{align}
+以及
+\begin{align}
+\ch_2(F_*)
+&=
+\ch_2(F)
++\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot m_{i*}\bigl(\ch_1({}^i\Gr_aF_*)\bigr)
++\frac12\sum_{i\in I}\sum_{a\in[0,1)}
+a^2\cdot \rank_{D_i}({}^i\Gr_aF_*)\cdot [D_i]^2
+\nonumber\\
+&\quad
++\sum_{i<j}\sum_{P\in \operatorname{Irr}(D_i\cap D_j)}
+\sum_{(a_i,a_j)\in[0,1)^2}
+a_i a_j \cdot \rank_P({}^P\Gr_{(a_i,a_j)}F_*)\cdot [P].
+\end{align}
+
+\begin{remark}
+上述第一 Chern 特征公式最早由 V. Mehta 与 C. S. Seshadri \cite{MehtaSeshadri} 在代数曲线上引入，随后由 M. Maruyama 与 K. Yokogawa \cite{MaruyamaYokogawa} 推广到高维抛物层。局部阿贝尔抛物丛的第二 Chern 特征公式则由第二作者 \cite[Lemma 7.3, 7.4]{Li2000} 利用某种沿除子退化的适配度量的曲率张量得到。之后 T. Mochizuki \cite{MochizukiBook} 将其作为饱和自反抛物层的定义。Iyer 与 Simpson \cite{IyerSimpson} 给出了局部阿贝尔抛物丛的一个一般性抛物 Chern 特征定义后，Taher \cite{Taher} 证明了这个新定义与经典定义一致。
+\end{remark}
+
+由于本文只研究自反饱和抛物层，因此本小节开头给出的 Chern 特征函子足以胜任。接下来，在下面的引理中，我们比较一个抛物层与其自反饱和化的 Bogomolov--Gieseker 判别式。
+
+\begin{lemma}
+设 \(F'_*\) 是抛物层 \(F_*\) 的自反饱和化，则
+\[
+\Delta(F'_*)\ge \Delta(F_*).
+\]
+\end{lemma}
+
+\begin{proof}
+一方面，由于它们在余维 1 上同构，\(T_a={}^{I}F'_a/{}^{I}F_a\) 是支撑在余维 2 解析子集上的挠层。由 \cite[Theorem 1.1]{KaufmannLarkangWulcan}，\(\ch_1(T_a)=0\)，而 \(\ch_2(T_a)\) 由 \(\supp T_a\) 中余维 2 的不可约分支的非负线性组合表示。
+
+另一方面，根据公式 (1)，有
+\[
+\ch(F'_*)-\ch(F_*)
+=
+\ch(D)\,
+\frac{\int e^{\sum a_i[D_i]}\ch(T_a)}
+{\int e^{\sum a_i[D_i]}}.
+\]
+因此容易看出
+\[
+\ch_1(F'_*)=\ch_1(F_*),
+\]
+且
+\[
+\ch_2(F'_*)-\ch_2(F_*)
+\]
+是由 \(\supp T_a\) 中余维 2 不可约分支的非负线性组合表示的流。于是
+\[
+\Delta(F'_*)\ge \Delta(F_*).
+\]
+\end{proof}
+
+抛物层的稳定性、多稳定性与半稳定性定义方式与普通层完全类似。Harder--Narasimhan 过滤与 Jordan--H\"older 过滤的存在唯一性也可以像普通层那样形式上证明。并且与普通层情形一样：
+
+\begin{lemma}
+如果抛物层 \(F_*\) 关于某个类 \([\eta]\in H^2(X,\mathbb R)\) 是稳定的，则其自反饱和化 \(F'_*\) 也是 \(\eta\)-稳定的。
+\end{lemma}
+
+\section{奇性的解消}
+
+本节说明如何通过沿光滑中心连续爆破，把一个光滑复解析流形上的自反饱和抛物层的奇性解消掉。在这个过程中，我们将得到一个局部阿贝尔抛物丛，其抛物次数在拉回下保持不变。
+
+下述定理 \cite[Theorem 4.11]{Grivaux} 起关键作用。
+
+\begin{theorem}
+设 \(F\) 是复解析流形 \(X\) 上的一个相干解析层。则存在一个双有理态射
+\[
+\pi:\widetilde X\to X,
+\]
+它通过沿光滑中心连续爆破得到，使得 \(F\) 的拉回模去挠子后是局部自由的，且挠子层支撑在例外除子上。
+\end{theorem}
+
+下面的推论立即成立。
+
+\begin{corollary}
+设 \(F\) 是局部自由层 \(E\) 的一个子层，则存在一个双有理态射 \(\pi:\widetilde X\to X\)，使得 \(\pi^*(F)\) 在 \(\pi^*(E)\) 中的饱和化是 \(\pi^*(E)\) 的一个子丛。
+\end{corollary}
+
+设 \(F_*\) 是一对 \((X,D)\) 上的饱和自反抛物层，其中 \(X\) 是光滑复解析流形，\(D\) 是简单正规交叉除子。由定理 3.1，我们可把底层层 \(F\) 解消成一个向量丛 \(\mathcal E\to \widetilde X\)，其中 \(\pi_1:\widetilde X\to X\) 是定理 3.1 所述的某个修改。为节省记号，即便之后继续爆破，我们仍记修改为
+\[
+\pi:\widetilde X\to X,
+\]
+而 \(\mathcal E\) 的拉回仍记作 \(\mathcal E\)。我们也约定，总是假定拉回层已经模掉挠子，并继续使用原记号表示拉回层。此外，我们也不改变在连续爆破过程中生成的例外除子不可约分支逆像的记号。\(D\)（及 \(D_i\)）的严格变换始终记作 \(D^*\)（及 \(D_i^*\)），例外除子记作 \(E\)。不失一般性，总可假定 \(D^*\) 与 \(E\) 横截相交。
+
+接下来，为了获得局部阿贝尔性质，我们继续爆破，使得任意时刻至多只有两个除子不可约分支的严格变换相交。限制到每个 \(D_i^*\) 上，我们有 \(\mathcal E|_{D_i^*}\) 上的一列子层过滤 \({}^iF_a|_{D_i^*}\)。于是可以应用推论 3.2，使其成为 \(\mathcal E|_{D_i^*}\) 上的一列子丛过滤。类似地，通过进一步爆破，也可使
+\[
+{}^iF_a|_{D_{ij}^*}\cap {}^jF_b|_{D_{ij}^*}
+\]
+成为 \(\mathcal E|_{D_{ij}^*}\) 的一个子丛，其中 \(a,b\in[0,1)\)。于是，我们在 \(D^*\) 上得到了 \(\mathcal E\) 的一个相容抛物结构。记此局部阿贝尔抛物丛为 \(\mathcal E_*\)。
+
+由引理 2.4、定义 1，可容易得到：对任意 Kähler 类 \(\omega\) 以及 \(k=1,2\)，有
+\[
+\ch_k(\mathcal E_*)\cdot \pi^*\omega=\ch_k(F_*)\cdot \omega.
+\]
+
+因此有：
+
+\begin{proposition}
+设 \(F_*\) 是一对 \((X,D)\) 上的饱和自反抛物层，其中 \(X\) 是光滑复解析流形，\(D\) 是简单正规交叉除子。则存在一个由沿光滑中心连续爆破得到的双有理态射
+\[
+\pi:\widetilde X\to X,
+\]
+使得拉回层 \(\pi^*(F)\) 的无挠商 \(\mathcal E\) 在 \(D^*\) 上带有局部阿贝尔抛物结构。此外，对任意 Kähler 类 \(\omega\) 及 \(k=1,2\)，有
+\[
+\ch_k(\mathcal E_*)\cdot \pi^*\omega=\ch_k(F_*)\cdot \omega.
+\]
+\end{proposition}
+
+\section{度量的构造与分析}
+
+本节中，我们首先在 \(X\setminus D\) 上构造一族锥型 Kähler 度量 \(\omega_\delta\)，并在 \(\widetilde X\setminus D\) 上构造一族锥型 Kähler 度量 \(\omega^\varepsilon_\delta\)。接着，我们在 \(F_*\) 的正则部分上构造一个与抛物结构相容（按定义 1.1）的 Hermitian 度量 \(H^\varepsilon\)。这些度量将在第 6 节研究 H-Y-M 流时使用。
+
+令 \(h_i\) 为 \( \mathcal O_X(D_i)\) 的一个 Hermitian 度量。记 \(\sigma_i\) 为 \( \mathcal O_X(D_i)\) 的典范截面，其关于 \(h_i\) 的范数记作 \(|\sigma_i|\)。\( \mathcal O_X(D)\) 的典范截面记作 \(\sigma\)，其范数记作 \(|\sigma|\)。假定 \(|\sigma|<1\)。与上一节相同，我们在 \(\pi:\widetilde X\to X\) 的拉回下不改变几何对象的记号。
+
+\subsection{锥型 Kähler 度量}
+
+我们在 \(X\) 上构造一族正则化度量，其极限将给出 \(X\setminus D\) 上的一个锥型 Kähler 度量 \(\omega_\delta\)。这种正则化技巧常用于处理锥型 Kähler 流形上的几何问题，参见 \cite{GuenanciaPaun}。对任意 \(0\le \nu\) 与 \(0<\delta<\frac12\)，定义函数
+\[
+\chi^\nu_\delta(t):=
+\delta\int_0^t \frac{(\nu^2+s)^\delta-\nu^{2\delta}}{s}\,ds.
+\]
+取某个正数 \(C>0\)，定义
+\[
+\omega^\nu_\delta
+:=
+\omega
++
+C\sum_{i\in I}\sqrt{-1}\,\partial\bar\partial \chi^\nu_\delta(|\sigma_i|^2).
+\]
+
+\begin{proposition}
+当 \(C\) 充分小时：
+\begin{itemize}
+\item 若 \(0<\nu\)，则对任意 \(\delta\)，\(\omega^\nu_\delta\) 是 \(X\) 上的 Kähler 度量；
+\item 若 \(\nu=0\)，则 \(\omega_\delta:=\omega^0_\delta\) 对任意 \(\delta\) 都是 \(X\setminus D\) 上的 Kähler 度量。
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+直接计算得
+\[
+\sqrt{-1}\,\partial\bar\partial \chi^\nu_\delta(|\sigma_i|^2)
+=
+\sqrt{-1}\,\delta^2(\nu^2+|\sigma_i|^2)^\delta\cdot
+\frac{\langle \partial_{h_i}\sigma_i,\partial_{h_i}\sigma_i\rangle}{\nu^2+|\sigma_i|^2}
+-
+\sqrt{-1}\,\delta\bigl((\nu^2+|\sigma_i|^2)^\delta-\nu^{2\delta}\bigr)\cdot F_{h_i}.
+\]
+由以下量的一致有界性可得结论：
+\[
+\frac{\langle \partial_{h_i}\sigma_i,\partial_{h_i}\sigma_i\rangle}{\nu^2+|\sigma_i|^2},
+\qquad
+F_{h_i},
+\qquad
+\delta(\nu^2+|\sigma_i|^2)^\delta,
+\qquad
+\delta^2(\nu^2+|\sigma_i|^2)^\delta.
+\]
+\end{proof}
+
+上述等式也表明，当 \(\nu\to 0\) 时，\(\omega^\nu_\delta\) 在 \(C^\infty_{\mathrm{loc}}\)-拓扑下收敛到 \(\omega_\delta\)。\(\omega_\delta\) 在 \(D\) 上任一点附近的行为良好，具体如下，这从构造上是显然的。
+
+\begin{lemma}
+设 \(x\in D_J\)，其中 \(J\subset I\)。可取以 \(x\) 为中心的小坐标邻域，使得 \(D\) 的定义方程为
+\[
+z_1\cdots z_k=0.
+\]
+则存在正常数 \(C_1\)，使得
+\[
+C_1^{-1}\omega_\delta
+\le
+\sqrt{-1}\,\delta^2\sum_{i=1}^k \frac{dz_i\wedge d\bar z_i}{|z_i|^{2-2\delta}}
++\sqrt{-1}\,\partial\bar\partial |z|^2
+\le
+C_1\omega_\delta.
+\]
+\end{lemma}
+
+注意，\(\omega_\delta\) 的拉回 \(\pi^*\omega_\delta\) 是 \(\widetilde X\setminus D\) 上一个退化的锥型 Kähler 度量。固定 \(\widetilde X\) 上一个归一化的 Kähler 度量 \(\omega_{\widetilde X}\)，使
+\[
+\int_{\widetilde X}\omega_{\widetilde X}^n=1.
+\]
+令
+\[
+\omega^\varepsilon_\delta:=\omega_\delta+\varepsilon\,\omega_{\widetilde X}.
+\]
+则 \(\omega^\varepsilon_\delta\) 是 \(\widetilde X\setminus D\) 上的锥型 Kähler 度量。并有以下命题。
+
+\begin{proposition}
+Kähler 流形 \((\widetilde X\setminus D,\omega^\varepsilon_\delta)\) 满足以下三个假设：
+\begin{enumerate}[label=\arabic*.]
+\item \(\widetilde X\setminus D\) 的体积一致有界，与 \(\varepsilon,\delta\) 无关；
+\item 存在一个 exhaustion 函数 \(\phi\)，使得 \(\sqrt{-1}\Lambda_{\omega^\varepsilon_\delta}\partial\bar\partial \phi\) 有界；
+\item 若 \(f\) 是 \(\widetilde X\setminus D\) 上有界的正函数，且
+\[
+\Delta_{\delta}^{\varepsilon}f\le B
+\]
+其中 \(B\in L^p\)（\(p>n\)）为某个正函数，则
+\[
+\|f\|_{L^\infty}\le C_2\bigl(\|B\|_{L^p}+\|f\|_{L^1}\bigr),
+\]
+其中常数 \(C_2\) 与 \(\varepsilon,\delta\) 无关。
+\end{enumerate}
+这里
+\[
+\Delta_{\delta}^{\varepsilon}=2\sqrt{-1}\Lambda_{\omega^\varepsilon_\delta}\partial\bar\partial
+\]
+是负 Laplace 算子；本文中其余地方出现的 Laplace 算子都取负号约定。
+\end{proposition}
+
+\begin{proof}
+第一条直接由前一引理推出。令
+\[
+\phi:=\log|\sigma|.
+\]
+则第二条由 Poincar\'e--Lelong 公式可得。
+
+为证明第三条，我们需要用到 \cite{GuoSobolev} 中一个非常重要的结果，后文也将用到。设 \((X,\omega_X)\) 是一个紧 Kähler 流形，且归一化满足
+\[
+\int_X \omega_X^n=1.
+\]
+设 \(X\) 的复维数为 \(n\)。对 \(X\) 上任意 Kähler 度量 \(\omega\)，记其体积为
+\[
+V_\omega:=[\omega]^n,
+\]
+并定义相对体积密度
+\[
+e^{\lambda_\omega}
+:=
+\frac{1}{V_\omega}\frac{\omega^n}{\omega_X^n}.
+\]
+给定 \(p\ge 1\)，定义第 \(p\) 个 Nash--Yau 熵为
+\[
+N_p(\omega)
+:=
+\frac1{V_\omega}
+\int_X
+\left|
+\log\left(\frac1{V_\omega}\frac{\omega^n}{\omega_X^n}\right)
+\right|^p\omega^n.
+\]
+
+给定一个非负连续函数 \(\gamma\in C^0(X)\)，以及参数 \(0<A\le \infty\)、\(K>0\)，考虑 Kähler 度量空间中的子集
+\[
+\mathcal W:=\mathcal W(n,p,A,K,\gamma)
+:=
+\left\{
+\omega:\ [\omega]\cdot [\omega_X]^{n-1}<A,\ N_p\le K,\ e^{\lambda_\omega}\ge \gamma
+\right\}.
+\]
+
+\cite[Theorem 2.1]{GuoSobolev} 得到了如下关于 \(\mathcal W\) 中 Kähler 度量的 Sobolev 不等式：
+
+\begin{theorem}[一致 Sobolev 不等式]
+设 \(p>n\)，且 \(\gamma\) 的零点集的 Hausdorff 维数小于 \(2n-1\)。则存在 \(q=q(n,p)>1\) 及常数
+\[
+C_3=C_3(n,p,A,K,\gamma,q)>0,
+\]
+使得对任意 \(\omega\in\mathcal W\) 及任意 \(u\in L_1^2(X)\)，均有
+\[
+\left(
+\frac1{V_\omega}\int_X |u-\bar u|^{2q}\omega^n
+\right)^{1/q}
+\le
+C_3\frac1{V_\omega}\int_X |\nabla u|^2\omega^n,
+\]
+其中
+\[
+\bar u:=\frac1{V_\omega}\int_X u\,\omega^n.
+\]
+\end{theorem}
+
+现在回到第三条的证明。我们将把上述定理应用到 \(\widetilde X\) 上的一族度量
+\[
+\omega^\varepsilon_{\delta,\nu}:=\omega^\nu_\delta+\varepsilon\omega_{\widetilde X}.
+\]
+这是一族 \(\widetilde X\) 上的光滑 Kähler 度量。由于 \(\omega^0_{\delta,\nu}\) 仅在例外除子 \(E\) 上退化，所以 \(\omega^\varepsilon_{\delta,\nu}\) 可由一个零点集 Hausdorff 维数为 \(2n-2\) 的连续函数 \(\gamma\) 所支撑。为了应用上述定理，我们只需检查 Nash--Yau 熵条件。回忆 \(E\cup D\) 是简单正规交叉的。因此可取局部坐标图
+\[
+z=(z',z'',z'''),
+\]
+使得
+\[
+D=\bigcup_{i=1}^{k'}\{z'_i=0\},\qquad
+E=\bigcup_{j=1}^{k''}\{z''_j=0\}.
+\]
+并可设 \(|z|<1\)。记
+\[
+f^\varepsilon_{\delta,\nu}:=
+\frac{(\omega^\varepsilon_{\delta,\nu})^n}{\omega_{\widetilde X}^n}.
+\]
+则 \(f^\varepsilon_{\delta,\nu}\) 要么在 \(E\) 上以 \(\prod_j |z''_j|^a\) 的速度退化到 0，要么在 \(D\) 上以 \(\prod_i |z'_i|^{-a}\) 的速度爆炸到无穷，其中 \(a>0\) 可取一致。于是若固定 \(p>n\)，有
+\[
+|\log(f^\varepsilon_{\delta,\nu})|^p
+\le
+\frac{C_{15}}{\delta^{k'}}
+\cdot
+\frac{\prod_{i=1}^{k'}|z'_i|^{\delta/2}}
+{\prod_{j=1}^{k''}|z''_j|^{1/2}}
+\]
+其中 \(C_{15}\) 与 \(\delta,\varepsilon,\nu\) 无关。再由引理 4.2，
+\[
+|\log(f^\varepsilon_{\delta,\nu})|^p(\omega^\varepsilon_{\delta,\nu})^n
+\le
+\frac{C_{15}\delta^{k'}}
+{\prod_{i=1}^{k'}|z'_i|^{2-3\delta/2}\cdot \prod_{j=1}^{k''}|z''_j|^{1/2}}.
+\]
+因此 \(\int |\log(f^\varepsilon_{\delta,\nu})|^p(\omega^\varepsilon_{\delta,\nu})^n\) 一致有界。于是可取合适的 \(p>n\)、\(A\) 和 \(K\)，使得度量族 \(\omega^\varepsilon_{\delta,\nu}\) 属于 \(\mathcal W(n,p,A,K,\gamma)\)。由上定理可推出下面的引理。
+\end{proof}
+
+\begin{lemma}
+对任意 \(f\in C_0^\infty(\widetilde X\setminus D^*)\)，以及任意锥型 Kähler 度量 \(\omega^\varepsilon_\delta\) 于 \(\widetilde X\setminus D^*\) 上，都有一致 Sobolev 不等式
+\[
+\|f\|_{L^q}\le C_4\|f\|_{L_1^2},
+\]
+其中 \(C_4\) 与 \(\varepsilon,\delta\) 无关。
+\end{lemma}
+
+\begin{proof}
+这是因为 \(f\) 紧支撑于 \(\widetilde X\setminus D^*\) 中，而 \(\omega^\varepsilon_{\delta,\nu}\) 在 \(\nu\to 0\) 时以 \(C^\infty_{\mathrm{loc}}\)-拓扑收敛到 \(\omega^\varepsilon_\delta\)。
+\end{proof}
+
+现在我们可用 Moser 迭代证明命题 4.3 的第三条。设 \(f\) 是一个满足假设的有界正函数，即
+\[
+\Delta_{\omega^\varepsilon_\delta}f
+=
+\sqrt{-1}\Lambda_{\omega^\varepsilon_\delta}\partial\bar\partial f
+\le B.
+\]
+令
+\[
+f_\nu:=(f+\nu\log|\sigma|)^+,\qquad 0<\nu<1.
+\]
+则在弱意义下有
+\[
+\Delta_{\omega^\varepsilon_\delta}f_\nu\le B_\nu,
+\]
+其中 \(B_\nu\) 在 \(\nu\to 0\) 时于 \(C^\infty\)-拓扑下收敛到 \(B\)。由于 \(f_\nu\) 属于 \(C_0^\infty(\widetilde X\setminus D^*)\) 在 Sobolev 意义下的闭包，因此可对其应用 Moser 迭代，得到估计
+\[
+\|f_\nu\|_{L^\infty}\le C_5(\|f_\nu\|_{L^1}+\|B_\nu\|_{L^p}),
+\]
+其中 \(p>n\)。令 \(\nu\to 0\) 即完成证明。 \qed
+
+一致 Sobolev 不等式还导出相对于锥型度量族 \(\omega^\varepsilon_\delta\) 的热核的一致上界。
+
+\begin{proposition}
+设 \(K^\varepsilon_\delta\) 是相对于 \(\omega^\varepsilon_\delta\) 的热核。则对任意 \(\tau>0\)，存在与 \(\varepsilon,\delta\) 无关的常数 \(C_K(\tau)\)，使得
+\[
+0<K^\varepsilon_\delta(x,y,t)\le
+C_K(\tau)
+\left(
+\frac1{t^n}\exp\left(-\frac{d^\varepsilon_\delta(x,y)}{(4+\tau)t}\right)+1
+\right),
+\]
+其中 \(d^\varepsilon_\delta(\cdot,\cdot)\) 是 \(\widetilde X\setminus D^*\) 上由度量 \(\omega^\varepsilon_\delta\) 诱导的距离函数。
+\end{proposition}
+
+\begin{proof}
+回忆 \(\omega^\varepsilon_{\delta,\nu}\) 是紧流形 \(\widetilde X\) 上一族光滑度量，且满足一致 Sobolev 不等式。一方面，结合 \cite{ChengLi} 中给出的对角热核估计和 \cite[Theorem 1.1]{Grigoryan} 中的高斯型热核上界估计，可得
+\[
+0<K^\varepsilon_{\delta,\nu}(x,y,t)\le
+C_K(\tau)
+\left(
+\frac1{t^n}\exp\left(-\frac{d^\varepsilon_{\delta,\nu}(x,y)}{(4+\tau)t}\right)+1
+\right).
+\]
+另一方面，容易证明当 \(\nu\to 0\) 时，\(K^\varepsilon_{\delta,\nu}\) 在 \((\widetilde X\setminus D^*)\times (\widetilde X\setminus D^*)\) 的紧子集上一致收敛到热核 \(K^\varepsilon_\delta\)。命题得证。
+\end{proof}
+
+\subsection{抛物度量}
+
+本小节的目标，是在 \(F_*\) 的正则部分上构造一个 Hermitian 度量 \(H^\varepsilon\)，使其按定义 1.1 与抛物结构相容。我们还希望它在 \(X\) 上按流的意义满足
+\begin{align*}
+\ch_1(F_*)&=\frac{\sqrt{-1}}{2\pi}\Tr(F_{H^\varepsilon}),\\
+\ch_1(F_*)^2&=\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\Tr(F_{H^\varepsilon})\wedge \Tr(F_{H^\varepsilon}),\\
+\ch_2(F_*)&=\frac12\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\Tr(F_{H^\varepsilon}\wedge F_{H^\varepsilon}).
+\end{align*}
+
+\begin{definition}
+若定义在 \(F_*|_{X^\circ\setminus D}\) 上的 Hermitian 度量 \(H\) 满足上述第一条等式，则称其在余维 1 上\textbf{适配}于 \(F_*\)。若它满足上述全部等式，则称其在余维 2 上\textbf{适配}于 \(F_*\)。
+\end{definition}
+
+根据命题 3.3，只需在局部阿贝尔抛物丛
+\[
+\mathcal E'_*:=\mathcal E\otimes [-P_0]
+\]
+的正则部分上构造一个在余维 2 上适配的 Hermitian 度量 \(H_0\)。确实，一旦完成这一点，取线丛 \(\mathcal O_{\widetilde X}(P_0)\) 的一个 Hermitian 度量 \(h_{P_0}\)，则
+\[
+H^\varepsilon:=H_0\otimes h_{P_0}
+\]
+就是 \(\mathcal E|_{\widetilde X\setminus D^*}\) 上的一个 Hermitian 度量，从而诱导出 \(F_*\) 正则部分上的一个度量。由于 \(\mathcal E\otimes[-P_0]\cong F\)，且奇性集余维至少为 3，易见 \(H^\varepsilon\) 在余维 2 上适配于 \(F_*\)。
+
+下面介绍构造局部阿贝尔抛物丛适配度量的一种方法。本构造中使用的记号与全文其余部分无关。首先，重要的是在除子 \(D\) 的一个小邻域内找到一个在某种意义上与抛物结构相容的丛的光滑分解。
+
+\subsubsection{光滑分解}
+
+\paragraph{局部拼接}
+设 \(X\) 是一个复流形，\(D=\bigcup_{1\le i\le \ell}D_i\) 是一个简单正规交叉除子，记
+\[
+Y=\bigcap_{i=1}^\ell D_i,\qquad S=\{a\mid 0\le a<1\}.
+\]
+对每个 \(1\le i\le \ell\)，令
+\[
+q_i:S^\ell\to S
+\]
+表示投影到第 \(i\) 个分量。
+
+设 \(F_*=(F,\mathcal F)\) 是 \(X\) 上一个局部阿贝尔抛物丛。回忆 \(\mathcal F=({}^i\mathcal F\mid i=1,\dots,\ell)\) 是 \(F|_{D_i}\) 上一组按 \(S\) 索引的全纯子丛递减过滤，并满足：
+\begin{itemize}
+\item 对任意 \(1\le i\le \ell\) 及 \(a\in S\)，存在 \(\varepsilon>0\) 使得 \({}^iF_a={}^iF_{a-\varepsilon}\)；
+\item 对任意 \(P\in Y\)，存在 \(P\) 的一个邻域 \(U_P\subset X\) 以及一个全纯分解
+\[
+F|_{U_P}=\bigoplus_{a\in S^\ell} {}^P G_a
+\]
+使得
+\[
+\bigoplus_{q_i(a)\ge @} {}^P G_a|_{D_i\cap U_P}
+=
+{}^i\mathcal F|_{D_i\cap U_P}.
+\]
+这里符号“\(@\)”表示取值于 \([0,1)\) 的实变量，而右边被理解为左连续过滤。
+\end{itemize}
+
+设 \(X_2\subset X_1\subset X\) 为开集，且 \(X_2\) 的闭包包含于 \(X_1\) 中。假设存在一个 \(C^\infty\)-分解
+\[
+F|_{X_1}=\bigoplus_{a\in S^\ell} {}^1G_a
+\]
+并满足
+\[
+\bigoplus_{q_i(a)\ge @} {}^1G_a|_{D_i\cap X_1}
+=
+{}^i\mathcal F|_{D_i\cap X_1}.
+\]
+
+\begin{proposition}
+存在 \(Y\) 的一个邻域 \(U\) 及一个 \(C^\infty\)-分解
+\[
+F|_U=\bigoplus_{a\in S^\ell} G_a
+\]
+使得：
+\begin{itemize}
+\item \(\bigoplus_{q_i(a)\ge @}G_a|_{D_i\cap U}={}^i\mathcal F|_{D_i\cap U}\)；
+\item \(G_a|_{X_2}={}^1G_a|_{X_2}\)。
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+由于局部上 \(F_*\) 是抛物线丛的直和，因此存在一族开集 \(U_k\)（\(k\in\Lambda\)），满足
+\[
+Y\subset V:=\bigcup U_k\cup X_1,
+\]
+并且在每个 \(U_k\) 上存在一个 \(C^\infty\)-分解
+\[
+F|_{U_k}=\bigoplus_{a\in S^\ell} {}^kG_a
+\]
+使得
+\[
+\bigoplus_{q_i(a)\ge @} {}^kG_a|_{D_i\cap U_k}
+=
+{}^i\mathcal F|_{D_i\cap U_k}.
+\]
+
+取一组从属于覆盖 \(V=\bigcup U_k\cup X_1\) 的分片单位 \(\{\chi_k\}\cup \{\chi_{X_1}\}\)，并可假定 \(\chi_{X_1}=1\) 于 \(X_2\) 上。取一个单射
+\[
+\psi:S^\ell\to \mathbb C.
+\]
+定义
+\[
+f_k=\sum_{a\in S^\ell}\psi(a)\cdot \Id_{{}^kG_a},
+\qquad
+f_{X_1}=\sum_{a\in S^\ell}\psi(a)\cdot \Id_{{}^1G_a}.
+\]
+于是得到 \(V\) 上 \(F\) 的一个 \(C^\infty\)-自同态
+\[
+f=\sum_{k\in\Lambda}\chi_k f_k+\chi_{X_1}f_{X_1}.
+\]
+
+同时可得如下引理：
+
+\begin{lemma}
+\(f|_Y\) 保持 \(F|_Y\) 上的各过滤 \({}^i\mathcal F\)（\(i=1,\dots,\ell\)）。此外，在 \(\ell\Gr_a(F|_Y)\) 上的诱导自同态等于乘以 \(\psi(a)\)。
+\end{lemma}
+
+于是得到特征分解
+\[
+(F,f)|_Y=\bigoplus_{\alpha\in\mathbb C}(K_\alpha,\alpha\cdot \Id_{K_\alpha}).
+\]
+存在 \(Y\) 的一个邻域 \(U\) 及分解
+\[
+(F,f)|_U=\bigoplus_{\alpha\in\mathbb C}(K_{U,\alpha},f_\alpha)
+\]
+使得 \(K_{U,\alpha}|_Y=K_\alpha\)。若 \(U\) 足够小，则 \(f_\alpha|_P\)（\(P\in U\)）的任意特征值都靠近 \(\alpha\)。特别地，可设 \(f_\alpha\) 与 \(f_\beta\)（\(\alpha\ne\beta\)）没有公共特征值。定义
+\[
+G_a:=K_{U,\psi(a)}.
+\]
+由于 \(f|_{D_i\cap U}\) 保持过滤 \({}^i\mathcal F\)，有
+\[
+{}^iF_b|_Y=\bigoplus_{q_i(a)\ge b}K_{\psi(a)}.
+\]
+从而
+\[
+\bigoplus_{q_i(a)\ge @}G_a|_{D_i\cap U}
+=
+{}^i\mathcal F|_{D_i\cap U}.
+\]
+又因为 \(\chi_{X_1}=1\) 于 \(X_2\) 上，所以 \(G_a|_{X_2}={}^1G_a|_{X_2}\)。
+\end{proof}
+
+\paragraph{全局分解}
+借助上面的命题，很容易在 \(D\) 附近得到一个整体的 \(C^\infty\)-分解。设 \(X\) 是复流形，\(D=\bigcup_{i\in\Gamma}D_i\) 为简单正规交叉除子。对任意 \(I\subset \Gamma\)，记
+\[
+D_I=\bigcap_{i\in I}D_i,\qquad
+\partial D_I=\bigcup_{j\in \Gamma\setminus I}(D_I\cap D_j),\qquad
+D_I^\circ=D_I\setminus \partial D_I.
+\]
+对任意 \(I\subset J\subset \Gamma\)，令
+\[
+q_{I,J}:S^J\to S^I
+\]
+表示投影。与前面一样，设 \(F_*=(F,\mathcal F)\) 是 \(X\) 上一个抛物丛，其中 \(\mathcal F=({}^i\mathcal F\mid i\in\Gamma)\) 是其抛物结构。
+
+\begin{proposition}
+存在每个 \(D_i\) 的邻域 \(U_i\) 及 \(C^\infty\)-分解
+\[
+F|_{U_i}=\bigoplus_{a\in S} {}^iG_a
+\]
+使得：
+\begin{itemize}
+\item 对任意 \(b\in S\)，有
+\[
+\bigoplus_{a\ge b} {}^iG_a|_{D_i}={}^iF_b;
+\]
+\item 对任意 \(I\subset \Gamma\) 及 \(a=(a_i\mid i\in I)\in S^I\)，在
+\[
+U_I=\bigcap_{i\in I}U_i
+\]
+上定义
+\[
+{}^IG_a:=\bigcap_{i\in I} {}^iG_{a_i}|_{U_I},
+\]
+则有
+\[
+F|_{U_I}=\bigoplus_{a\in S^I} {}^IG_a.
+\]
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+通过对 \(|I|\) 作递降归纳，可构造 \(D_I\) 的邻域 \(V_I\) 及分解
+\[
+F|_{V_I}=\bigoplus_{a\in S^I} {}^IG_a
+\]
+满足：
+\begin{enumerate}[label=(\alph*)]
+\item 对任意 \(b\in S\)，
+\[
+\bigoplus_{q_{i,I}(a)\ge b} {}^IG_a|_{D_i\cap V_I}
+=
+{}^iF_b|_{D_i\cap V_I};
+\]
+\item 若 \(I\subset J\)，则对任意 \(a\in S^I\)，
+\[
+{}^IG_a|_{V_J}
+=
+\bigoplus_{q_{I,J}(b)=a} {}^JG_b.
+\]
+\end{enumerate}
+
+设对所有满足 \(|J|\ge k_0+1\) 的 \(J\subset \Gamma\) 已构造完毕。取 \(|I|=k_0\)。对 \(I\subset J\subset \Gamma\) 且 \(U_J\neq\emptyset\)，以及 \(a\in S^I\)，定义
+\[
+{}^JG_a:=\bigoplus_{q_{I,J}(b)=a} {}^JG_b.
+\]
+于是得到
+\[
+F|_{U_J}=\bigoplus_{a\in S^I} {}^JG_a.
+\]
+由条件 (b)，若 \(J\subset K\)，则有 \({}^JG_a|_{U_K}={}^KG_a\)。从而由 \({}^JG_a\)（\(I\subsetneq J\)）可在
+\[
+U_{I,1}:=\bigcup_{I\subsetneq J}U_J
+\]
+上得到一个 \(C^\infty\)-子丛 \({}^{1,I}G_a\)，并有分解
+\[
+F|_{U_{I,1}}=\bigoplus_{a\in S^I} {}^{1,I}G_a.
+\]
+
+取 \(\partial D_I\) 的一个开邻域 \(U_{I,2}\subset U_{I,1}\)，且其闭包包含于 \(U_{I,1}\) 中。由命题 4.7，存在 \(D_I\) 的一个邻域 \(V_I\) 及分解
+\[
+F|_{U_I}=\bigoplus_{a\in S^I} {}^IG_a
+\]
+使得 \(I\) 满足条件 (a)，并且
+\[
+{}^IG_a|_{U_{I,2}}={} ^{1,I}G_a|_{U_{I,2}}.
+\]
+对任意 \(J\supsetneq I\)，用 \(V_J\cap U_I\) 替换 \(V_J\)，即可得到命题结论。
+\end{proof}
+
+\subsubsection{度量的构造}
+
+设 \(H_1\) 是 \(F\) 的一个 Hermitian 度量，使得：
+\begin{itemize}
+\item 分解
+\[
+F|_{U_I}=\bigoplus {}^IG_a
+\]
+相对于 \(H_1|_{U_I}\) 是正交的。
+\end{itemize}
+
+设 \(h^{(i)}\)（\(i\in\Gamma\)）是 \( \mathcal O_X(D_i)\) 的 Hermitian 度量。令
+\[
+\tau_i=h^{(i)}(1,1).
+\]
+可假定 \(\tau_i\equiv 1\) 于 \(X\setminus U_i\) 上。再记
+\[
+\tau:=\prod_{i\in\Gamma}\tau_i
+\]
+为 \(D\) 的典范截面的诱导平方长度。定义 \(F|_{X\setminus D_i}\) 上的自同态 \(s_i\)，满足：
+\begin{itemize}
+\item 在 \(X\setminus U_i\) 上，\(s_i=\Id\)；
+\item 在 \(U_i\) 上，
+\[
+s_i=\sum_{a\in S}\tau_i^{-a}\Id_{{}^iG_a}.
+\]
+\end{itemize}
+于是得到 \(F\) 上的自同态
+\[
+s=\prod_{i\in\Gamma} s_i,
+\]
+且它关于 \(H_1\) 自伴。于是定义 \(F|_{X\setminus D}\) 上的 \(C^\infty\)-Hermitian 度量 \(H_0\) 为
+\[
+H_0(u,v)=H_1(su,v)
+\]
+对任意局部截面 \(u,v\) 成立。并且可将 \(H_0\) 光滑延拓到 \(X\)。
+
+\subsubsection{适配性}
+
+由构造可知，对任意 \([\eta]\in H^{n-1,n-1}(X,\mathbb C)\)，有：
+
+\begin{proposition}
+\[
+\ch_1(F_*)\cdot [\eta]
+=
+\frac{\sqrt{-1}}{2\pi}
+\int_{X\setminus D}\Tr(F_{\nabla_{H_0}})\wedge \eta.
+\]
+\end{proposition}
+
+设 \(\varepsilon\) 为权重间最大间隔，\(\kappa\) 为最小间隔。
+
+设 \((U,z_1,\dots,z_n)\) 是 \(X\) 的一个全纯坐标邻域，使得
+\[
+D\cap U=\bigcup_{i=1}^\ell \{z_i=0\}.
+\]
+对 \(1\le k\le \ell\)，存在 \(\lambda(k)\in \Gamma\) 使得
+\[
+D_{U,\lambda(k)}:=D_{\lambda(k)}\cap U=\{z_k=0\}.
+\]
+记
+\[
+I=\{\lambda(i)\mid i=1,\dots,\ell\}.
+\]
+缩小 \(U\) 后可设 \(U\subset U_I\)。于是得到诱导的 \(C^\infty\)-分解
+\[
+F|_U=\bigoplus_{a\in S^I} {}^IG_a.
+\]
+对任意 \(1\le k\le \ell\) 与 \(a\in S\)，记
+\[
+{}^kG_a=\bigoplus_{q_{\lambda(k)}(a)=a} {}^IG_a.
+\]
+则有分解
+\[
+F|_U=\bigoplus_{a\in S} {}^kG_a. \tag{4}
+\]
+
+设 \(\iota_a\) 是从 \({}^IG_a\) 到 \(F\) 的嵌入，\(\pi_a\) 是相对于 \(H_1\) 从 \(F\) 到 \({}^IG_a\) 的正交投影。定义 \({}^IG_a\) 上的诱导联络
+\[
+\nabla_a:=\pi_a\circ \nabla_{H_1}\circ \iota_a.
+\]
+则
+\[
+\nabla^\dagger:=\bigoplus_a \nabla_a
+\]
+是保持该分解的酉联络。对任意 \(a,k\)，限制在
+\[
+{}^kG_a|_{D_k}={}^k\Gr_a F_*
+\]
+上，有 \(\nabla^\dagger=\nabla_{H_1}\)。
+
+考虑分解
+\[
+\nabla_{H_1}=\nabla^\dagger+\Gamma,
+\]
+其中 \(\Gamma\) 是
+\[
+\bigoplus_{a\ne b} A^1(\Hom({}^IG_b,{}^IG_a))
+\]
+的一个截面。写成
+\[
+\Gamma=\Gamma^{1,0}+\Gamma^{0,1},
+\]
+并令
+\[
+\Gamma^{1,0}=\sum \Gamma_j^{1,0}dz_j,\qquad
+\Gamma^{0,1}=\sum \Gamma_j^{0,1}d\bar z_j.
+\]
+又分解为
+\[
+\Gamma_j^{p,q}=\sum (\Gamma_j^{p,q})_{a,b},
+\qquad
+(\Gamma_j^{p,q})_{a,b}\in A^0(\Hom({}^IG_b,{}^IG_a)).
+\]
+由构造，对任意 \(j,a\)，有
+\[
+(\Gamma_j^{p,q})_{a,a}=0.
+\]
+
+记 \(F_\nabla\) 为联络 \(\nabla\) 的曲率张量，则有：
+
+\begin{lemma}
+\[
+|F_{\nabla_{H_0}}|_{H_0}=O\bigl(\tau^{-(1+\varepsilon)/2}\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+只需在 \(U\) 中考虑。我们有
+\[
+F_{\nabla_{H_1}}
+=
+F_{\nabla^\dagger}
++\nabla^\dagger(\Gamma)
++\Gamma\wedge \Gamma.
+\]
+因此
+\[
+F_{\nabla_{H_0}}
+=
+F_{\nabla_{H_1}}
++\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)
+=
+F_{\nabla^\dagger}
++\nabla^\dagger(\Gamma)
++\Gamma\wedge \Gamma
++\bar\partial\bigl(s^{-1}\nabla^{1,0,\dagger}s+s^{-1}[\Gamma,s]\bigr)
+=
+B+\bar\partial(s^{-1}\Gamma s),
+\]
+其中 \(B\) 光滑。记
+\[
+A:=s^{-1}\Gamma s.
+\]
+则有
+\[
+(\bar\partial A)_{a,b}=O(|\tau_I|^{b-a-1/2}),
+\]
+其中 \(\frac12\in S^I\)。由于 \(H_0\) 关于该分解是对角的，因此只需估计
+\[
+\left(
+(\bar\partial A)_{a,b}\cdot \overline{(\bar\partial A)_{a,b}}\cdot H_{2,a,a}\cdot H_{2,b,b}^{-1}
+\right)^{1/2}.
+\]
+简单计算得
+\[
+\left(
+(\bar\partial A)_{a,b}\cdot \overline{(\bar\partial A)_{a,b}}\cdot H_{2,a,a}\cdot H_{2,b,b}^{-1}
+\right)^{1/2}
+=
+O(\tau_I^{\,b-a-1/2})
+=
+O(\tau^{-(1+\varepsilon)/2}).
+\]
+\end{proof}
+
+接下来证明其在余维 2 上的适配性。
+
+我们仍在 \(U\) 中工作，并固定 \(1\le k\le \ell\)。继续考虑上述分解
+\[
+\nabla_{H_1}=\nabla^\dagger+\Gamma.
+\]
+同样写
+\[
+\Gamma=\Gamma^{1,0}+\Gamma^{0,1},
+\qquad
+\Gamma^{1,0}=\sum \Gamma_j^{1,0}dz_j,\qquad
+\Gamma^{0,1}=\sum \Gamma_j^{0,1}d\bar z_j.
+\]
+并写成
+\[
+\Gamma_j^{p,q}=\sum (\Gamma_j^{p,q})_{a,b},
+\qquad
+(\Gamma_j^{p,q})_{a,b}\in A^0(\Hom(G_b,G_a)).
+\]
+由构造，对任意 \(1\le j\le n\) 及 \(a\in S\)，仍有
+\[
+(\Gamma_j^{p,q})_{a,a}=0.
+\]
+
+\begin{lemma}
+若 \(j\ne k\) 且 \(a<b\)，则
+\[
+(\Gamma_j^{0,1})_{a,b}=O(|z_k|).
+\]
+\end{lemma}
+
+\begin{proof}
+注意 \({}^k\mathcal F\) 是 \(F|_{D_k}\) 上按全纯子丛组成的左连续递减过滤。因此对任意 \(b\in S\)，
+\[
+(\Gamma_j^{0,1})|_{D_k\cap U}({}^kF_b)\subset {}^kF_{\ge b}.
+\]
+这便推出引理结论。
+\end{proof}
+
+由于
+\[
+\Gamma^{0,1}=-(\Gamma^{1,0})^{\dagger_{H_1}},
+\]
+于是当 \(j\ne k\) 且 \(a>b\) 时，有
+\[
+(\Gamma_j^{1,0})_{a,b}=O(|z_k|).
+\]
+因此可得：
+
+\begin{lemma}
+若 \(a>b\) 且 \(j\ne k\)，则
+\[
+(s^{-1}\Gamma_j^{1,0}s)_{a,b}
+=
+O\left(
+|z_k|^{1-2\varepsilon}\prod_{i\ne k}|z_i|^{-2\varepsilon}
+\right).
+\]
+若 \(a<b\)，则对任意 \(j\)，
+\[
+(s^{-1}\Gamma_j^{1,0}s)_{a,b}
+=
+O\left(
+\prod_{1\le i\le \ell}|z_i|^{-2\varepsilon}
+\right).
+\]
+\end{lemma}
+
+记 \(F_{\nabla_{H_1}}\) 为 \(\nabla_{H_1}\) 的曲率，\(F_{\nabla^\dagger}\) 为 \(\nabla^\dagger\) 的曲率，则
+\[
+F_{\nabla_{H_1}}=F_{\nabla^\dagger}+\nabla^\dagger(\Gamma)+\Gamma\wedge \Gamma.
+\]
+设
+\[
+\nabla^\dagger=\nabla^{1,0,\dagger}+\nabla^{0,1,\dagger}
+\]
+是其型分解，则
+\[
+s^{-1}\nabla^{1,0}_{H_1}(s)=s^{-1}\nabla^{1,0,\dagger}s+s^{-1}[\Gamma^{1,0},s].
+\]
+进一步
+\begin{align}
+\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)
+&=
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)
++\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s]) \nonumber\\
+&\quad
++[\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]
++[\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]. \tag{5}
+\end{align}
+
+由于任意 \(\Hom(G_a,G_b)\)（\(a\ne b\)）的截面的迹为 0，可得
+\begin{align}
+\Tr\bigl(F_{\nabla_{H_1}}\cdot s^{-1}\nabla^{1,0}_{H_1}s\bigr)
+&=
+\Tr\Bigl(
+F_{\nabla^\dagger}\cdot s^{-1}\nabla^{1,0,\dagger}s
++\nabla^\dagger(\Gamma)\cdot s^{-1}[\Gamma^{1,0},s]\nonumber\\
+&\qquad
++(\Gamma\wedge\Gamma)\cdot(s^{-1}\nabla^{1,0,\dagger}s)
++(\Gamma\wedge\Gamma)\cdot s^{-1}[\Gamma^{1,0},s]
+\Bigr). \tag{6}
+\end{align}
+
+还可得
+\begin{align}
+\Tr\bigl(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\cdot s^{-1}\nabla^{1,0}_{H_1}s\bigr)
+&=
+\Tr\bigl(\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++\Tr\bigl(\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s])\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
++\Tr\bigl([\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
++\Tr\bigl([\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++2\Tr\Bigl(\Gamma^{0,1}\cdot (s^{-1}[\Gamma^{1,0},s])^2\Bigr). \tag{7}
+\end{align}
+
+注意到
+\begin{align}
+\Tr\bigl(\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s])\cdot s^{-1}[\Gamma^{1,0},s]\bigr)
+&=
+\Tr\bigl(s^{-1}[\nabla^{0,1,\dagger}\Gamma^{1,0},s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
+-\Tr\bigl([s^{-1}\Gamma^{1,0}s,s^{-1}\nabla^{0,1,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr), \tag{8}
+\end{align}
+\begin{align}
+\Tr\bigl([\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)
+&=
+-\Tr\bigl(s^{-1}\nabla^{1,0,\dagger}s\cdot[\Gamma^{0,1},\Gamma^{1,0}]\bigr)\nonumber\\
+&\quad
++\Tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr), \tag{9}
+\end{align}
+\begin{align}
+\Tr\bigl([\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)
+&=
+-\Tr\bigl([\Gamma^{0,1},\Gamma^{1,0}]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++\Tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr). \tag{10}
+\end{align}
+
+于是，对任意 2-形式 \(\tau\)，记 \(\tau^{1,1}\) 为其 \((1,1)\)-部分，可得
+\begin{align}
+&2\Tr\bigl(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s\bigr)
++\Tr\bigl(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\nabla^{1,0}_{H_1}s\bigr)\nonumber\\
+&=
+\Tr\Bigl(
+2F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
++\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\nonumber\\
+&\quad
++\Tr\Bigl(
+2\nabla^\dagger(\Gamma)^{1,1}s^{-1}[\Gamma^{1,0},s]
++
+2(\Gamma\wedge\Gamma)^{1,1}s^{-1}[\Gamma^{1,0},s]
+\Bigr)\nonumber\\
+&\quad
++\Tr\Bigl(
+s^{-1}[\nabla^{0,1,\dagger}\Gamma^{1,0},s]s^{-1}[\Gamma^{1,0},s]
+-
+[s^{-1}\Gamma^{1,0}s,s^{-1}\nabla^{0,1,\dagger}s]s^{-1}[\Gamma^{1,0},s]
+\Bigr)\nonumber\\
+&\quad
++2\Tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]s^{-1}\nabla^{1,0,\dagger}s\bigr)
++2\Tr\Bigl(\Gamma^{0,1}(s^{-1}[\Gamma^{1,0},s])^2\Bigr). \tag{11}
+\end{align}
+
+定义
+\[
+Z_{U,\lambda(k)}(\delta)
+=
+U\cap \{\tau_{\lambda(k)}=\delta\}\cap \bigcap_{i\ne k}\{\tau_{\lambda(i)}\ge \delta\}.
+\]
+给定 \([\eta]\in H^{n-2,n-2}(X,\mathbb C)\)。利用引理 4.13 及式 (11)，可得
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Bigl(
+2\Tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\Tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\nabla^{1,0}_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+2F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
++
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta. \tag{12}
+\end{align}
+
+令
+\[
+s_{\ne k}:=\prod_{i\ne k}s_i.
+\]
+则
+\[
+s=s_{\ne k}\cdot s_k=s_k\cdot s_{\ne k},
+\]
+从而
+\[
+s^{-1}\nabla^{1,0,\dagger}s
+=
+s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k}
++
+s_k^{-1}\nabla^{1,0,\dagger}s_k. \tag{13}
+\]
+于是极限表达式化为
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)\cdot s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\eta
+\nonumber\\
+&=
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+\bigl(\nabla^{0,1,\dagger}(s_k^{-1}\nabla^{1,0,\dagger}s_k)
++\nabla^{0,1,\dagger}(s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k})\bigr)
+s_k^{-1}\nabla^{1,0,\dagger}s_k
+\Bigr)\cdot \eta. \tag{14}
+\end{align}
+
+定义
+\[
+{}^k\Omega=\sum (-a)\cdot \Id_{{}^kG_a}.
+\]
+则有恒等式
+\[
+s_k^{-1}\nabla^{1,0,\dagger}(s_k)={}^k\Omega\cdot \partial \log\tau_k, \tag{15}
+\]
+以及
+\[
+\nabla^{0,1,\dagger}\bigl(s_k^{-1}\nabla^{1,0,\dagger}(s_k)\bigr)
+=
+{}^k\Omega\,(\partial\bar\partial \log\tau_k). \tag{16}
+\]
+对
+\[
+{}^k\Gr_aF_*={}^kF_a/{}^kF_{>a}
+\]
+有
+\[
+\Tr({}^k\Omega^2)=\sum_{a\in S} a^2\,\rank({}^k\Gr_aF_*).
+\]
+于是极限计算为
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+\nabla^{0,1,\dagger}(s_k^{-1}\nabla^{1,0,\dagger}s_k)\cdot s_k^{-1}\nabla^{1,0,\dagger}s_k
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+a^2 \rank({}^k\Gr_aF_*)\,\partial\bar\partial(\log\tau_k)\cdot \eta. \tag{17}
+\end{align}
+
+分解
+\[
+F|_{D_k}=\bigoplus {}^kG_a
+\]
+诱导出同构
+\[
+F|_{D_k}\cong \bigoplus {}^k\Gr_aF_*.
+\]
+在此同构下，\(\nabla^\dagger\) 限制到 \(F|_{D_k\cap U}\) 与 \(\bigoplus {}^k\Gr_aF_*\) 的 Chern 联络一致。
+
+设 \({}^kH_{1,a}\) 是由 \(H_1\) 在 \({}^k\Gr_aF_*\) 上诱导的 Hermitian 度量，则
+\begin{align}
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta
+=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\Tr F_{\nabla^kH_{1,a}}\cdot \eta. \tag{18}
+\end{align}
+
+设 \({}^k\widetilde H_{1,a}\) 是 \(H_1\cdot s_{\ne k}\) 在 \({}^k\Gr_aF_*|_{D_k^\circ}\) 上诱导的 Hermitian 度量，则得到
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Tr\Bigl(
+\bigl(F_{\nabla^\dagger}^{1,1}
++\nabla^{0,1,\dagger}(s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k})\bigr)
+s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\Tr F_{{}^k\widetilde H_{1,a}}\cdot \eta. \tag{19}
+\end{align}
+
+综上可得
+\begin{align}
+&\lim_{\delta\to 0}
+\pm
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Bigl(
+2\Tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\Tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)s^{-1}\nabla_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\bigl(
+\Tr F_{\nabla^kH_{1,a}}
++
+\Tr F_{\nabla^k\widetilde H_{1,a}}
+\bigr)\cdot \eta
+\nonumber\\
+&\quad
++
+\sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+a^2\rank({}^k\Gr_aF_*)\partial\bar\partial(\log\tau_k)\cdot \eta. \tag{20}
+\end{align}
+
+类似地，固定 \(1\le j,k\le \ell\)，在集合
+\[
+Z_{U,\lambda(j),\lambda(k)}(\delta)
+=
+U\cap\{\tau_{\lambda(j)}=\tau_{\lambda(k)}=\delta\}\cap
+\bigcap_{i\ne j,k}\{\tau_{\lambda(i)}\ge \delta\}
+\]
+上分部积分并取极限，可得
+\begin{align}
+&\lim_{\delta\to 0}
+\pm\int_{Z_{U,\lambda(j),\lambda(k)}(\delta)}
+\Bigl(
+2\Tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\Tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)s^{-1}\nabla_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\sum_{i\in\{j,k\}}\sum_{{}^ia}
+\frac{2\pi}{\sqrt{-1}}
+\int_{U\cap D_{\lambda(i)}}
+(-{}^ia)\bigl(
+\Tr F_{\nabla^iH_{1,{}^ia}}
++
+\Tr F_{\nabla^i\widetilde H_{1,{}^ia}}
+\bigr)\cdot \eta
+\nonumber\\
+&\quad
++
+\sum_{i\in\{j,k\}}\sum_{{}^ia}
+\frac{2\pi}{\sqrt{-1}}
+\int_{U\cap D_{\lambda(i)}}
+({}^ia)^2\rank({}^i\Gr_aF_*)\partial\bar\partial(\log\tau_{\lambda(i)})\cdot \eta
+\nonumber\\
+&\quad
+-
+\sum_{a\in S^{(j,k)}}
+(2\pi)^2
+\int_{U\cap D_{j,k}}
+{}^ja\cdot {}^ka\cdot \rank({}^{jk}\Gr_aF_*)\cdot \eta. \tag{21}
+\end{align}
+
+结合式 (20) 与 (21)，即可得到余维 2 适配性，即下述命题。
+
+\begin{proposition}
+\[
+\ch_2(F_*)\cdot \eta
+=
+\frac12\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\int_{X\setminus D}
+\Tr(F_{\nabla_{H_0}}\wedge F_{\nabla_{H_0}})\wedge \eta.
+\]
+\end{proposition}
+
+现在回到我们此前的整体设定，即 \((X,D)\) 上的一个抛物层 \(F_*\)。如在本小节开头所述，我们可在 \(F_*\) 的正则部分上构造一个度量 \(H^\varepsilon\)，它在余维 2 上适配于 \(F_*\)。也就是：
+
+\begin{proposition}
+\(H^\varepsilon\) 在余维 2 上适配于 \(F_*\)。
+\end{proposition}
+
+此外，还可利用第 3 节中使用的爆破技巧证明下面的命题。由于证明是形式上的，这里略去。
+
+\begin{proposition}
+\(H^\varepsilon\) 在余维 1 上适配于 \(F_*\) 的任意抛物子层 \(S_*\)。
+\end{proposition}
+
+由引理 4.11 立即推出 \(H^\varepsilon\) 的曲率估计：
+
+\begin{lemma}
+\[
+|F_{H^\varepsilon}|_{H^\varepsilon}=O(|\sigma|^{-(1+\varepsilon)}).
+\]
+\end{lemma}
+
+\section{抛物稳定性与解析稳定性}
+
+给定紧 Kähler 流形 \((X,\omega)\) 上的一个抛物层 \(F_*\)，定义其关于 \(\omega\) 的抛物次数为
+\[
+\deg_\omega(F_*):=\ch_1(F_*)\cdot \frac{[\omega]^{n-1}}{(n-1)!},
+\]
+关于 \(\omega\) 的斜率为
+\[
+\mu_\omega(F_*):=\frac{\deg_\omega(F_*)}{\rank(F_*)}.
+\]
+
+\begin{definition}[抛物稳定性]
+若对任意真抛物子层 \(S_*\subset F_*\)，都有
+\[
+\mu_\omega(S_*)<\mu_\omega(F_*),
+\]
+则称 \(F_*\) 关于 \(\omega\) 是\textbf{抛物稳定的}。
+\end{definition}
+
+接下来回顾 Simpson \cite{SimpsonConstruct} 对一个 Hermitian 全纯向量丛 \((E,\bar\partial,H)\) 在非必紧的 Kähler 流形 \((X^\circ,\omega)\) 上的\textbf{解析稳定性}定义。
+
+无挠子层 \(S\subset E\) 的解析次数定义为
+\[
+\deg_{H,\omega}(S)
+:=
+\frac{\sqrt{-1}}{2\pi}
+\int_{S_{\reg}}
+\Tr(F_{H|_S})\wedge \frac{\omega^{n-1}}{(n-1)!},
+\]
+其中 \(H|_S\) 是 \(S\) 的局部自由部分上的限制，而 \(S_{\reg}\) 是 \(X^\circ\) 中 \(S\) 局部自由的 Zariski 开子集。解析斜率定义为
+\[
+\mu_{H,\omega}(S):=\frac{\deg_{H,\omega}(S)}{\rank(S)}.
+\]
+
+注意，由 Chern--Weil 公式，
+\[
+\deg_{H,\omega}(S)
+=
+\frac{\sqrt{-1}}{2\pi}
+\int_{S_{\reg}}\Tr(p_{S,H}\Lambda_\omega F_H)
+-
+\frac{1}{2\pi}
+\int_{S_{\reg}}|\bar\partial p_{S,H}|_H^2,
+\]
+其中 \(\Lambda_\omega\) 表示关于 \(\omega\) 的收缩，\(p_S\) 是 \(E\) 到 \(S\) 的正交投影。因此，若要在非紧流形 \(X^\circ\) 上定义上述概念，我们需要要求
+\[
+F_H\in L^1(X^\circ,\omega),\qquad
+p_{S,H}\in L_1^2(S_H),
+\]
+其中 \(L_1^2(S_H)\) 是关于 \(H\) 自伴的 \(\End(E)\)-截面的 Sobolev 空间。
+
+\begin{definition}[解析稳定性]
+若对任意真饱和子层 \(S\subset E\)，只要 \(p_{S,H}\in L_1^2(S_H)\)，都有
+\[
+\mu_{H,\omega}(S)<\mu_{H,\omega}(E),
+\]
+则称 \(E\) 关于 \(\omega\) 与 \(H\) 是\textbf{解析稳定的}。
+\end{definition}
+
+在上一节中，我们构造了一个度量 \(H^\varepsilon\)，它对 \(F_*\) 的任意抛物子层 \(S_*\) 在余维 1 上都是适配的，并且 \(H^\varepsilon\) 定义在底层层 \(F\) 的局部自由部分
+\[
+F|_{X^\circ\setminus D}
+\]
+上。于是应有以下命题。
+
+\begin{proposition}
+\(F_*\) 关于 \(\omega\) 的抛物稳定性，等价于 \(F|_{X^\circ\setminus D}\) 关于 \(\omega\) 的限制与 \(H^\varepsilon\) 的解析稳定性。
+\end{proposition}
+
+\begin{proof}
+假设 \(F\) 解析稳定。对任意真抛物子层 \(S_*\subset F_*\)，\(S|_{X^\circ\setminus D}\) 是 \(F\) 的一个无挠子层。由命题 4.16 立即推出 \(F_*\) 是抛物稳定的。
+
+反过来，假设 \(F_*\) 抛物稳定。我们需要比较任意真饱和子层 \(S\subset F|_{X^\circ\setminus D}\)（满足 \(p_{S,H^\varepsilon}\in L_1^2(S_{H^\varepsilon})\)）的解析斜率与 \(F|_{X^\circ\setminus D}\) 的解析斜率。由命题 4.16，只需证明：任意这样的 \(S\) 都可以延拓成 \(F_*\) 的一个抛物子层。\cite[Proposition 5.9]{Li2000} 已证明 \(S\) 可延拓到 \(X^\circ\) 上成为 \(F\) 的一个相干子层。由于 \(X\setminus X^\circ\) 是余维 3 的解析子集，且 \(F\) 自反，因此 \(S\) 还可进一步延拓为 \(F\) 的一个相干子层 \(S'\)。令 \(S''\) 为 \(S'\) 的饱和化，则 \(S''_*\) 就是 \(F_*\) 的一个抛物子层，它延拓了 \(S\)。
+\end{proof}
+
+为了方便读者并供后文使用，我们把 \cite[Proposition 5.9]{Li2000} 的思想总结成下面的命题。为此先引入一个关于除子附近 Hermitian 度量奇性的概念。
+
+\begin{definition}
+设 \(\Delta^n\) 是以原点为中心的多圆盘，\(\Delta^*\) 是去心单位圆盘。设 \(E\) 是 \(\Delta^n\) 上平凡全纯向量丛，\(H\) 是定义于
+\[
+E|_{\Delta^{n-k}\times (\Delta^*)^k}
+\]
+上的一个可能奇异的度量。若沿除子
+\[
+z_{k+1}z_{k+2}\cdots z_n=0
+\]
+有
+\[
+|H|=O(|z'|^a)
+\]
+其中 \(a\in\mathbb R\)，\(z'=(z_{k+1},\dots,z_n)\)，则称 \(H\) 沿该除子具有\textbf{多项式增长}。若 \(a>0\)，也称其具有\textbf{多项式衰减}。
+\end{definition}
+
+于是 \cite[Proposition 5.9]{Li2000} 表明：
+
+\begin{proposition}
+若 \(H\) 是定义在 \(F|_{X^\circ\setminus D}\) 上的一个 Hermitian 度量，并且它在 \(D\) 附近局部具有多项式增长，那么对任意真饱和相干子层 \(S\subset F|_{X^\circ\setminus D}\)，若
+\[
+p_{S,H^\varepsilon}\in L_1^2(S_H),
+\]
+则 \(S\) 可以延拓为 \(X^\circ\) 上 \(F\) 的一个相干子层。
+\end{proposition}
+
+\section{Kobayashi--Hitchin 对应}
+
+我们利用 H-Y-M 流来变形 \(H^\varepsilon\)。我们将证明：若抛物层是稳定的（分别地，半稳定的），则在丛 \(F|_{X^\circ\setminus D}\) 上存在一个与抛物结构相容的 H-E（分别地，近似 H-E）结构。由于 \(H^\varepsilon\) 只定义在 \(X^\circ-D\) 上，而我们并不完全清楚它在奇性集 \(W\) 附近的性质，因此先在 \(\widetilde X\setminus D\) 上研究 H-Y-M 流的行为；在那里 \(H^\varepsilon\) 是 \(\mathcal E|_{\widetilde X\setminus D}\) 上一个良定义的度量，并且在逼近 \(D\) 时具有多项式衰减。
+
+\subsection{H-Y-M 流}
+
+对第 4 节中在 \(\widetilde X\setminus D\) 上构造的任意锥型 Kähler 度量 \(\omega^\varepsilon_\delta\)，考虑 H-Y-M 流
+\[
+H^{-1}\frac{dH}{dt}
+=
+-2\left(\sqrt{-1}\Lambda_{\omega^\varepsilon_\delta}F_H-\lambda^\varepsilon_\delta\cdot \Id_{\mathcal E'}\right), \tag{22}
+\]
+其定义在 \(\mathcal E|_{\widetilde X\setminus D}\) 上，其中
+\[
+\lambda^\varepsilon_\delta
+:=
+\frac{\sqrt{-1}}{\Vol(X,\omega^\varepsilon_\delta)}
+\int_{X\setminus D^*}
+\Tr(F_{H^\varepsilon})\wedge \frac{(\omega^\varepsilon_\delta)^{n-1}}{(n-1)!}.
+\]
+
+下面的命题由 Simpson \cite{SimpsonConstruct} 得到。
+
+\begin{proposition}
+设 \((\widetilde X\setminus D,\omega^\varepsilon_\delta)\) 满足命题 4.3 中的三个假设。设 \(H\) 是一个度量，满足
+\[
+\|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon}\|_{L^\infty(H^\varepsilon)}\le B
+\]
+其中 \(B\) 为正常数。则存在唯一解 \(H(t)\) 满足 H-Y-M 流，且
+\[
+\det(H)=\det(H^\varepsilon),\qquad H(0)=H^\varepsilon,
+\]
+并且在任意有限时间区间上 \(\|H\|_{L^\infty(H^\varepsilon)}\) 有界。对于此解，对所有 \(t\) 仍有
+\[
+\|\Lambda_{\omega^\varepsilon_\delta}F_H\|_{L^\infty(H)}\le B.
+\]
+\end{proposition}
+
+由引理 4.17，当 \(\delta\) 足够小时，有
+\[
+\|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon}\|_{L^\infty(H^\varepsilon)}\le B.
+\]
+因此可应用上面的命题，得到一族具有相同初值 \(H^\varepsilon\) 的解 \(H^\varepsilon_\delta\)。我们希望证明 \(H^\varepsilon_\delta\) 收敛到定义在丛
+\[
+F:=F|_{X\setminus(D\cup W)}
+\]
+上的 H-Y-M 流解：
+\[
+H^{-1}\frac{dH}{dt}
+=
+-2\left(\sqrt{-1}\Lambda_\omega F_H-\lambda\cdot \Id_F\right), \tag{23}
+\]
+其中
+\[
+\lambda:=\frac{2\pi\cdot \mu_\omega(F_*)}{\Vol(X,\omega)}.
+\]
+进一步地，在抛物层稳定假设下，我们希望初始度量 \(H^\varepsilon\) 沿流变形成一个关于 \(\omega\) 的 H-E 度量。证明思路基本来自 \cite{BandoSiu}。首先进行一些估计。
+
+\begin{lemma}
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon}\|_{L^1(H^\varepsilon,\omega^\varepsilon_\delta)}\le C_6,
+\]
+其中 \(C_6\) 与 \(\varepsilon,\delta\) 无关。也就是说，\(\Lambda^\varepsilon_\delta F_{H^\varepsilon}\) 一致可积。
+\end{lemma}
+
+\begin{proof}
+由引理 4.17，可固定 \(\varepsilon_1,\delta_1\)，使得
+\[
+\sqrt{-1}\Tr(F_{H^\varepsilon})\le C_7\cdot \omega^{\varepsilon_1}_{\delta_1}.
+\]
+于是
+\begin{align*}
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|\,(\omega^\varepsilon_\delta)^n
+&\le
+\left(
+\bigl|\Lambda^\varepsilon_\delta(C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon})\bigr|
++
+|C_7\Lambda^\varepsilon_\delta \omega^{\varepsilon_1}_{\delta_1}\cdot I|
+\right)
+(\omega^\varepsilon_\delta)^n
+\\
+&\le
+n\Tr\bigl(2C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon}\bigr)\wedge (\omega^\varepsilon_\delta)^{n-1}.
+\end{align*}
+对两边积分得
+\begin{align*}
+\int_{X\setminus D}
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|(\omega^\varepsilon_\delta)^n
+&\le
+n\int_{X\setminus D}
+(2rC_7\omega^{\varepsilon_1}_{\delta_1}-\sqrt{-1}\Tr(F_{H^\varepsilon}))\wedge (\omega^\varepsilon_\delta)^{n-1}
+\\
+&\le
+n\int_{X\setminus D}
+(2rC_7\omega_{1,\delta_1}-\sqrt{-1}\Tr(F_{H^\varepsilon}))\wedge \omega_{1,\delta}^{n-1}
+\\
+&=
+n\int_{X\setminus D}
+(2rC_7\omega_1-\sqrt{-1}\Tr(F_{H^\varepsilon}))\wedge \omega_1^{n-1}
+\\
+&=C_6.
+\end{align*}
+\end{proof}
+
+若无特别说明，本文其余部分估计中的常数均默认为对 \(\varepsilon,\delta\) 一致。
+
+沿热流 (22)，有如下不等式（参见 \cite{Donaldson1}）：
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+\le 0,
+\]
+以及
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}^2
+\le 0.
+\]
+记
+\[
+f(t):=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}.
+\]
+
+\begin{lemma}
+\(\|f_t\|_{L^1}\) 与 \(\|f_t\|_{L^2}\) 随时间单调不增。
+\end{lemma}
+
+\begin{proof}
+只证明 \(L^1\) 情形。若反设存在 \(t_2>t_1\)，使得
+\[
+\|f(t_2)\|_{L^1}=\|f(t_1)\|_{L^1}+\delta
+\]
+其中 \(\delta>0\)。由于 \(\|f_t\|_{L^\infty}\le B\) 且 \(|dV_{\omega^\varepsilon_\delta}|<\infty\)，可取一个相对紧区域 \(Z\subset X\)，使
+\[
+B|dV_{\omega^\varepsilon_\delta}|(X-Z)<\delta/8.
+\]
+于是
+\[
+\|f(t_2)\|_{L^1(Z)}\ge \|f(t_1)\|_{L^1(Z)}+\frac34\delta.
+\]
+
+另一方面，取一族具有光滑边界的嵌套紧区域 \(\{X_\varphi\}\)，其极限穷尽 \(X_k-D^*\)。Simpson \cite[Section 6]{SimpsonConstruct} 证明：解 \(H^\varepsilon_\delta\) 可由定义在 \(X_\varphi\) 上、满足 Neumann 边界条件的 H-Y-M 流解 \(H^{\varphi,\varepsilon}_\delta\) 的 \(C^\infty_{\mathrm{loc}}\)-极限得到。记
+\[
+f^\varphi(t):=
+|\Lambda^\varepsilon_\delta F_{H^{\varphi,\varepsilon}_\delta}|_{H^{\varphi,\varepsilon}_\delta}.
+\]
+则
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)f^\varphi\le 0.
+\]
+对 \(X_\varphi\) 积分并分部积分，再利用 Neumann 边界条件，可得
+\[
+\frac{\partial}{\partial t}\|f^\varphi\|_{L^1(X_\varphi)}\le 0.
+\]
+当 \(\varphi\to\infty\) 时，\(H^\varphi(t_i)\) 在 \(Z\) 上 \(C^\infty\)-收敛到 \(H(t_i)\)（\(i=1,2\)），故当 \(\varphi\) 足够大时，
+\[
+\bigl|\|f^\varphi(t_i)\|_{L^1(Z)}-\|f(t_i)\|_{L^1(Z)}\bigr|\le \delta/8.
+\]
+但
+\[
+\|f^\varphi(t_2)\|_{L^1(X_\varphi)}\le \|f^\varphi(t_1)\|_{L^1(X_\varphi)},
+\]
+因此
+\[
+\|f^\varphi(t_2)\|_{L^1(Z)}\le \|f^\varphi(t_1)\|_{L^1(Z)}+\delta/4,
+\]
+从而
+\[
+\|f(t_2)\|_{L^1(Z)}\le \|f(t_1)\|_{L^1(Z)}+\delta/2,
+\]
+矛盾。\(L^2\) 情形同理。
+\end{proof}
+
+作为推论，有：
+
+\begin{lemma}
+对任意 \(t\in [0,\infty)\)，有
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^1(H^\varepsilon_\delta)}\le C_6.
+\]
+\end{lemma}
+
+\begin{lemma}
+对任意 \(t>0\)，有
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^\infty(H^\varepsilon_\delta,\omega^\varepsilon_\delta)}
+\le
+C_8\max(t^{-1},1).
+\]
+\end{lemma}
+
+\begin{proof}
+回忆我们在引理 4.5 中已对测度空间 \((\widetilde X\setminus D^*,\omega^\varepsilon_\delta)\) 上紧支撑光滑函数建立了一致 Sobolev 不等式，且 Sobolev 常数与 \(\varepsilon,\delta\) 无关。可考虑函数
+\[
+f^\varsigma:=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
++\varsigma(\log|\sigma|^2-At),
+\]
+其中 \(A\) 取得足够大，以保证 \(f^\varsigma_\nu\) 是热方程的次解。随后取
+\[
+\phi:=\eta_a(t)^2\,(f^\varsigma_\nu)^{2a-1},\qquad a\ge 1
+\]
+作为抛物型 Moser 迭代的测试函数，这里 \(\eta_a(t)\) 是适当的时间截断函数。于是对任意 \(T>0\)，得到
+\[
+\|f^\varsigma(t)\|_{L^\infty((X\setminus D)\times [1.5T,2T])}
+\le
+C_8(T^{-1})
+\|f^\varsigma(t)\|_{L^1((X\setminus D)\times [T,2T])}.
+\]
+令 \(\varsigma\to 0\) 即得引理。
+\end{proof}
+
+记
+\[
+B_{\omega_1}(d):=\{x\in X\mid d_{\omega_1}(x,E)<d\}.
+\]
+由引理 4.17 易得：在 \(B_{\omega_1}(d)^c\) 上，
+\[
+|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon}|_{H^\varepsilon}
+\le C_9(d^{-1})|\sigma|^{-2},
+\]
+其中 \(C_9(d^{-1})\) 与 \(\varepsilon,\delta\) 无关。于是有：
+
+\begin{lemma}
+对任意 \(t\ge 0\)，存在常数 \(C_{10}(d^{-1})\)，使得对所有
+\[
+(x,t)\in B_{\omega_1}(d)^c\times [0,\infty)
+\]
+均有
+\[
+|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+\le
+C_{10}(d^{-1})|\sigma|^{-2}.
+\]
+\end{lemma}
+
+\begin{proof}
+证明的关键是热核 \(K^\varepsilon_\delta\) 的一致高斯上界，而这已在命题 4.6 中得到。其余证明完全类似于 \cite[Lemma 2.2]{LiZhangZhang} 的做法。
+\end{proof}
+
+令
+\[
+h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
+\]
+我们知道 \(|H^\varepsilon_\delta|_{H^\varepsilon}\) 与 \(|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\) 都可与正量
+\[
+\Phi^\varepsilon_\delta
+=
+\log(h^\varepsilon_\delta)+\log((h^\varepsilon_\delta)^{-1})-2\rank(E)
+\]
+相比。并且
+\[
+\frac{\partial}{\partial t}\Phi^\varepsilon_\delta
+\le
+2\bigl(
+|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
++
+|\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon}|_{H^\varepsilon}
+\bigr). \tag{24}
+\]
+因此得到：
+
+\begin{lemma}
+对 \((x,t)\in B_{\omega_1}(d)^c\times [0,T]\)，有
+\[
+|H^\varepsilon_\delta|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2},
+\qquad
+|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2}.
+\]
+\end{lemma}
+
+为了得到 H-Y-M 流的收敛，我们还需要 \cite[Proposition 1]{BandoSiu} 中的一个命题。
+
+\begin{proposition}
+设 \(H\) 是定义在 Kähler 流形 \((Y,\omega)\) 上的一个 Hermitian 矩阵值函数，属于 Sobolev 空间 \(L_1^2\)。假设 \(H\) 与 \(H^{-1}\) 一致有界，且它在弱意义下满足椭圆方程
+\[
+\Lambda_\omega \bar\partial(\partial H\cdot H^{-1})=f,
+\]
+其中 \(f\) 一致有界。则 \(H\in C_{\mathrm{loc}}^{1,\alpha}\)（任意 \(0<\alpha<1\)），并满足仅依赖于 \(\|H\|_{L^\infty}\)、\(\|H^{-1}\|_{L^\infty}\)、\(\|f\|_{L^\infty}\) 以及 \(Y\) 的几何的估计。
+\end{proposition}
+
+现在可将上面命题应用于 \((X^\circ-D,\omega^\varepsilon_\delta)\) 上的 \(H^\varepsilon_\delta\) 做内部估计。注意 \(\omega^\varepsilon_\delta\) 在局部上一致拟等距于固定 Kähler 度量 \(\omega_1\)。于是可简单地将 \(\Lambda_{\omega^\varepsilon_\delta}F_{H^\varepsilon_\delta}\) 视为上命题中的 \(f\)。因此，对任意 \(t\ge 0\)，\(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{1,\alpha}\)-拓扑下一致有界。另一方面，由 H-Y-M 流方程可见，对任意 \(t>0\)，\(\frac{d}{dt}H^\varepsilon_\delta\) 在 \(C^0_{\mathrm{loc}}\)-拓扑下一致有界。故 \(H^\varepsilon_\delta\) 在 \(C^{1/0}_{\mathrm{loc}}\)-拓扑下收敛到定义在
+\[
+\mathcal E|_{\widetilde X\setminus D^*-\pi^{-1}(W)}
+\]
+上的一个时间依赖 Hermitian 度量流 \(H\)，等价地说，定义在
+\[
+F:=F|_{X\setminus(D\cup W)}
+\]
+上的流，初值为 \(H^\varepsilon\)。再利用抛物型 Schauder 估计，可知 \(H\) 实际上是一个光滑解，并且 \(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{\infty/\infty}\)-拓扑下收敛到 \(H\)。此外，由引理 (24)，对任意 \(t>0\)，\(H(t)\) 在逼近 \(D\) 时局部具有多项式衰减。
+
+\subsection{对应}
+
+\paragraph{从稳定性到 H-E 度量}
+基于 H-Y-M 流 \(H(t)\)，我们希望证明：在抛物层 \(F_*\) 稳定的条件下，\(H\) 将收敛到 \(X^\circ\setminus D\) 上一个与抛物结构相容的 H-E 度量。类似地，在半稳定条件下，\(H(t)\) 将给出一族都与抛物结构相容的近似 H-E 度量。
+
+困难在于 \(|\Lambda F_{H^\varepsilon}|_{H^\varepsilon}\) 在 \(X^\circ\setminus D\) 上并不有界，因此 Simpson \cite{SimpsonConstruct} 的论证不能直接套用。一个可能的想法是从正时间开始考虑 H-Y-M 流，再应用 Simpson 的结果。虽然由上面的分析可知，对任意 \(t>0\)，\(|\Lambda F_{H(t)}|_{H(t)}\) 有界，但似乎很难证明 \(F|_{X^\circ\setminus D}\) 关于 \(H(t)\) 的解析稳定性。不过这一困难已由第二作者在 \cite[Proposition 4.1]{LiZhangZhang} 中解决：在半稳定条件下，仍有
+\[
+\lim_{t\to\infty}\|\Phi(t)\|_{L^2(H(t))}=0,
+\]
+其中
+\[
+\Phi(t):=\|\sqrt{-1}\Lambda F_{H(t)}-\lambda\cdot \Id_F\|_{L^2(H(t))}.
+\]
+这便蕴含了近似 H-E 度量的存在。实际上，
+\[
+\left(\frac{\partial}{\partial t}+\Delta_\omega\right)\Phi(t)^2\le 0.
+\]
+然后像引理 6.5 那样选取 Moser 迭代的测试函数，便得到
+\[
+\|\Phi(t)\|_{L^\infty(H(t))(X\setminus D\times [1.5T,2T])}
+\le
+C_{12}\|\Phi(t)\|_{L^2(H(t))(X\setminus D\times [T,2T])}.
+\]
+
+对于稳定情形，\cite[Proposition 4.1]{LiZhangZhang} 中所用的同样技巧可应用于 \(H(t)\)，以证明 \cite[Proposition 5.3]{SimpsonConstruct} 对 \(H(t)\) 成立，而这正是使用稳定性条件的关键估计。然后 \cite{SimpsonConstruct} 第 7 节中的论证即可推出 \(H(t)\) 收敛到一个 H-E 度量 \(H(\infty)\)。
+
+因此我们只需证明：所得度量（H-E 或近似 H-E）与抛物结构相容，并且按定义 1.1 是可容许的。只需证明近似 H-E 情形，因为 H-E 情形可直接由 Fatou 引理推出。
+
+先需要一个引理。
+
+\begin{lemma}[{\cite[Lemma 5.2]{SimpsonConstruct}}]
+设 \(Y\) 是一个非紧 Kähler 流形，它有一个 exhaustion 函数 \(\phi\)，满足
+\[
+\int_Y |\Delta \phi|<\infty.
+\]
+设 \(\eta\) 是一个 \((2n-1)\)-形式，满足
+\[
+\int_Y |\eta|^2<\infty.
+\]
+如果 \(d\eta\) 可积，则
+\[
+\int_Y d\eta=0.
+\]
+\end{lemma}
+
+固定 \(X\setminus D\) 上一个沿 \(D\) 具有 cusp 奇性的 Kähler 度量 \(\omega_c\)。则体积密度函数
+\[
+\frac{(\omega^\varepsilon_\delta)^n}{\omega_c^n}
+\]
+在 \(\varepsilon,\delta\) 中一致有界。
+
+\begin{proposition}
+若 \(F_*\) 半稳定，则对任意 \(t>0\)，\(H(t)\) 与抛物结构相容。
+\end{proposition}
+
+\begin{proof}
+由于
+\[
+\det(H^\varepsilon)=\det(H(t)),
+\]
+故 \(H(t)\) 在余维 1 上适配于 \(F_*\)。因此只需证明：对任意真抛物子层 \(S_*\)，都有
+\[
+\sqrt{-1}\int_{X^\circ\setminus D}\Tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\le
+\sqrt{-1}\int_{X^\circ\setminus D}\Tr(F_{H(t)|_S})\wedge \omega^{n-1}.
+\]
+
+由第 3 节中的爆破过程可知
+\[
+\int_{X^\circ\setminus D^*}\Tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+=
+\int_{X^\circ\setminus D}\Tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}.
+\]
+对引理 6.2 的证明进行适当改写，可得到
+\[
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon|_S}|(\omega^\varepsilon_\delta)^n
+\le
+n\Tr\bigl(2C_7\omega_{1,\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon|_S}\bigr)\wedge \omega_{1,\delta}^{n-1}.
+\]
+右侧积分有限且与 \(\delta\) 无关，故由广义支配收敛定理，
+\[
+\int_{X^\circ\setminus D}\Tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_{X^\circ\setminus D^*}\Tr(F_{H^\varepsilon|_S})\wedge (\omega^\varepsilon_\delta)^{n-1}.
+\]
+
+对固定的 \(\varepsilon,\delta,t\)，记
+\[
+h^\varepsilon_{\delta|S}:=H^\varepsilon_\delta(t)|_S\cdot (H^\varepsilon|_S)^{-1},
+\qquad
+h^\varepsilon_\delta:=H^\varepsilon_\delta(t)\cdot (H^\varepsilon)^{-1}.
+\]
+Simpson \cite{SimpsonConstruct} 证明了 \(H^\varepsilon\) 与 \(H^\varepsilon_\delta(t)\) 彼此有界，且
+\[
+\partial h^\varepsilon_\delta\in L^2(H^\varepsilon,\omega^\varepsilon_\delta).
+\]
+因此 \(h^\varepsilon_\delta\) 关于 \(H^\varepsilon\) 或 \(H^\varepsilon_\delta(t)\) 都有界。
+
+又因为
+\[
+h^\varepsilon_{\delta|S}=p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta \cdot \iota, \tag{25}
+\]
+以及
+\[
+p_{S,H^\varepsilon_\delta(t)}
+=
+(h^\varepsilon_{\delta|S})^{-1}\cdot p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta, \tag{26}
+\]
+其中 \(\iota\) 是 \(S\) 到 \(E\) 的嵌入。所以
+\[
+\partial h^\varepsilon_{\delta|S}
+=
+\partial p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta\cdot \iota
++
+p_{S,H^\varepsilon}\cdot \partial h^\varepsilon_\delta\cdot \iota,
+\]
+从而
+\[
+\partial h^\varepsilon_{\delta|S}\in L^2(H^\varepsilon,\omega^\varepsilon_\delta).
+\]
+再由 Chern--Weil 公式及式 (26)，
+\[
+\Tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega^\varepsilon_\delta)^{n-1}
+\]
+可积。
+
+另一方面，
+\[
+\Tr(F_{H^\varepsilon_\delta|_S})-\Tr(F_{H^\varepsilon|_S})
+=
+\Tr\bigl(\bar\partial(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})\bigr).
+\]
+而上面的论证表明
+\[
+\Tr(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})
+\wedge (\omega^\varepsilon_\delta)^{n-1}
+\in L^2(H^\varepsilon,\omega^\varepsilon_\delta).
+\]
+于是由引理 6.9，
+\[
+\int_{X^\circ\setminus D^*}
+\Tr(F_{H^\varepsilon|_S})\wedge (\omega^\varepsilon_\delta)^{n-1}
+=
+\int_{X^\circ\setminus D^*}
+\Tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega^\varepsilon_\delta)^{n-1}.
+\]
+
+再用一次 Chern--Weil 公式，有
+\[
+\sqrt{-1}\Tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega^\varepsilon_\delta)^{n-1}
+\le
+\sqrt{-1}\Tr(p_{S,H^\varepsilon_\delta}\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta})
+\cdot
+\frac{(\omega^\varepsilon_\delta)^n}{\omega_c^n}\cdot \omega_c^n.
+\]
+右侧项是一致有界的，因为 \(|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}\) 与 \(\frac{(\omega^\varepsilon_\delta)^n}{\omega_c^n}\) 都一致有界。对两边取极限并使用 Fatou 引理，即得所需不等式：
+\[
+\sqrt{-1}\int_{X^\circ\setminus D}\Tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\le
+\sqrt{-1}\int_{X^\circ\setminus D}\Tr(F_{H(t)|_S})\wedge \omega^{n-1}.
+\]
+\end{proof}
+
+\begin{proposition}
+对任意 \(t>0\)，\(H(t)\) 是可容许的。
+\end{proposition}
+
+\begin{proof}
+由引理 6.5，对任意 \(t>0\)，\(|\Lambda F_H|_H\) 在 \(X\setminus D\) 上有界。此外有
+\begin{align}
+-8\pi^2
+\int_X \ch_2(F_*)\wedge \frac{\omega^{n-2}}{(n-2)!}
+&=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\operatorname{tr}(F_{H^\varepsilon}\wedge F_{H^\varepsilon})\wedge \frac{(\omega^\varepsilon_\delta)^{n-2}}{(n-2)!}
+\nonumber\\
+&\ge
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\operatorname{tr}(F_{H^\varepsilon_\delta(t)}\wedge F_{H^\varepsilon_\delta(t)})\wedge
+\frac{(\omega^\varepsilon_\delta)^{n-2}}{(n-2)!}
+\nonumber\\
+&=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\Bigl(
+|F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t),\omega^\varepsilon_\delta}
+-
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t)}
+\Bigr)
+\cdot
+\frac{(\omega^\varepsilon_\delta)^n}{\omega_c^n}
+\cdot
+\frac{\omega_c^n}{n!}
+\nonumber\\
+&\ge
+\int_X
+\left(
+|F_{H(t)}|^2_{H(t),\omega}
+-
+|\sqrt{-1}\Lambda_\omega F_{H(t)}|^2_{H(t)}
+\right)\cdot \frac{\omega^n}{n!}. \tag{27}
+\end{align}
+第一步不等式来自 \cite[Lemma 7.1]{Li2000}，第二步不等式是相对于 \(\omega_c\) 诱导测度应用 Fatou 引理所得。因此对任意 \(t>0\)，\(F_{H(t)}\) 是平方可积的。
+\end{proof}
+
+\paragraph{从 H-E 度量到稳定性}
+至此，我们已经完成了 Kobayashi--Hitchin 对应的一个方向。
+
+为证明逆命题，设 \(H(t)\) 是一族与抛物结构相容的近似 H-E 度量，则由定义和 Chern--Weil 公式，对任意真子层 \(S_*\)，有
+\[
+\mu_\omega(S_*)
+\le
+\liminf_{t\to\infty}
+\frac{\sqrt{-1}}{2\pi \rank(S)}
+\int_{X\setminus D}\Tr(F_{H|_S}(t))\wedge \omega^{n-1}
+\le
+\lim_{t\to\infty}
+\frac{\sqrt{-1}}{2\pi \rank(F)}
+\int_{X\setminus D}\Tr(F_{H(t)})\wedge \omega^{n-1}
+=
+\mu_\omega(F_*).
+\]
+于是半稳定情形得证。
+
+为证明多稳定情形的逆命题，先需要一个命题，它是 \cite[Theorem 2(b)]{BandoSiu} 的一个轻微推广。
+
+\begin{proposition}
+设 \((\Delta^n,z_1,\dots,z_n)\) 为多圆盘，\(D\) 是由
+\[
+z_1z_2\cdots z_m=0
+\]
+定义的除子。设 \(S\) 是一个实余维 4、局部有限 Hausdorff 测度的闭子集。设 \(F_*\) 是 \(\Delta^n\) 上的一个饱和自反抛物层，其正则部分 \(F\) 定义在
+\[
+\Delta^n\setminus (D\cap S)
+\]
+上。若 \(F_*\) 在 \(F\) 上 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)，则 \(F\) 的任意局部截面 \(s\) 满足 \(H(s,s)\) 局部有界，且属于 \(L_{1,\mathrm{loc}}^2\)。
+\end{proposition}
+
+\begin{proof}
+证明基本遵循 \cite[Section 1]{BandoSiu}。
+
+取沿一般方向的投影
+\[
+p:\Delta^n\to \Delta^{n-2},
+\]
+则 \(S\cap p^{-1}(0)\) 由可数多个点组成，这些点只可能在 0 处聚集。并且存在 \(\Delta^2\) 的一个紧子集 \(K\)，使得
+\[
+S\subset K\times \Delta^{n-2}.
+\]
+记
+\[
+X_t:=p^{-1}(t).
+\]
+除去 \(\Delta^{n-2}\) 中一个零测子集外，对每个 \(t\) 有：
+\begin{itemize}
+\item \(S_t:=X_t\cap S\) 只包含有限个点；
+\item \(D_t:=D\cap p^{-1}(t)\) 是简单正规交叉除子。
+\end{itemize}
+令
+\[
+u:=\log^+(H(s,s)),\qquad u_t:=u|_{X_t}.
+\]
+我们在每个切片 \(X_t\) 内分析 \(u_t\)。
+
+若 \(x_0\) 是 \(S_t\) 的一个孤立点，且不在 \(D_t\) 中，则 \cite[Section 3]{BandoRemovable} 已证明 \(u_t\) 在 \(x_0\) 附近属于 \(L_1^2\)，并在弱意义下满足
+\[
+\Delta_t u_t\le 4|F_t|.
+\]
+
+若 \(x_0\in D_t\)，则不失一般性，可在 \(X_t\) 中取以 \(x_0\) 为中心的局部坐标邻域 \((U_{x_0},z_1,z_2)\)，使得
+\[
+D_t=\{z_1z_2=0\}.
+\]
+由于 \(F_*\) 是饱和自反抛物层，而切片 \(U_{x_0}\) 的复维数是 2，因此知道 \(F_*|_{U_{x_0}}\) 是一个抛物丛。
+
+另一方面，\(F|_{U_{x_0}\setminus D_t}\) 上有一个可容许 H-E 度量 \(H_t\)。来自规范理论中四维实维度、实余维 2 奇性的正则性定理（参见 \cite{SibnerSibner}）蕴含：如果 H-E 度量 \(H_t\) 的曲率张量 \(F_{H_t}\) 属于 \(L^2\)，则它实际上属于某个 \(L^p\)（\(p>2\)）。随后 O. Biquard \cite[Theorem 2.1]{BiquardSurface} 证明：通过选择适当的复规范变换，\(F|_{U_{x_0}\setminus D_t}\) 可唯一延拓成 \(U_{x_0}\) 上的一个抛物丛 \(\widetilde F_*\)。特别地，对 \(\widetilde F_*\) 的任意全纯截面 \(s\)，\(|s|_{H_t}\) 有界。由延拓的唯一性可知
+\[
+\widetilde F_*\cong F_*|_{U_{x_0}}.
+\]
+因此在这种情形下也有弱不等式
+\[
+\Delta_t u_t\le 4|F_t|.
+\]
+
+\begin{remark}
+Biquard 处理的是光滑除子情形下的延拓问题。他所选取的复规范涉及在穿孔多圆盘 \(\Delta^*\times \Delta\) 上求解 \(\bar\partial\)-问题。但这个证明很容易适配到简单正规交叉除子情形，即在 \(\Delta^*\times \Delta^*\) 上求解同样的 \(\bar\partial\)-问题。
+\end{remark}
+
+证明的其余部分完全照搬 \cite[Section 1]{BandoSiu}。事实上，对任意包含 0 的紧区域 \(K'\subset \Delta^{n-2}\)，可利用上述不等式证明：沿投影方向的梯度 \(\nabla_t u\) 在 \(K\times K'\) 上平方可积。由于投影方向是一般的，故得到
+\[
+u\in L_{1,\mathrm{loc}}^2(\Delta^n).
+\]
+一旦知道这一点，再利用
+\[
+\Delta u\le 2|\Lambda F_H|
+\]
+及 \(\Lambda F_H\in L^\infty_{\mathrm{loc}}\)，便容易推出
+\[
+u\in L^\infty_{\mathrm{loc}}.
+\]
+\end{proof}
+
+现在设 \(F_*\) 是一个饱和自反抛物层，它 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)。则由 \(H\) 的定义及 Chern--Weil 公式，容易得到对任意真抛物子层 \(S_*\)，均有
+\[
+\mu_\omega(S_*)\le \mu_\omega(F_*).
+\]
+若等号成立，记
+\[
+G_*:=\wedge^k F_*\otimes \det(S_*)^{-1}.
+\]
+由于 \(\det(S_*)^{-1}\) 是一个抛物线丛，因此其上存在一个与抛物结构相容的可容许 H-E 度量 \(H'\)。于是 \(G\) 的正则部分从 \(H\) 与 \(H'\) 继承一个可容许 H-E 度量 \(H''\)，并且
+\[
+\lambda(G)
+=
+\frac{2k\pi}{\Vol(X,\omega)}(\mu_\omega(F_*)-\mu_\omega(S_*))
+=0.
+\]
+另一方面，由上述命题知道，对任意局部截面 \(s\)，\(|s|_{H''}\) 在 \(X\) 上有界且属于 \(L_1^2(X)\)。因此
+\[
+\Delta_\omega |s|_{H''}^2
+\le
+2\lambda(G)|s|_{H''}^2-2|\partial s|_{H''}^2
+\le 0,
+\]
+从而得到 \(s\equiv C\neq 0\)。因此有全纯分裂
+\[
+F|_{X^\circ}=S|_{X^\circ}\oplus Q|_{X^\circ},
+\]
+其中 \(Q\) 是 \(F\) 的一个子层。
+
+由于 \(W\) 的余维至少为 3，有
+\[
+\operatorname{Ext}^1(S,Q)\cong \operatorname{Ext}^1(S|_{X^\circ},Q|_{X^\circ}).
+\]
+因此
+\[
+F_*=S_*\oplus Q_*.
+\]
+
+于是，我们建立了如下 Kobayashi--Hitchin 对应：
+
+\begin{theorem}
+\((X,\omega,D)\) 上的一个饱和自反抛物层 \(F_*\) 是 \(\mu_\omega\)-多稳定的，当且仅当在 \(F_*|_{X^\circ\setminus D}\) 上存在一个关于 \(\omega\) 的、与 \(F_*\) 相容的可容许 H-E 度量。
+\end{theorem}
+
+\begin{theorem}
+\((X,\omega,D)\) 上的一个饱和自反抛物层 \(F_*\) 是 \(\mu_\omega\)-半稳定的，当且仅当在 \(F_*|_{X^\circ\setminus D}\) 上存在一族关于 \(\omega\) 的近似 H-E 度量，并且它们都与 \(F_*\) 相容。
+\end{theorem}
+
+\begin{corollary}
+若 \(F_*\) 关于 \(\omega\) 是 \(\mu_\omega\)-半稳定的，则
+\[
+\Delta(F_*)\cdot [\omega]^{n-2}\ge 0.
+\]
+此外，若 \(F_*\) 是多稳定的，则等号成立当且仅当 \(F|_{X\setminus D}\) 是一个向量丛，并带有一个与 \(F_*\) 的抛物结构相容的射影平坦 H-E 联络。
+\end{corollary}
+
+\begin{proof}
+对式 (27) 中的计算稍作显然修改即可得到证明。
+\end{proof}
+
+\section{关于 nef 且 big 类的 Bogomolov--Gieseker 不等式}
+
+本节中，我们证明一个更一般的 Bogomolov--Gieseker 型不等式，即如下定理。
+
+\begin{theorem}
+设 \(F_*\) 是紧 Kähler 流形 \((X,\omega)\) 上的一个饱和自反抛物层，并且它关于一个 nef 且 big 的类 \([\eta]\) 是半稳定的。则关于 \(\eta\) 的 Bogomolov--Gieseker 不等式成立，即
+\[
+\Delta(F_*)\cdot [\eta]^{n-2}\ge 0.
+\]
+\end{theorem}
+
+先简单回顾 nef 与 big 的定义。
+
+\begin{definition}
+若一个类 \([\eta]\in H^{k,k}(X,\mathbb R)\) 满足：对任意 \(\varepsilon>0\)，存在其代表元 \(\eta_\varepsilon\in [\eta]\)，使得
+\[
+\eta_\varepsilon\ge -\varepsilon \omega^k,
+\]
+则称 \([\eta]\) 是 \textbf{nef} 的。显然，这类构成 \(H^{k,k}(X,\mathbb R)\) 中的一个闭锥，记为 \(N^k\)。
+\end{definition}
+
+\begin{definition}
+若一个类 \([\eta]\in H^{k,k}(X,\mathbb R)\) 满足：存在常数 \(\varepsilon>0\)，使得
+\[
+\eta\ge \varepsilon[\omega^k]
+\]
+在流的意义下成立，则称 \([\eta]\) 是 \textbf{big} 的。显然，这类构成 \(H^{k,k}(X,\mathbb R)\) 中的一个开锥，记为 \(B^k\)。
+\end{definition}
+
+记
+\[
+[\eta_\varepsilon]:=[\eta+\varepsilon\omega],
+\]
+其中 \(\omega\) 是一个 Kähler 类。下面引理描述了 \(F_*\) 关于 \([\eta_\varepsilon]\) 稳定性的开性。
+
+\begin{lemma}
+设一个抛物层 \(F_*\)（不必自反）关于某个类 \([\eta]\in B^1\) 是稳定的。则对充分小的 \(\varepsilon\)，\(F_*\) 关于 \([\eta_\varepsilon]\) 也是稳定的。
+\end{lemma}
+
+\begin{proof}
+设 \(S_*\) 是 \(F_*\) 的一个真抛物子层。则
+\[
+\mu_{\eta_\varepsilon}(F_*)-\mu_{\eta_\varepsilon}(S_*)
+=
+\mu_\eta(F_*)-\mu_\eta(S_*)+\varepsilon\cdot \phi(\varepsilon).
+\]
+若我们能证明
+\begin{enumerate}[label=\arabic*.]
+\item \(|\phi(\varepsilon)|\le C_{12}\)；
+\item \(\mu_\eta(F_*)-\mu_\eta(S_*)\ge C_{13}\)；
+\end{enumerate}
+其中 \(C_{12},C_{13}\) 与 \(S_*,\varepsilon\) 的选择无关，则结论成立。
+
+先证明 \(\phi(\varepsilon)\) 的一致有界性。由于 \(\ch_1(S_*)\) 是 \(\ch_1(S)\) 与各 \(D_i\) 的线性组合，所以 \(\phi(\varepsilon)\) 是 \(\ch_1(F)\)、\(\ch_1(S)\)、各 \(D_i\) 与一族由 \(\varepsilon\) 参数化且有界的 big 类的交数的线性组合。因此只需证明如下断言：
+
+\medskip
+\noindent
+给定一族有界的 big 类 \(\gamma_\varepsilon\)，当 \(S\) 与 \(\varepsilon\) 变化时，\(\ch_1(S)\cdot [\gamma_\varepsilon]\) 有一致上界。
+\medskip
+
+沿第 4 节的思路，我们可在无挠层 \(F\) 的正则部分上构造一个度量 \(H\)，它在余维 1 上适配于任意无挠子层 \(S\)（尽管那里处理的是抛物层，但该思想当然也可移植到普通层情形）。然后由 Gauss--Codazzi 公式，在流的意义下有
+\[
+\ch_1(S)
+=
+\frac{\sqrt{-1}}{2\pi}\Tr(p_{S,H_0}\cdot F_{H_0})
+-
+\Tr\bigl((\bar\partial p_{S,H_0})^\dagger\wedge \bar\partial p_{S,H_0}\bigr).
+\]
+于是容易看出 \(\ch_1(S)\cdot [\gamma_\varepsilon]\) 一致有界。
+
+证明将由下一个引理完成，它蕴含了第 2 点。
+\end{proof}
+
+\begin{lemma}
+设 \(F_*\) 是一个抛物层，\([\eta]\in B^1\)。定义
+\[
+\mu_\eta^{\max}:=\sup\{\mu_\eta(S_*)\mid S_*\subsetneq F_*\}.
+\]
+则 \(\mu_\eta^{\max}\) 可由某个真子层 \(S_*^{\max}\) 取得。
+\end{lemma}
+
+\begin{proof}
+由 \cite[Lemma 2.2]{Cao}，可将
+\[
+\eta^{n-1}=\sum_{i=1}^s \lambda_i e_i
+\]
+写成 \(\lambda_i\ge 0\)、\(e_i\in H^{2(n-1)}(X,\mathbb Q)\) 的形式，并且每个 \(e_i\) 都可由一个严格正的流表示（不一定是 \((n-1,n-1)\)-流）。于是
+\[
+\ch_1(S_*)\cdot [\eta^{n-1}]
+=
+\sum_{i=1}^s \lambda_i \cdot \ch_1(S_*)\cdot [e_i].
+\]
+因为我们想取得最大斜率，所以可以限制到满足
+\[
+-C_{14}<\deg_\eta(S_*)
+\]
+的一类子层上，其中 \(C_{14}>0\)。利用上个引理中的论证，可取 \(C_{14}\) 足够大，使得对所有子层，
+\[
+\ch_1(S_*)\cdot [\eta^{n-1}]<C_{14}.
+\]
+记
+\[
+A:=\{S_*\subsetneq F_*,\ S_*\ne 0\mid -C_{14}<\ch_1(S_*)\cdot [\eta^{n-1}]\}.
+\]
+则对任意 \(S_*\in A\) 及满足 \(\lambda_i\ne 0\) 的指标 \(i\)，有
+\[
+-C_{15}<\ch_1(S_*)\cdot [e_i]<C_{15}.
+\]
+回忆
+\[
+\ch_1(S_*)
+=
+\ch_1(S)
++
+\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot \rank_{D_i}({}^i\Gr_aS_*)\cdot [D_i].
+\]
+由于 \(A\) 是抛物子层的集合，当 \(S_*\) 在 \(A\) 中变化时，上式中非平凡的抛物权重 \(a\) 只取自某个有限实数集。而 \(\ch_1(S)\) 与 \([D_i]\) 属于 \(H^2(X,\mathbb Z)\)，\(e_i\in H^{2(n-1)}(X,\mathbb Q)\)，因此当 \(S_*\in A\) 及指标 \(i\) 变化时，\(\ch_1(S_*)\cdot e_i\) 只能取有限多个值，从而 \(\ch_1(S_*)\cdot [\eta^{n-1}]\) 也只能取有限多个值。证明完成。
+\end{proof}
+
+设 \(F_*\) 是一个关于 big 类 \([\eta]\in B^1\) 半稳定的饱和自反抛物层。与普通层情形一样，可证明存在 Jordan--H\"older 过滤
+\[
+0=F_{0*}\subset F_{1*}\subset F_{2*}\subset \cdots \subset F_{n*}=F_*,
+\]
+其中对每个 \(0\le i<n\)，\(F_{i*}\) 是饱和自反抛物层，商
+\[
+\Gr_iF_*:=F_{i+1,*}/F_{i*}
+\]
+是一个 \(\eta\)-稳定抛物层，且
+\[
+\mu_\eta(\Gr_iF_*)=\mu_\eta(F_*).
+\]
+于是由引理 7.2 立刻得到：存在 \(\varepsilon_0\)，使得对任意 \(0<\varepsilon<\varepsilon_0\)，商 \(F_{i+1,*}/F_{i*}\) 是 \(\eta_\varepsilon\)-稳定的。
+
+\begin{proof}[定理 7.1 的证明]
+\(F_{0*}\) 是一个关于 \(\eta_\varepsilon\) 稳定的饱和自反抛物层。在 \(\eta\) 是 nef 且 big 的假设下，\(\eta_\varepsilon\) 是一个 Kähler 度量。因此
+\[
+\Delta(F_{0*})\cdot [\eta_\varepsilon]^{n-1}\ge 0,
+\]
+从而令 \(\varepsilon\to 0\) 得
+\[
+\Delta(F_{0*})\cdot [\eta]^{n-1}\ge 0.
+\]
+另一方面，由引理 2.9，\(\Gr_iF_*\) 的自反饱和化 \(\Gr_iF'_*\) 也是 \(\eta_\varepsilon\)-稳定的。再由引理 2.8，
+\[
+\Delta(\Gr_iF_*)\cdot [\eta]^{n-1}
+\ge
+\Delta(\Gr_iF'_*)\cdot [\eta]^{n-1}
+\ge 0.
+\]
+
+因此只需说明：若存在抛物层的短正合列
+\[
+0\to F_{i*}\to F_{i+1,*}\to \Gr_iF_*\to 0,
+\]
+并且
+\[
+\Delta(F_{i*})\cdot [\eta]^{n-1}\ge 0,\qquad
+\Delta(\Gr_iF_*)\cdot [\eta]^{n-1}\ge 0,
+\]
+则可推出
+\[
+\Delta(F_{i+1,*})\cdot [\eta]^{n-1}\ge 0.
+\]
+但这是一条标准事实，参见 \cite[Lemma 3.7]{ClaudonGrafGuenancia}。
+\end{proof}
+
+\section*{致谢}
+
+第一作者衷心感谢 Takuro Mochizuki 教授，就抛物度量的构造及其适配性证明所进行的宝贵讨论。第一作者感谢 Shiyu Zhang 组织了一个关于该主题的有意义的讨论班，使作者获益良多。第一作者也感谢 Changpeng Pan 与 Yang Zhou 的有益讨论。
+
+\section*{数据可得性声明}
+
+本文不涉及在当前研究中生成或分析数据集，因此不适用数据共享。
+
+\section*{声明}
+
+\paragraph{利益冲突}
+作者声明，对于本文讨论的任何材料，不存在财务或专有利益冲突。
+
+\begin{thebibliography}{99}
+
+\bibitem{BandoRemovable}
+Bando, S.: Removable Singularities for Holomorphic Vector Bundles. Tohoku Math. J. 43(1), 61--67 (1991).
+
+\bibitem{BandoSiu}
+Bando, S., Siu, Y.-T.: Stable Sheaves and Einstein-Hermitian Metrics. Geom. Anal. Complex Manifolds 39, 39--50 (1994).
+
+\bibitem{BiquardLog}
+Biquard, O.: Fibr\'es de Higgs et Connexions Int\'egrables: Le Cas Logarithmique (Diviseur Lisse). Ann. Sci. \'Ec. Norm. Sup\'er. 30 (1997), 41--96.
+
+\bibitem{BiquardSurface}
+Biquard, O.: Sur les Fibr\'es Paraboliques sur une Surface Complexe. J. Lond. Math. Soc. 53(2), 302--316 (1996).
+
+\bibitem{Biswas}
+Biswas, I.: Parabolic Bundles as Orbifold Bundles. Duke Math. J. 88(2), 305--325 (1997).
+
+\bibitem{Borne}
+Borne, N.: Fibr\'es Paraboliques et Champ des Racines. arXiv:math/0604458.
+
+\bibitem{Cao}
+Cao, J.-Y.: A Remark on Compact K\"ahler Manifolds with Nef Anticanonical Bundles and Its Applications. arXiv:1305.4397 (2013).
+
+\bibitem{ChengLi}
+Cheng, S.-Y., Li, P.: Heat Kernel Estimates and Lower Bound of Eigenvalues. Comment. Math. Helv. 56(1), 327--338 (1981).
+
+\bibitem{ClaudonGrafGuenancia}
+Claudon, B., Graf, P., Guenancia, H.: Numerical Characterization of Complex Torus Quotients. Comment. Math. Helv. 97(4), 769--799 (2022).
+
+\bibitem{Donaldson1}
+Donaldson, S. K.: A New Proof of a Theorem of Narasimhan and Seshadri. J. Differential Geom. 18, 279--315 (1983).
+
+\bibitem{Donaldson2}
+Donaldson, S. K.: Anti Self-Dual Yang-Mills Connections over Complex Algebraic Surfaces and Stable Vector Bundles. Proc. Lond. Math. Soc. 50(3), 1--26 (1985).
+
+\bibitem{Grigoryan}
+Grigor'yan, A.: Gaussian Upper Bounds for the Heat Kernel on Arbitrary Manifolds. J. Differential Geom. 45(1), 33--52 (1997).
+
+\bibitem{Grivaux}
+Grivaux, J.: Chern classes in Deligne cohomology for coherent analytic sheaves. Math. Ann. 347(2), 249--284 (2010).
+
+\bibitem{GuenanciaPaun}
+Guenancia, H., P\u{a}un, M.: Conic Singularities Metrics with Prescribed Ricci Curvature: General Cone Angles along Normal Crossing Divisors. J. Differential Geom. 103(1), 15--57 (2016).
+
+\bibitem{GuoSobolev}
+Guo, B. et al.: Sobolev Inequalities on K\"ahler Spaces. arXiv:2311.00221 (2023).
+
+\bibitem{Hitchin}
+Hitchin, N. J.: The Self-Duality Equations on a Riemann Surface. Proc. Lond. Math. Soc. 55, 59--126 (1987).
+
+\bibitem{IyerSimpson}
+Iyer, J. N., Simpson, C. T.: The Chern Character of a Parabolic Bundle, and a Parabolic Corollary of Reznikov's Theorem. In: Geom. Dyn. Groups Spaces (2008), 439--485.
+
+\bibitem{JostZuo}
+Jost, J., Zuo, K.: Harmonic Maps of Infinite Energy and Rigidity Results for Representations of Fundamental Groups of Quasiprojective Varieties. J. Differential Geom. 47(3), 469--503 (1997).
+
+\bibitem{KaufmannLarkangWulcan}
+Kaufmann, L., L\"ark\"ang, R., Wulcan, E.: Global Chern Currents of Coherent Sheaves and Baum-Bott Currents. arXiv:2404.14585 (2024).
+
+\bibitem{Kobayashi1}
+Kobayashi, S.: Curvature and Stability of Vector Bundles. Proc. Japan Acad. Ser. A 58, 158--162 (1982).
+
+\bibitem{Kobayashi2}
+Kobayashi, S.: First Chern Class and Holomorphic Tensor Fields. Nagoya Math. J. 77, 5--11 (1980).
+
+\bibitem{Li2000}
+Li, J.-Y.: Hermitian-Einstein Metrics and Chern Number Inequalities on Parabolic Stable Bundles over K\"ahler Manifolds. Commun. Anal. Geom. 8(3), 445--475 (2000).
+
+\bibitem{LiNarasimhan}
+Li, J.-Y., Narasimhan, M. S.: Hermitian-Einstein Metrics on Parabolic Stable Bundles. Acta Math. Sin. Engl. Ser. 15(1), 93--114 (1999).
+
+\bibitem{LiZhangZhang}
+Li, J.-Y., Zhang, C.-J., Zhang, X.: Semi-Stable Higgs Sheaves and Bogomolov Type Inequality. Calc. Var. Partial Differential Equations 56(3), 81 (2017).
+
+\bibitem{Luebke}
+L\"ubke, M.: Stability of Einstein-Hermitian Vector Bundles. Manuscripta Math. 42, 245--257 (1983).
+
+\bibitem{MaruyamaYokogawa}
+Maruyama, M., Yokogawa, K.: Moduli of Parabolic Stable Sheaves. Math. Ann. 293, 77--99 (1992).
+
+\bibitem{MehtaSeshadri}
+Mehta, V., Seshadri, C. S.: Moduli of Vector Bundles on Curves with Parabolic Structures. Math. Ann. 248(3), 205--239 (1980).
+
+\bibitem{Mochizuki2003}
+Mochizuki, T.: Asymptotic Behaviour of Tame Harmonic Bundles and an Application to Pure Twistor D-Modules. arXiv:math/0312230.
+
+\bibitem{MochizukiBook}
+Mochizuki, T.: Kobayashi-Hitchin Correspondence for Tame Harmonic Bundles and an Application. Ast\'erisque 309 (2006).
+
+\bibitem{NS}
+Narasimhan, M. S., Seshadri, C. S.: Stable and Unitary Vector Bundles on Compact Riemann Surfaces. Ann. Math. 82, 540--567 (1965).
+
+\bibitem{SibnerSibner}
+Sibner, L. M., Sibner, R. J.: Classification of Singular Sobolev Connections by Their Holonomy. Commun. Math. Phys. 144(2), 337--350 (1992).
+
+\bibitem{SimpsonConstruct}
+Simpson, C. T.: Constructing Variation of Hodge Structure Using Yang-Mills Theory and Applications to Uniformization. J. Amer. Math. Soc. 1(4), 867--918 (1988).
+
+\bibitem{SimpsonHarmonic}
+Simpson, C. T.: Harmonic Bundles on Non-Compact Curves. J. Amer. Math. Soc. 3, 713--770 (1990).
+
+\bibitem{SiuTrautmann}
+Siu, Y.-T., Trautmann, G.: Gap-Sheaves and Extension of Coherent Analytic Subsheaves. Lecture Notes in Math. 172. Springer, 1971.
+
+\bibitem{SteerWren}
+Steer, B., Wren, A.: The Donaldson-Hitchin-Kobayashi Correspondence for Parabolic Bundles over Orbifold Surfaces. Can. J. Math. 53(6), 1309--1339 (2001).
+
+\bibitem{Taher}
+Taher, C. H.: Calculating the Parabolic Chern Character of a Locally Abelian Parabolic Bundle. Manuscr. Math. 132, 169--198 (2010).
+
+\bibitem{UY}
+Uhlenbeck, K. K., Yau, S.-T.: On the Existence of Hermitian-Yang-Mills Connections in Stable Vector Bundles. Commun. Pure Appl. Math. 39, 257--293 (1986).
+
+\end{thebibliography}
+
+\end{document}

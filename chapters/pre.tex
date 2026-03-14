@@ -1,0 +1,140 @@
+% !TEX root = ../main.tex
+
+
+
+\chapter{基础知识}
+\section{K\"ahler 流形}
+一个Hermitian流形$(X,g)$是一个复流形$X$配上一个和其复结构$I$相容的黎曼度量$g$，相容即是指
+\[
+g(\cdot,\cdot)=g(J(\cdot),J(\cdot))
+\]
+将$X$看成实流形我们将其切丛记为$T_X$，其复化被复结构分裂成
+\[
+T_X\otimes \C=T^{1,0}\oplus T^{0,1}
+\]
+特别的$(T_X,I)$与$T^{1,0}$存在自然同构
+\[ 
+v\to \frac{1}{2}(v-iI(v))
+\]
+相对应的，对于复化的$k$-形式丛我们有
+\[
+\Omega_X^k=\bigoplus_{p+q=k}\Omega_X^{p,q}
+\]
+$g$可以诱导一个$(1,1)$-形式$\omega\coloneqq g(I(\cdot),\cdot)$。若$\omega$是闭形式，则称$(X,g)$为K\"ahler流形。由于$\omega$可以还原出$g$，我们也可将其记为$(X,\omega)$。
+
+同时$g$可以诱导出$(T_X,I)$上的Hermitian度量
+\[
+h\coloneqq g-i\omega
+\]
+我们将$g$的复化记为$g_{\C}$，需注意，将其限制在$T^{1,0}$上我们有
+\[g_{\C}=\frac{1}{2}h\]
+在局部坐标$z=(z^1,\cdots,z^n)$下，我们有
+\[
+h=h_{i\bar{j}}\diff z^i\otimes \diff \overline{z}^j\quad \omega=\frac{i}{2} h_{i\bar{j}}z^i\otimes \diff \overline{z}^j
+\]
+
+在$\Omega_X^\bullet$上，我们定义Lefschetz算子$L\coloneqq \cdot\wedge \omega$。
+由于$g_{\C}$诱导了$\Omega_X^\bullet$上的内积，我们有自然的伴随算子，将其记为$\Lambda$。在局部坐标下若有$(1,1)$-形式$\eta=\eta_{i\bar{j}}dz^i\wedge d\overline{z}^j$，我们有
+\[
+\Lambda\eta=\frac{2}{i}h^{\bar{i}j}\eta_{i\bar{j}}
+\]
+特别的对于光滑函数$f$，
+\[
+-2i\Lambda \partial\overline{\partial}f=\Delta_g f \footnote{在本篇文章中，我们约定Laplace算子为$\Delta=-\Div\cdot \nabla f$。}
+\]
+
+
+
+
+
+\section{向量丛与层}
+\section{抛物丛}
+全纯向量丛上的抛物结构最早应出自\cite{Me-Se}。文章作者通过研究平坦向量丛在非紧黎曼面上的无穷远渐进行为获得了抛物结构。本小节将简单介绍抛物结构的来源以及定义抛物结构的动机。
+
+令 $G\subset \PSU(2,\R)$ 是一个离散子群，使得它自由地作用于上半平面$\HH$且其商空间是有限体积的。令$\HH^+=P\cup \HH$其中$P$为群作用的抛物点，则$X=\HH^+/G$是一个紧黎曼面。给定一个$n$维厄米特向量空间$V$以及一个酉表示$\rho: G\to \GL(n,V)$, 我们得到一个带$G$作用的向量丛$E=\HH\times V$. 我们总是可以通过共轭变换将抛物点变到无穷远点，因此我们只考虑抛物点为无穷远点的情况。令$y\in P$ 是$X$上的一个抛物尖点，则对于$\delta$充分大，存在一个领域$\U_y=\HH_\delta/G_\infty$, 其中$\HH_\delta\coloneqq \{z=x+iy\in \HH|y>\delta\}$, $G_\infty$由一个抛物元素$T:z\mapsto z+a$生成，其中$a\in \R$，为简单起见我们取$a=1$。
+
+由以上设定，我们考虑丛$E$限制在$\HH_\delta$上的$G$不变的有界全纯截面，即有界全纯映射$F:\HH^+_\delta\to \HH^+_\delta\times V$其形式为$F(z)=(z,f(z))$并且满足$f(z+1)=\rho(T)\cdot f(z)$. 在合适的酉标架$\{e_i\}_i$下，$\rho(T)$可以被对角化为
+\[
+\rho(T)=
+\begin{pmatrix*}
+    \exp(2\pi i \alpha_1) & &\\
+    & \ddots & \\
+    & & \exp(2\pi i \alpha_n)
+\end{pmatrix*}
+\]
+其中$0\leq \alpha_i\leq\alpha_{i+1}<1$。则在该酉标架下$f=(f_i)_i$满足$f_i(z+1)=\exp(2\pi i \alpha_i)f_i(z)$，通过直接计算可得$f_i(z)=\exp(2\pi i \alpha_i z)g_i(\tau)$ 其中$\tau=\exp(2\pi i z)$, $g_i$ 是去心圆盘上的全纯函数。由于$f$是有界的，因此$g_i$在$\tau=0$处也是全纯的。
+
+基于以上观察，我们可以在紧黎曼面$X$上定义局部自由层$\pE$，其定义如下：我们把$\HH^+$到$X$的商映射记成$q$, 对于不与抛物点相交的开集$\U$，$\pE(\U)=E^G(q^{-1}(\U))$, 其中$E^G$表示$G$不变的全纯截面。对于包含抛物点$y$的开集$\U_y$, $\pE(\U_y)$则由上述讨论的$G$不变的有界全纯截面组成。上述讨论表明，${\pE}_{,y}$ 是秩为$n$的${\OX}_{,y}$自由模，其生成元为$F_i: z\to \exp(2\pi i \alpha_i z)e_i$，因此$\pE$是局部自由层，我们也可以认为$\pE$是紧黎曼面$X$上的向量丛。
+
+基于$V$上的度量，我们有$|F_i|=O(|\tau|^{-\alpha_i})$，因此我们可以基于这些生成元的收敛速度在$y$处对该向量丛的纤维$W_y$进行分层。将互不相同的$\alpha_i$从小到大记为$\{\alpha_j\}_j$, 令$F_jW_{y}\coloneqq\{F_i||F_i|\geq |\tau|^{-\alpha_j}\}$，我们得到一个递减的滤链
+\[
+ W_y=F_1W_{y}\supset F_2W_{y}\supset \cdots \supset F_lW_{y}\supset F_{l+1}W_{y}=0
+\]
+对于每个$F_jW_y$我们赋予权重$\alpha_j$, 从而得到一个带权的滤链。
+我们称该带权滤链为向量丛$\pE$在$y$处的抛物结构。对于包含多个抛物点的情况，我们可以在每个抛物点处定义类似的滤链，从而得到一个全局的抛物结构。
+
+引入抛物结构的目的在于记录原始向量丛$E$在无穷远点处的渐近行为，从而尽可能多的保留原始向量丛$E$的信息。事实上，我们有以下结论：
+\begin{proposition}
+    假设$E_1$，$E_2$是来自如上所述的两个$G$的酉表示产生的向量丛，则他们各自诱导抛物丛${\pE}_1$，${\pE}_2$。对任意的$G$等变态射$\phi: E_1 \to E_2$，它诱导了丛${\pE}_1$到${\pE}_2$的态射，不妨依旧记为$\phi$，并且在抛物点$y$处满足$\phi(F_iW_{1,y})\subset F_jW_{2,y}$当且仅当$\alpha_{1,i}>\alpha_{2,j}$。
+\end{proposition}
+因此记录抛物结构是有必要的。
+
+以上的内容成为了抛物丛定义的动机以及 Kobayashi--Hinchin 对应的雏形。
+% \section{脚注}
+\section{抛物Higgs丛}
+
+令$X$为一个非紧黎曼面，$\overline{X}$为$X$的一个光滑紧化，令$\omega$为$\overline{X}$上的一个 K\"ahler 形式，其在$X$上的限制依然记为$\omega$。令$j:X\to \overline{X}$为其嵌入映射，令$Y=\overline{X}-X$. 
+\begin{definition}\label{regularsytemofhodgebundle}
+    一个$X^{alg}$上的\textbf{正则丛}是一个代数Higgs丛$E$并存在以下滤链：
+    \[
+    j_*^{alg}E=\bigcup_{\alpha\in \R^{Y}} E_{\alpha}
+    \]
+其中$E_\alpha$皆为凝聚子层，我们赋予$\R^{Y}$自然的偏序结构。并且我们要求Higgs场满足
+\[
+\theta: E_\alpha \to E_\alpha\otimes \Omega_X^1\langle\log(Y)\rangle
+\]
+下面我们会看到这样的定义是自然的。假设我们有一个全纯的Higgs丛$E\to X$，如果$E$上存在一个在奇点附近行为较好的度量$h$，我们可以通过如下方式构造出一族子层$a_hE=\bigcup_{\alpha\in \R^{Y}} E_\alpha$：我们定义$E_\alpha$为$j^{an}_*E$当中满足以下条件的子层，对任意的$y\in Y$，假设$y\in\U$，我们只选取增长速度满足
+\[
+|s|_h\leq C r^{\alpha_y+\epsilon},\quad \forall\epsilon>0
+\]
+的那些截面$s$。
+
+Simpson\cite{Si1}证明了以下定理，
+\begin{theorem}
+    假设$(E,\overline{\partial},\theta, h)$是一个带度量的抛物Higgs丛，并且度量$h$满足
+    \[
+    \int_X |F_{\nabla^{hs}_h}|^p <\infty,\quad p>1
+    \]
+    则如上定义的$E_\alpha$是凝聚层，并且$\theta$满足
+    \[
+    \theta: E_\alpha \to E_\alpha \otimes \Omega_X^2\langle\log Y\rangle
+    \]
+    因此$E$是一个正则丛。上述的构造 $a$ 和取$\det$，对偶，张量积可交换。假设
+\end{theorem}
+
+
+任给切向量$v\in T^{1,0}$，$\theta(v)$是周期域$G_0/K_0$的切向量，由\cite{griffiths1969locally}中的结论，周期域的全纯截面曲率在$\g^{-1,1}$方向上是严格负的，因此我们有
+\[
+\frac{R(\theta(v),\overline{\theta}(\bar{v}),\theta(v),\overline{\theta}(\bar{v}))}{|\theta(v)|^4}=-\langle [[\theta(v),\overline{\theta}(\bar{v})],\theta(v)],\theta(v)\rangle\leq -C
+\]
+取局部坐标$z$使得$\omega=\frac{i}{2}\diff z\wedge \diff \overline{z}$以及丛的酉标架。在此平凡化下
+\[\theta=\phi\diff z, \quad \overline{\theta}=\phi^\dagger \diff \overline{z}\]
+\[|\theta|^2=2\tr(\phi\phi^\dagger),\quad [\theta,\theta^\dagger]=(\phi\phi^\dagger-\phi^\dagger\phi)\diff z\wedge \diff \overline{z}\]
+\[
+i\Lambda[\theta,\theta^\dagger]=2(\phi\phi^\dagger-\phi^\dagger\phi)=2[\theta(\frac{\partial}{\partial z}), \overline{\theta}(\frac{\partial}{\partial \overline{z}})]=2[A,A^\dagger]\]
+
+\[
+   \langle [\frac{i}{2}\Lambda[\theta,\theta^\dagger],\theta],\theta\rangle=2\langle [[A,A^\dagger],A],A\rangle
+\]
+因此我们有
+\[
+\frac{\langle [2i\Lambda[\theta,\overline{\theta}],\theta],\theta\rangle}{|\theta|^2}\geq C|\theta|^2
+\]
+
+\end{definition}
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+% incididunt ut labore et dolore magna aliqua.
+% \footnote{Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+%   nisi ut aliquip ex ea commodo consequat.
+%   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+%   eu fugiat nulla pariatur.}
