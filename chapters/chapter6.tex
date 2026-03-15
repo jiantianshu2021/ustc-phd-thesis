@@ -1,0 +1,102 @@
+\chapter{抛物稳定性与解析稳定性}
+
+给定紧 Kähler 流形 \((X,\omega)\) 上的一个抛物层 \(\F_*\)，定义其关于 \(\omega\) 的抛物次数为
+\[
+\deg_\omega(\F_*):=\ch_1(\F_*)\cdot \frac{[\omega]^{n-1}}{(n-1)!},
+\]
+关于 \(\omega\) 的斜率为
+\[
+\mu_\omega(\F_*):=\frac{\deg_\omega(\F_*)}{\rank(\F_*)}.
+\]
+
+\begin{definition}[抛物稳定性]
+若对任意真抛物子层 \(\Sb_*\subset \F_*\)，都有
+\[
+\mu_\omega(\Sb_*)<\mu_\omega(\F_*),
+\]
+则称 \(\F_*\) 关于 \(\omega\) 是\textbf{抛物稳定的}。
+\end{definition}
+
+接下来回顾 Simpson \cite{Si1} 对一个 Hermitian 全纯向量丛 \((E,\bar\partial,H)\) 在非必紧的 Kähler 流形 \((X^\circ,\omega)\) 上的\textbf{解析稳定性}定义。
+
+无挠子层 \(\Sb\subset E\) 的解析次数定义为
+\[
+\deg_{H,\omega}(\Sb)
+:=
+\frac{\sqrt{-1}}{2\pi}
+\int_{\Sb_{reg}}
+\tr(\F_{H|_{\Sb}})\wedge \frac{\omega^{n-1}}{(n-1)!},
+\]
+其中 \(H|_{\Sb}\) 是 \(\Sb\) 的局部自由部分上的限制，而 \(\Sb_{reg}\) 是 \(X^\circ\) 中 \(\Sb\) 局部自由的 Zariski 开子集。解析斜率定义为
+\[
+\mu_{H,\omega}(\Sb):=\frac{\deg_{H,\omega}(\Sb)}{\rank(\Sb)}.
+\]
+
+注意，由 Chern--Weil 公式，
+\[
+\deg_{H,\omega}(\Sb)
+=
+\frac{\sqrt{-1}}{2\pi}
+\int_{\Sb_{reg}}\tr(p_{\Sb,H}\Lambda_\omega F_H)
+-
+\frac{1}{2\pi}
+\int_{\Sb_{reg}}|\bar\partial p_{\Sb,H}|_H^2,
+\]
+其中 \(p_{\Sb}\) 是 \(E\) 到 \(\Sb\) 的正交投影。因此，若要在非紧流形 \(X^\circ\) 上定义上述概念，我们需要要求
+\[
+F_H\in L^1(X^\circ,\omega),\qquad
+p_{\Sb,H}\in L_1^2(\Sb_H),
+\]
+其中 \(L_1^2(\Sb_H)\) 是关于 \(H\) 自伴的 \(\En(E)\)-截面的 Sobolev 空间。
+
+\begin{definition}[解析稳定性]
+若对任意真饱和子层 \(\Sb\subset E\)，只要 \(p_{\Sb,H}\in L_1^2(\Sb_H)\)，都有
+\[
+\mu_{H,\omega}(\Sb)<\mu_{H,\omega}(E),
+\]
+则称 \(E\) 关于 \(\omega\) 与 \(H\) 是\textbf{解析稳定的}。
+\end{definition}
+
+在上一章节中，我们构造了一个度量 \(\widehat{H}\)，它对 \(\F_*\) 的任意抛物子层 \(\Sb_*\) 在余维 1 上都是适配的，并且 \(\widehat{H}\) 定义在底层层 \(\F\) 的局部自由部分
+\[
+\F|_{X^\circ\setminus D}
+\]
+上。于是应有以下命题。
+
+\begin{proposition}
+\(\F_*\) 关于 \(\omega\) 的抛物稳定性，等价于 \(\F|_{X^\circ\setminus D}\) 关于 \(\omega\) 的限制与 \(\widehat{H}\) 的解析稳定性。
+\end{proposition}
+
+\begin{proof}
+假设 \(\F\) 解析稳定。对任意真抛物子层 \(\Sb_*\subset \F_*\)，\(\Sb|_{X^\circ\setminus D}\) 是 \(\F\) 的一个无挠子层。由命题 5.16 立即推出 \(\F_*\) 是抛物稳定的。
+
+反之，假设 \(\F_*\) 抛物稳定。我们需要比较任意真饱和子层 \(\Sb\subset \F|_{X^\circ\setminus D}\)（满足 \(p_{\Sb,\widehat{H}}\in L_1^2(\Sb_{\widehat{H}})\)）的解析斜率与 \(\F|_{X^\circ\setminus D}\) 的解析斜率。由命题 4.16，只需证明：任意这样的 \(\Sb\) 都可以延拓成 \(\F_*\) 的一个抛物子层。\cite[Proposition 5.9]{Li} 已证明 \(\Sb\) 可延拓到 \(X^\circ\) 上成为 \(\F\) 的一个凝聚子层。由于 \(X\setminus X^\circ\) 是余维 3 的解析子集，且 \(\F\) 自反，因此 \(\Sb\) 还可进一步延拓为 \(\F\) 的一个凝聚子层 \(\Sb'\)。令 \(\Sb''\) 为 \(\Sb'\) 的饱和化，则 \(\Sb''_*\) 就是 \(\F_*\) 的一个抛物子层，它延拓了 \(\Sb\)。
+\end{proof}
+
+为了方便读者并供后文使用，我们把 \cite[Proposition 5.9]{Li} 的思想总结成下面的命题。为此先引入一个关于除子附近 Hermitian 度量奇性的概念。
+
+\begin{definition}
+设 \(\Delta^n\) 是以原点为中心的多圆盘，\(\Delta^*\) 是去心单位圆盘。设 \(E\) 是 \(\Delta^n\) 上平凡全纯向量丛，\(H\) 是定义于
+\[
+E|_{\Delta^{n-k}\times (\Delta^*)^k}
+\]
+上的一个可能奇异的度量。若沿除子
+\[
+z_{k+1}z_{k+2}\cdots z_n=0
+\]
+有
+\[
+|H|=O(|z'|^a)
+\]
+其中 \(a\in\mathbb R\)，\(z'=(z_{k+1},\dots,z_n)\)，则称 \(H\) 沿该除子具有\textbf{多项式增长}。若 \(a>0\)，也称其具有\textbf{多项式衰减}。
+\end{definition}
+
+于是 \cite[Proposition 5.9]{Li} 表明：
+
+\begin{proposition}
+若 \(H\) 是定义在 \(\F|_{X^\circ\setminus D}\) 上的一个 Hermitian 度量，并且它在 \(D\) 附近局部具有多项式增长，那么对任意真饱和凝聚子层 \(\Sb\subset \F|_{X^\circ\setminus D}\)，若
+\[
+p_{\Sb,\widehat{H}}\in L_1^2(\Sb_H),
+\]
+则 \(\Sb\) 可以延拓为 \(X^\circ\) 上 \(\F\) 的一个凝聚子层。
+\end{proposition}

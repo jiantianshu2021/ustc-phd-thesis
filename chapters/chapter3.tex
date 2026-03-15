@@ -1,0 +1,294 @@
+\chapter{抛物层的基本概念}
+
+本章节回顾抛物层的基本概念。这些概念可参见，例如 \cite[Chapter 3]{Mo3}、\cite[Section 2]{Iy-Si}、\cite[Section 1]{Ma-Yo}。这些文献中引入的抛物层定义略有差异，但本质思想是相似的。实际上，\cite{Iy-Si} 中讨论了文献中出现的多种定义，在限制到局部阿贝尔抛物丛时它们是等价的。本文基本遵循 \cite{Mo3} 中的定义。
+
+设 \((X,D)\) 是一对，其中 \(X\) 是复流形，\(D=\bigcup_{i\in I}D_i\) 是一个简单正规交叉除子。我们在指标集 \(I\) 上固定一个线性排序。先引入与 \((X,D)\) 相关的抛物丛，再推广到层。如果说某个性质 \(P\) 在余维 \(k-1\) 上一般成立，意即 \(P\) 在一个余维为 \(k\) 的解析子集之外成立。
+
+\section{抛物丛}
+
+我们从相容过滤的概念开始。固定一个向量空间 \(V\)。
+
+\begin{definition}
+\(V\) 的一个\textbf{递减左连续过滤}是一个由 \(a\in[0,1)\) 索引的子空间族 \(\mathcal F=\{F_a\mid a\in[0,1)\}\)，满足：
+\begin{enumerate}[label=\arabic*.]
+\item 若 \(a\le b\)，则 \(F_a\supseteq F_b\)；
+\item \(F_0=V\)，且当 \(b\) 充分接近 1 时，\(F_b=0\)；
+\item 若 \(\varepsilon\) 充分小，则 \(F_{a-\varepsilon}=F_a\)。
+\end{enumerate}
+\end{definition}
+
+本文中出现的所有过滤都默认为递减且左连续，因此以下统称为过滤。
+
+给定一组滤链，即 \(F=\{{}^iF\mid i\in I\}\) 其中每个$^{i}F$都是滤链。对任意 \(J\subset I\) 及 \(\eta\in[0,1)^J\)，定义
+\[
+{}^JF_\eta=\bigcap_{j\in J} {}^jF_{\eta_j}.
+\]
+
+\begin{definition}
+一个过滤组 \(F=\{{}^iF\mid i\in I\}\) 称为\textbf{相容的}，如果它们存在一个共同分裂，即存在一个分解
+\[
+V=\bigoplus_{\eta\in[0,1)^I}U_\eta
+\]
+使得
+\[
+{}^IF_\rho=\bigoplus_{\eta\ge \rho} U_\eta.
+\]
+\end{definition}
+
+对于复流形 \(M\) 上的一个凝聚层 \(\mathcal{V}\)，我们以同样方式定义其子层的递减左连续过滤。若过滤 \(\mathcal F=\{\F_a\mid a\in[0,1)\}\) 的各子层都是局部自由的，且对所有 \(a\)，
+\[
+\Gr_a:=\F_a/\F_{>a}
+\]
+也局部自由，则称该过滤是在向量丛范畴中的。
+
+\begin{definition}
+一个向量丛过滤组 \(\boldsymbol{F}=\{{}^iF\mid i\in I\}\) 称为\textbf{相容的}，如果：
+\begin{enumerate}[label=\arabic*.]
+\item 对任意 \(x\in X\)，纤维上的过滤组 \(F_x\) 按定义 2.2 相容；
+\item 对任意 \(J\subset I\) 与 \(\rho\in[0,1)^J\)，\({}^J F_\rho\) 是一个子丛。
+\end{enumerate}
+\end{definition}
+
+设 \(F\) 是 \(X\) 上的一个向量丛。在每个不可约分支 \(D_i\) 上，可指定 \(F|_{D_i}\) 的一个向量丛过滤 \({}^iF\)。于是得到过滤组 \(\boldsymbol{F}=\{{}^iF\mid i\in I\}\)。对任意 \(J\subset I\)，记
+\[
+D_J=\bigcap_{j\in J}D_j.
+\]
+则 \({}^JF\) 是向量丛 \(F|_{D_J}\) 上的一组过滤。
+
+\begin{definition}
+上述二元组 \((F,\boldsymbol{F})\) 称为一个\textbf{抛物丛}，如果对所有 \(J\subset I\)，在 \(D_J\) 的任意不可约分支上，\({}^J F\) 按定义 2.3 相容。称 \(\boldsymbol{F}\) 为 \(F\) 的抛物结构。
+\end{definition}
+
+\begin{definition}
+一个抛物丛 \((F,\boldsymbol{F})\) 称为\textbf{局部阿贝尔的}，如果对每个 \(x\in X\)，存在其一个邻域 \(U_x\)，使得 \((F,\mathcal F)|_{U_x}\) 在抛物层范畴中同构于若干抛物线丛的直和（见下一小节定义）。
+\end{definition}
+
+N. Borne \cite{Bo} 证明了：
+
+\begin{theorem}
+给定 \((X,D)\) 上一个抛物丛 \((F,\boldsymbol{F})\)。若由正合列
+\[
+0\to {}^iF_a\to F\to F|_{D_i}/{}^iF_a\to 0
+\]
+定义的各子层的所有交都是局部自由的，则 \((F,\boldsymbol{F})\) 是局部阿贝尔的。
+\end{theorem}
+
+\begin{remark}
+若底空间是一个光滑代数簇，则 Borne 的定理更强：它说明该抛物丛在任意 Zariski 邻域中都同构于抛物线丛的直和。
+\end{remark}
+
+\section{抛物层}
+
+设 \(\F\) 是一个无挠的 \( \mathcal O_X\)-凝聚层。
+
+\begin{definition}
+\(\F\) 上的一个\textbf{抛物结构}是一个组
+\[
+\boldsymbol{\F}=\{{}^i\mathcal F\mid i\in I\},
+\]
+其中每个 \({}^i\mathcal F_a\) 是由 \(a\in[0,1)\) 索引、长度有限 \(l_i\) 的递减左连续过滤，并满足：对任意 \(a\in[0,1)\)，
+\[
+{}^i\mathcal F_a\supset F(-D_i),
+\]
+且当 \(a\) 充分大时，
+\[
+{}^i\mathcal F_a=F(-D_i).
+\]
+\end{definition}
+
+对于 \(D_i\) 上的过滤 \({}^i\mathcal F\)，令
+\[
+{}^ia=\{{}^ia_0,{}^ia_1,\dots,{}^ia_{l_i}\}
+\]
+表示使
+\[
+{}^i\Gr_{{}^ia_k}\pF\neq 0
+\]
+的索引递增序列。通常称这些数为 \(D_i\) 上抛物结构的\textbf{权重}。称 \(\F\) 为过滤中的\textbf{顶旗}（top flag），称 \(\F(-D_i)\) 为\textbf{柄部}（handle）。
+
+\begin{definition}
+一个\textbf{抛物层}是一个二元组
+\[
+\pF=(\F,\boldsymbol{\F}),
+\]
+其中 \(\F\) 是解析凝聚层，\(\boldsymbol{\F}\) 是其上的抛物结构。
+\end{definition}
+
+\begin{definition}
+\(\pF\) 的一个\textbf{抛物子层}定义为一个商无挠子层 \(\E\)，并赋予其自然诱导的抛物结构。
+\end{definition}
+
+\begin{definition}
+一个态射 \(f:\pF\to \pG\) 定义为一个层态射 \(f:\F\to \G\)，并满足对所有 \(a\in[0,1)\) 及所有 \(i\)，
+\[
+f({}^i\F_a)\subset {}^i\G_a.
+\]
+\end{definition}
+
+记两个抛物层 \(\pF\) 与 \(\pG\) 间的态射集为
+\[
+\Hom(\pF,\pG).
+\]
+
+\begin{definition}
+一个由抛物层构成的复形
+\[
+\cdots\to \pE\to \pF\to \pG\to\cdots
+\]
+在 \(\pF\) 处正合，当且仅当对所有 \(i,a\)，复形
+\[
+\cdots\to {}^i\E_a\to {}^i\F_a\to {}^i\G_a\to\cdots
+\]
+在 \({}^i\F_a\) 处正合。
+\end{definition}
+
+一个抛物丛按如下方式给出一个抛物层。给定抛物丛 \(F_*\)，通过正合列
+\[
+0\to {}^i\F_a\to F\to F|_{D_i}/{}^iF_a\to 0
+\]
+定义抛物结构 \({}^i\F_a\)。
+
+反之，一个抛物层距离抛物丛有多远？下面的引理给出部分回答。
+
+我们称一个抛物层 \(\pF\) 是\textbf{自反的}，如果 \(\F\) 是自反的。若对任意 \(i,a\)，商 \(\F/{}^i\F_a\) 都是无挠的 \(\mathcal O_{D_i}\)-模，则称 \(\pF\) 是\textbf{饱和的}。记
+\[
+{}^i\F_a|_{D_J}:=\ker\bigl({}^Jm^{*}({}^i\F_a)\to {}^Jm^{*}(\F)\bigr),
+\]
+其中 \({}^Jm\) 是 \(D_J\) 的嵌入。
+
+\begin{lemma}
+一个饱和自反抛物层的抛物结构中出现的任意若干子层的交仍然是自反的。
+\end{lemma}
+
+\begin{proof}
+T. Mochizuki \cite[Proposition 3.1.2]{Mo3} 证明了所有 \({}^i\F_a\) 都是自反的。于是引理由如下事实推出：一个自反层中的两个自反子层的交仍然自反。
+\end{proof}
+
+\begin{lemma}
+一个饱和自反抛物层在余维 2 上是一个局部阿贝尔的抛物丛。
+\end{lemma}
+
+\begin{proof}
+记该层为 \(\pF\)。由于 \(\F\) 是自反的，它在一个余维为 3 的解析子集 \(Z_0\) 之外局部自由。对每个 \(D_i\)，由于 \(\F/{}^i\F_a\) 是无挠 \(\mathcal O_{D_i}\)-模，它在 \(D_i\) 内一个余维为 2 的解析子集 \(Z_i\) 之外局部自由。因此，在 \(\bigcup_{i\in I\cup\{0\}} Z_i\) 之外，对所有 \(i\)，\({}^i\mathcal F|_{D_i}\) 都是向量丛过滤。容易检验，对于 \(i\neq j\)，向量丛过滤 \({}^i\mathcal F|_{D_{ij}}\) 与 \({}^j\mathcal F|_{D_{ij}}\) 在 \(D_{ij}\) 内一个余维为 2 的解析子集 \(Z_{ij}\) 之外相容。因此，如果我们进一步去掉所有 \(Z_{ij}\) 以及满足 \(|J|\ge 3\) 的 \(D_J\)，则 \(\pF\) 将成为一个抛物丛。由上一个引理，所有 \({}^i\F_a\) 的交都是自反的，因此它们在一个余维为 3 的解析子集 \(Z'\) 之外局部自由。去掉 \(Z'\) 后，\(\pF\) 即成为局部阿贝尔的。
+\end{proof}
+
+\begin{lemma}
+一个抛物层的自反饱和化是唯一的，它在余维 1 上与原抛物层同构。即：给定抛物层 \(\pF\)，存在唯一的饱和自反抛物层 \(\F'_{*}\) 以及一个单态射
+\[
+m:\F_*\to \F'_*
+\]
+使得 \(m\) 在余维 1 上是同构。
+\end{lemma}
+
+\begin{proof}
+令 \(\F'\) 为 \(\F\) 的两次对偶。它们在一个余维为 2 的解析子集 \(Z\) 外同构。由于 \(\F'\) 是正规层，我们定义抛物结构 \(\boldsymbol{\F}_1\) 为 \(\boldsymbol{\F}|_{X\setminus Z}\) 在 \(\F'\) 中的唯一延拓。由 \cite[Theorem 2.2]{Si-Tr}，\(\boldsymbol{\F}_1\) 中的子层是凝聚的。此外，\({}^i\mathcal F\) 的顶旗是 \(\F'\)，柄部是 \(\F'(-D_i)\)。因此 \(\F'/{}^i(\mathcal F_1)_a\) 可视为 \(\mathcal O_{D_i}\)-模。最后，我们将 \(\F'/{}^i(\mathcal \F_1)_a\) 的 \(\mathcal O_{D_i}\)-挠子层在商映射下的逆像定义为 \({}^i\F'_a\)。容易验证 \(\F'_*=(\F',\boldsymbol{\F}')\) 满足要求。唯一性立即由引理 2.3 及“自反层是正规层”这一事实推出。
+\end{proof}
+
+\section{抛物 Chern 特征}
+
+假设 \(X\) 是一个紧 Kähler 流形。
+
+\begin{definition}
+一个抛物层 \(\pF\) 的\textbf{抛物 Chern 特征} \(\ch(\F_*)\) 定义为
+\[
+\ch(\F_*)=
+\ch(D)\,
+\frac{\int_0^1\cdots\int_0^1 e^{\sum_{i=1}^k a_i[D_i]}\cdot \ch({}^{I}\F_a)\,da_1\cdots da_k}
+{\int_0^1\cdots\int_0^1 e^{\sum_{i=1}^k a_i[D_i]}\,da_1\cdots da_k},
+\]
+其中 \(k=|I|\)，且 \(a\in [0,1)^k\)。
+\end{definition}
+
+\begin{remark}
+本文中，我们使用的是 \cite{Kf} 中为紧复流形上的普通凝聚解析层提供的 Chern 特征函子；他们将光滑代数情形中的交叉理论（更精确地说，GRR 定理）推广到了光滑复解析情形。上述抛物 Chern 特征定义正是建立在他们对普通层的定义之上。然而，这一定义绝非标准。上述公式最初由 Iyer 与 Simpson 在 \cite{Iy-Si} 中针对局部阿贝尔、具有有理权重的抛物丛得到。他们证明：一对由光滑概形与简单正规交叉除子组成的 \((X,D)\) 上的局部阿贝尔抛物丛范畴，与某个关联 Deligne--Mumford 栈 \(Z\) 上的向量丛范畴等价。然后他们利用这一等价定义了局部阿贝尔抛物丛的抛物 Chern 特征，并计算出上述显式公式。但对于更一般的抛物层、甚至一般抛物丛，并没有明显理由保证上述公式仍成立。我们采用它作为定义，理由如下。
+
+首先，这样定义的 Chern 特征具有良好的函子性质。例如，给定抛物层的短正合列
+\[
+0\to \E_*\to \F_*\to \G_*\to 0,
+\]
+有
+\[
+\ch(\F_*)=\ch(\E_*)+\ch(\G_*).
+\]
+事实上，这已经足够用于第 7 节中证明 Bogomolov--Gieseker 不等式。
+
+更重要的是，Taher 在 \cite{Ta} 中计算表明：对于在余维 1（分别地，余维 2）上局部阿贝尔的抛物丛，第一（分别地，第二）Chern 特征有如下更具体的公式。
+\end{remark}
+
+设 \(\F_*\) 在余维 2 上是局部阿贝尔的抛物丛，例如一个饱和自反抛物层。记
+\[
+{}^i\Gr \F_*:=\bigoplus_{a\in[0,1)}\bigl({}^i\Gr_a\F_*:={}^i\F_a/{}^i\F_{>a}\bigr)
+\]
+为 \(\mathcal O_{D_i}\)-模的分次层。在 \(D_i\cap D_j\) 的任意不可约分支 \(P\) 上，定义
+\[
+{}^P\Gr_{(a_i,a_j)}\F_*:=
+{}^P\ F_{a_i,a_j}\Big/\sum_{x>a_i,\ y>a_j} {}^P \F_{x,y}.
+\]
+则有
+\begin{align}
+\ch_1(\F_*)
+&=
+\ch_1(\F)+
+\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot \rank_{D_i}({}^i\Gr_a\F_*)\cdot [D_i],
+\end{align}
+以及
+\begin{align}
+\ch_2(\F_*)
+&=
+\ch_2(\F)
++\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot m_{i*}\bigl(\ch_1({}^i\Gr_a\F_*)\bigr)\\
+&\quad
++\frac12\sum_{i\in I}\sum_{a\in[0,1)}
+a^2\cdot \rank_{D_i}({}^i\Gr_a\F_*)\cdot [D_i]^2
+\nonumber\\
+&\quad
++\sum_{i<j}\sum_{P\in \operatorname{Irr}(D_i\cap D_j)}
+\sum_{(a_i,a_j)\in[0,1)^2}
+a_i a_j \cdot \rank_P({}^P\Gr_{(a_i,a_j)}\F_*)\cdot [P].
+\end{align}
+
+\begin{remark}
+上述第一 Chern 特征公式最早由 V. Mehta 与 C. S. Seshadri \cite{Me-Se} 在代数曲线上引入，随后由 M. Maruyama 与 K. Yokogawa \cite{Ma-Yo} 推广到高维抛物层。局部阿贝尔抛物丛的第二 Chern 特征公式则由第二作者 \cite[Lemma 7.3, 7.4]{Li} 利用某种沿除子退化的适配度量的曲率张量得到。之后 T. Mochizuki \cite{Mo3} 将其作为饱和自反抛物层的定义。Iyer 与 Simpson \cite{Iy-Si} 给出了局部阿贝尔抛物丛的一个一般性抛物 Chern 特征定义后，Taher \cite{Ta} 证明了这个新定义与经典定义一致。
+\end{remark}
+
+由于本文只研究自反饱和抛物层，因此本小节开头给出的 Chern 特征函子足以胜任。接下来，在下面的引理中，我们比较一个抛物层与其自反饱和化的 Bogomolov--Gieseker 判别式。
+
+\begin{lemma}
+设 \(\F'_*\) 是抛物层 \(\F_*\) 的自反饱和化，则
+\[
+\Delta(\F'_*)\ge \Delta(\F_*).
+\]
+\end{lemma}
+
+\begin{proof}
+一方面，由于它们在余维 1 上同构，\(T_a={}^{I}\F'_a/{}^{I}\F_a\) 是支撑在余维 2 解析子集上的挠层。由 \cite[Theorem 1.1]{Kf}，\(\ch_1(T_a)=0\)，而 \(\ch_2(T_a)\) 由 \(\supp T_a\) 中余维 2 的不可约分支的非负线性组合表示。
+
+另一方面，根据公式 (1)，有
+\[
+\ch(\F'_*)-\ch(\F_*)
+=
+\ch(D)\,
+\frac{\int e^{\sum a_i[D_i]}\ch(T_a)}
+{\int e^{\sum a_i[D_i]}}.
+\]
+因此容易看出
+\[
+\ch_1(\F'_*)=\ch_1(\F_*),
+\]
+且
+\[
+\ch_2(\F'_*)-\ch_2(\F_*)
+\]
+是由 \(\supp T_a\) 中余维 2 不可约分支的非负线性组合表示的流。于是
+\[
+\Delta(\F'_*)\ge \Delta(\F_*).
+\]
+\end{proof}
+
+抛物层的稳定性、多稳定性与半稳定性定义方式与普通层完全类似。Harder--Narasimhan 过滤与 Jordan--H\"older 过滤的存在唯一性也可以像普通层那样形式上证明。并且与普通层情形一样：
+
+\begin{lemma}
+如果抛物层 \(\F_*\) 关于某个类 \([\eta]\in H^2(X,\mathbb R)\) 是稳定的，则其自反饱和化 \(\F'_*\) 也是 \(\eta\)-稳定的。
+\end{lemma}

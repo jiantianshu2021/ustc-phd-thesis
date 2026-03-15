@@ -1,0 +1,1068 @@
+\chapter{度量的构造与分析}
+
+本节中，我们首先在 \(X\setminus D\) 上构造一族锥型 Kähler 度量 \(\omega_\delta\)，并在 \(\widetilde X\setminus D\) 上构造一族锥型 Kähler 度量 \(\omega_{\epsilon\delta}\)。接着，我们在 \(F_*\) 的正则部分上构造一个与抛物结构相容（按定义 1.1）的 Hermitian 度量 \(\widehat{H}\)。这些度量将在第 7 节研究 H-Y-M 流时使用。
+
+令 \(h_i\) 为 \( \mathcal O_X(D_i)\) 的一个 Hermitian 度量。记 \(\sigma_i\) 为 \( \mathcal O_X(D_i)\) 的典范截面，其关于 \(h_i\) 的范数记作 \(|\sigma_i|\)。\( \mathcal O_X(D)\) 的典范截面记作 \(\sigma\)，其范数记作 \(|\sigma|\)。假定 \(|\sigma|<1\)。与上一节相同，我们在 \(\pi:\widetilde X\to X\) 的拉回下不改变几何对象的记号。
+
+\section{锥型 Kähler 度量}
+
+我们在 \(X\) 上构造一族正则化度量，其极限将给出 \(X\setminus D\) 上的一个锥型 Kähler 度量 \(\omega_\delta\)。这种正则化技巧常用于处理锥型 Kähler 流形上的几何问题，参见 \cite{Ga-Hi-Pn-Mi}。对任意 \(0\le \nu\) 与 \(0<\delta<\frac12\)，定义函数
+\[
+\chi_{\nu\delta}(t):=
+\delta\int_0^t \frac{(\nu^2+s)^\delta-\nu^{2\delta}}{s}\,ds.
+\]
+取某个正数 \(C>0\)，定义
+\[
+\omega_{\nu\delta}
+:=
+\omega
++
+C\sum_{i\in I}\sqrt{-1}\,\partial\bar\partial \chi_{\nu\delta}f(|\sigma_i|^2).
+\]
+
+\begin{proposition}
+当 \(C\) 充分小时：
+\begin{itemize}
+\item 若 \(0<\nu\)，则对任意 \(\delta\)，\(\omega_{\nu\delta}\) 是 \(X\) 上的 Kähler 度量；
+\item 若 \(\nu=0\)，则 \(\omega_\delta:=\omega^0_\delta\) 对任意 \(\delta\) 都是 \(X\setminus D\) 上的 Kähler 度量。
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+直接计算得
+\[
+\sqrt{-1}\,\partial\bar\partial \chi_{\nu\delta}(|\sigma_i|^2)
+=
+\sqrt{-1}\,\delta^2(\nu^2+|\sigma_i|^2)^\delta\cdot
+\frac{\langle \partial_{h_i}\sigma_i,\partial_{h_i}\sigma_i\rangle}{\nu^2+|\sigma_i|^2}
+-
+\sqrt{-1}\,\delta\bigl((\nu^2+|\sigma_i|^2)^\delta-\nu^{2\delta}\bigr)\cdot F_{h_i}.
+\]
+由以下量的一致有界性可得结论：
+\[
+\frac{\langle \partial_{h_i}\sigma_i,\partial_{h_i}\sigma_i\rangle}{\nu^2+|\sigma_i|^2},
+\qquad
+F_{h_i},
+\qquad
+\delta(\nu^2+|\sigma_i|^2)^\delta,
+\qquad
+\delta^2(\nu^2+|\sigma_i|^2)^\delta.
+\]
+\end{proof}
+
+上述等式也表明，当 \(\nu\to 0\) 时，\(\omega_{\nu\delta}\) 在 \(C^\infty_{\mathrm{loc}}\)-拓扑下收敛到 \(\omega_\delta\)。\(\omega_\delta\) 在 \(D\) 上任一点附近的行为良好，具体如下，这从构造上是显然的。
+
+\begin{lemma}
+设 \(x\in D_J\)，其中 \(J\subset I\)。可取以 \(x\) 为中心的小坐标邻域，使得 \(D\) 的定义方程为
+\[
+z_1\cdots z_k=0.
+\]
+则存在正常数 \(C_1\)，使得
+\[
+C_1^{-1}\omega_\delta
+\le
+\sqrt{-1}\,\delta^2\sum_{i=1}^k \frac{dz_i\wedge d\bar z_i}{|z_i|^{2-2\delta}}
++\sqrt{-1}\,\partial\bar\partial |z|^2
+\le
+C_1\omega_\delta.
+\]
+\end{lemma}
+
+注意，\(\omega_\delta\) 的拉回 \(\pi^*\omega_\delta\) 是 \(\widetilde X\setminus D\) 上一个退化的锥型 Kähler 度量。固定 \(\widetilde X\) 上一个归一化的 Kähler 度量 \(\omega_{\widetilde X}\)，使
+\[
+\int_{\widetilde X}\omega_{\widetilde X}^n=1.
+\]
+令
+\[
+\omega_{\epsilon\delta}:=\omega_\delta+\epsilon\,\omega_{\widetilde X}.
+\]
+则 \(\omega_{\epsilon\delta}\) 是 \(\widetilde X\setminus D\) 上的锥型 Kähler 度量。并有以下命题。
+
+\begin{proposition}
+Kähler 流形 \((\widetilde X\setminus D,\omega_{\epsilon\delta})\) 满足以下三个假设：
+\begin{enumerate}[label=\arabic*.]
+\item \(\widetilde X\setminus D\) 的体积一致有界，与 \(\epsilon,\delta\) 无关；
+\item 存在一个 exhaustion 函数 \(\phi\)，使得 \(\sqrt{-1}\Lambda_{\omega_{\epsilon\delta}}\partial\bar\partial \phi\) 有界；
+\item 若 \(f\) 是 \(\widetilde X\setminus D\) 上有界的正函数，且
+\[
+\Delta_{\delta\epsilon}f\le B
+\]
+其中 \(B\in L^p\)（\(p>n\)）为某个正函数，则
+\[
+\|f\|_{L^\infty}\le C_2\bigl(\|B\|_{L^p}+\|f\|_{L^1}\bigr),
+\]
+其中常数 \(C_2\) 与 \(\epsilon,\delta\) 无关。
+\end{enumerate}
+这里
+\[
+\Delta_{\delta\epsilon}=2\sqrt{-1}\Lambda_{\omega_{\epsilon\delta}}\partial\bar\partial
+\]
+是负 Laplace 算子；本文中其余地方出现的 Laplace 算子都取负号约定。
+\end{proposition}
+
+\begin{proof}
+第一条直接由前一引理推出。令
+\[
+\phi:=\log|\sigma|.
+\]
+则第二条由 Poincar\'e--Lelong 公式可得。
+
+为证明第三条，我们需要用到 \cite{Go-Ph-So-Ja} 中一个非常重要的结果，后文也将用到。设 \((X,\omega_X)\) 是一个紧 Kähler 流形，且归一化满足
+\[
+\int_X \omega_X^n=1.
+\]
+设 \(X\) 的复维数为 \(n\)。对 \(X\) 上任意 Kähler 度量 \(\omega\)，记其体积为
+\[
+V_\omega:=[\omega]^n,
+\]
+并定义相对体积密度
+\[
+e^{\lambda_\omega}
+:=
+\frac{1}{V_\omega}\frac{\omega^n}{\omega_X^n}.
+\]
+给定 \(p\ge 1\)，定义第 \(p\) 个 Nash--Yau 熵为
+\[
+N_p(\omega)
+:=
+\frac1{V_\omega}
+\int_X
+\left|
+\log\left(\frac1{V_\omega}\frac{\omega^n}{\omega_X^n}\right)
+\right|^p\omega^n.
+\]
+
+给定一个非负连续函数 \(\gamma\in C^0(X)\)，以及参数 \(0<A\le \infty\)、\(K>0\)，考虑 Kähler 度量空间中的子集
+\[
+\mathcal W:=\mathcal W(n,p,A,K,\gamma)
+:=
+\left\{
+\omega:\ [\omega]\cdot [\omega_X]^{n-1}<A,\ N_p\le K,\ e^{\lambda_\omega}\ge \gamma
+\right\}.
+\]
+
+根据\cite[Theorem 2.1]{Go-Ph-So-Ja} 得到了如下关于 \(\mathcal{W}\) 中 Kähler 度量的 Sobolev 不等式：
+
+\begin{theorem}[一致 Sobolev 不等式]
+设 \(p>n\)，且 \(\gamma\) 的零点集的 Hausdorff 维数小于 \(2n-1\)。则存在 \(q=q(n,p)>1\) 及常数
+\[
+C_3=C_3(n,p,A,K,\gamma,q)>0,
+\]
+使得对任意 \(\omega\in\mathcal W\) 及任意 \(u\in L_1^2(X)\)，均有
+\[
+\left(
+\frac1{V_\omega}\int_X |u-\bar u|^{2q}\omega^n
+\right)^{1/q}
+\le
+C_3\frac1{V_\omega}\int_X |\nabla u|^2\omega^n,
+\]
+其中
+\[
+\bar u:=\frac1{V_\omega}\int_X u\,\omega^n.
+\]
+\end{theorem}
+
+现在回到第三条的证明。我们将把上述定理应用到 \(\widetilde X\) 上的一族度量
+\[
+\omega^\epsilon_{\delta,\nu}:=\omega_{\nu\delta}+\epsilon\omega_{\widetilde X}.
+\]
+这是一族 \(\widetilde X\) 上的光滑 Kähler 度量。由于 \(\omega^0_{\delta,\nu}\) 仅在例外除子 \(E\) 上退化，所以 \(\omega^\epsilon_{\delta,\nu}\) 可由一个零点集 Hausdorff 维数为 \(2n-2\) 的连续函数 \(\gamma\) 所支撑。为了应用上述定理，我们只需检查 Nash--Yau 熵条件。回忆 \(E\cup D\) 是简单正规交叉的。因此可取局部坐标图
+\[
+z=(z',z'',z'''),
+\]
+使得
+\[
+D=\bigcup_{i=1}^{k'}\{z'_i=0\},\qquad
+E=\bigcup_{j=1}^{k''}\{z''_j=0\}.
+\]
+并可设 \(|z|<1\)。记
+\[
+f_{\epsilon\delta\nu}:=
+\frac{(\omega^\epsilon_{\delta,\nu})^n}{\omega_{\widetilde X}^n}.
+\]
+则 \(f_{\epsilon\delta\nu}\) 要么在 \(E\) 上以 \(\prod_j |z''_j|^a\) 的速度退化到 0，要么在 \(D\) 上以 \(\prod_i |z'_i|^{-a}\) 的速度爆炸到无穷，其中 \(a>0\) 可取一致。于是若固定 \(p>n\)，有
+\[
+|\log(f_{\epsilon\delta\nu})|^p
+\le
+\frac{C_{15}}{\delta^{k'}}
+\cdot
+\frac{\prod_{i=1}^{k'}|z'_i|^{\delta/2}}
+{\prod_{j=1}^{k''}|z''_j|^{1/2}}
+\]
+其中 \(C_{15}\) 与 \(\delta,\epsilon,\nu\) 无关。再由引理 5.2，
+\[
+|\log(f_{\epsilon\delta\nu})|^p(\omega^\epsilon_{\delta,\nu})^n
+\le
+\frac{C_{15}\delta^{k'}}
+{\prod_{i=1}^{k'}|z'_i|^{2-3\delta/2}\cdot \prod_{j=1}^{k''}|z''_j|^{1/2}}.
+\]
+因此 \(\int |\log(f_{\epsilon\delta\nu})|^p(\omega^\epsilon_{\delta,\nu})^n\) 一致有界。于是可取合适的 \(p>n\)、\(A\) 和 \(K\)，使得度量族 \(\omega^\epsilon_{\delta,\nu}\) 属于 \(\mathcal W(n,p,A,K,\gamma)\)。由上定理可推出下面的引理。
+\end{proof}
+
+\begin{lemma}
+对任意 \(f\in C_0^\infty(\widetilde X\setminus D^*)\)，以及任意锥型 Kähler 度量 \(\omega_{\epsilon\delta}\) 于 \(\widetilde X\setminus D^*\) 上，都有一致 Sobolev 不等式
+\[
+\|f\|_{L^q}\le C_4\|f\|_{L_1^2},
+\]
+其中 \(C_4\) 与 \(\epsilon,\delta\) 无关。
+\end{lemma}
+
+\begin{proof}
+这是因为 \(f\) 紧支撑于 \(\widetilde X\setminus D^*\) 中，而 \(\omega^\epsilon_{\delta,\nu}\) 在 \(\nu\to 0\) 时以 \(C^\infty_{\mathrm{loc}}\)-拓扑收敛到 \(\omega_{\epsilon\delta}\)。
+\end{proof}
+
+现在我们可用 Moser 迭代证明命题 5.3 的第三条。设 \(f\) 是一个满足假设的有界正函数，即
+\[
+\Delta_{\omega_{\epsilon\delta}}f
+=
+\sqrt{-1}\Lambda_{\omega_{\epsilon\delta}}\partial\bar\partial f
+\le B.
+\]
+令
+\[
+f_\nu:=(f+\nu\log|\sigma|)^+,\qquad 0<\nu<1.
+\]
+则在弱意义下有
+\[
+\Delta_{\omega_{\epsilon\delta}}f_\nu\le B_\nu,
+\]
+其中 \(B_\nu\) 在 \(\nu\to 0\) 时于 \(C^\infty\)-拓扑下收敛到 \(B\)。由于 \(f_\nu\) 属于 \(C_0^\infty(\widetilde X\setminus D^*)\) 在 Sobolev 意义下的闭包，因此可对其应用 Moser 迭代，得到估计
+\[
+\|f_\nu\|_{L^\infty}\le C_5(\|f_\nu\|_{L^1}+\|B_\nu\|_{L^p}),
+\]
+其中 \(p>n\)。令 \(\nu\to 0\) 即完成证明。 \qed
+
+一致 Sobolev 不等式还导出相对于锥型度量族 \(\omega_{\epsilon\delta}\) 的热核的一致上界。
+
+\begin{proposition}
+设 \(K^\epsilon_\delta\) 是相对于 \(\omega_{\epsilon\delta}\) 的热核。则对任意 \(\tau>0\)，存在与 \(\epsilon,\delta\) 无关的常数 \(C_K(\tau)\)，使得
+\[
+0<K^\epsilon_\delta(x,y,t)\le
+C_K(\tau)
+\left(
+\frac1{t^n}\exp\left(-\frac{d^\epsilon_\delta(x,y)}{(4+\tau)t}\right)+1
+\right),
+\]
+其中 \(d^\epsilon_\delta(\cdot,\cdot)\) 是 \(\widetilde X\setminus D^*\) 上由度量 \(\omega_{\epsilon\delta}\) 诱导的距离函数。
+\end{proposition}
+
+\begin{proof}
+回忆 \(\omega^\epsilon_{\delta,\nu}\) 是紧流形 \(\widetilde X\) 上一族光滑度量，且满足一致 Sobolev 不等式。一方面，结合 \cite{Ch-Li} 中给出的对角热核估计和 \cite[Theorem 1.1]{GrYan} 中的高斯型热核上界估计，可得
+\[
+0<K^\epsilon_{\delta,\nu}(x,y,t)\le
+C_K(\tau)
+\left(
+\frac1{t^n}\exp\left(-\frac{d^\epsilon_{\delta,\nu}(x,y)}{(4+\tau)t}\right)+1
+\right).
+\]
+另一方面，容易证明当 \(\nu\to 0\) 时，\(K^\epsilon_{\delta,\nu}\) 在 \((\widetilde X\setminus D^*)\times (\widetilde X\setminus D^*)\) 的紧子集上一致收敛到热核 \(K^\epsilon_\delta\)。命题得证。
+\end{proof}
+
+\section{抛物度量}
+
+本小节的目标，是在 \(F_*\) 的正则部分上构造一个 Hermitian 度量 \(\widehat{H}\)，使其按定义 1.1 与抛物结构相容。我们还希望它在 \(X\) 上按流的意义满足
+\begin{align*}
+\ch_1(F_*)&=\frac{\sqrt{-1}}{2\pi}\tr(F_{\widehat{H}}),\\
+\ch_1(F_*)^2&=\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\tr(F_{\widehat{H}})\wedge \tr(F_{\widehat{H}}),\\
+\ch_2(F_*)&=\frac12\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\tr(F_{\widehat{H}}\wedge F_{\widehat{H}}).
+\end{align*}
+
+\begin{definition}
+若定义在 \(F_*|_{X^\circ\setminus D}\) 上的 Hermitian 度量 \(H\) 满足上述第一条等式，则称其在余维 1 上\textbf{适配}于 \(F_*\)。若它满足上述全部等式，则称其在余维 2 上\textbf{适配}于 \(F_*\)。
+\end{definition}
+
+根据命题 3.3，只需在局部阿贝尔抛物丛
+\[
+\mathcal E'_*:=\mathcal E\otimes [-P_0]
+\]
+的正则部分上构造一个在余维 2 上适配的 Hermitian 度量 \(H_0\)。确实，一旦完成这一点，取线丛 \(\mathcal O_{\widetilde X}(P_0)\) 的一个 Hermitian 度量 \(h_{P_0}\)，则
+\[
+\widehat{H}:=H_0\otimes h_{P_0}
+\]
+就是 \(\mathcal E|_{\widetilde X\setminus D^*}\) 上的一个 Hermitian 度量，从而诱导出 \(F_*\) 正则部分上的一个度量。由于 \(\mathcal E\otimes[-P_0]\cong F\)，且奇性集余维至少为 3，易见 \(\widehat{H}\) 在余维 2 上适配于 \(F_*\)。
+
+下面介绍构造局部阿贝尔抛物丛适配度量的一种方法。本构造中使用的记号与全文其余部分无关。首先，重要的是在除子 \(D\) 的一个小邻域内找到一个在某种意义上与抛物结构相容的丛的光滑分解。
+
+\subsection{光滑分解}
+
+\paragraph{局部拼接}
+设 \(X\) 是一个复流形，\(D=\bigcup_{1\le i\le \ell}D_i\) 是一个简单正规交叉除子，记
+\[
+Y=\bigcap_{i=1}^\ell D_i,\qquad S=\{a\mid 0\le a<1\}.
+\]
+对每个 \(1\le i\le \ell\)，令
+\[
+q_i:S^\ell\to S
+\]
+表示投影到第 \(i\) 个分量。
+
+设 \(F_*=(F,\mathcal F)\) 是 \(X\) 上一个局部阿贝尔抛物丛。回忆 \(\mathcal F=({}^i\mathcal F\mid i=1,\dots,\ell)\) 是 \(F|_{D_i}\) 上一组按 \(S\) 索引的全纯子丛递减过滤，并满足：
+\begin{itemize}
+\item 对任意 \(1\le i\le \ell\) 及 \(a\in S\)，存在 \(\epsilon>0\) 使得 \({}^iF_a={}^iF_{a-\epsilon}\)；
+\item 对任意 \(P\in Y\)，存在 \(P\) 的一个邻域 \(U_P\subset X\) 以及一个全纯分解
+\[
+F|_{U_P}=\bigoplus_{a\in S^\ell} {}^P G_a
+\]
+使得
+\[
+\bigoplus_{q_i(a)\ge @} {}^P G_a|_{D_i\cap U_P}
+=
+{}^i\mathcal F|_{D_i\cap U_P}.
+\]
+这里符号“\(@\)”表示取值于 \([0,1)\) 的实变量，而右边被理解为左连续过滤。
+\end{itemize}
+
+设 \(X_2\subset X_1\subset X\) 为开集，且 \(X_2\) 的闭包包含于 \(X_1\) 中。假设存在一个 \(C^\infty\)-分解
+\[
+F|_{X_1}=\bigoplus_{a\in S^\ell} {}^1G_a
+\]
+并满足
+\[
+\bigoplus_{q_i(a)\ge @} {}^1G_a|_{D_i\cap X_1}
+=
+{}^i\mathcal F|_{D_i\cap X_1}.
+\]
+
+\begin{proposition}
+存在 \(Y\) 的一个邻域 \(U\) 及一个 \(C^\infty\)-分解
+\[
+F|_U=\bigoplus_{a\in S^\ell} G_a
+\]
+使得：
+\begin{itemize}
+\item \(\bigoplus_{q_i(a)\ge @}G_a|_{D_i\cap U}={}^i\mathcal F|_{D_i\cap U}\)；
+\item \(G_a|_{X_2}={}^1G_a|_{X_2}\)。
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+由于局部上 \(F_*\) 是抛物线丛的直和，因此存在一族开集 \(U_k\)（\(k\in\Lambda\)），满足
+\[
+Y\subset V:=\bigcup U_k\cup X_1,
+\]
+并且在每个 \(U_k\) 上存在一个 \(C^\infty\)-分解
+\[
+F|_{U_k}=\bigoplus_{a\in S^\ell} {}^kG_a
+\]
+使得
+\[
+\bigoplus_{q_i(a)\ge @} {}^kG_a|_{D_i\cap U_k}
+=
+{}^i\mathcal F|_{D_i\cap U_k}.
+\]
+
+取一组从属于覆盖 \(V=\bigcup U_k\cup X_1\) 的分片单位 \(\{\chi_k\}\cup \{\chi_{X_1}\}\)，并可假定 \(\chi_{X_1}=1\) 于 \(X_2\) 上。取一个单射
+\[
+\psi:S^\ell\to \mathbb C.
+\]
+定义
+\[
+f_k=\sum_{a\in S^\ell}\psi(a)\cdot \id_{{}^kG_a},
+\qquad
+f_{X_1}=\sum_{a\in S^\ell}\psi(a)\cdot \id_{{}^1G_a}.
+\]
+于是得到 \(V\) 上 \(F\) 的一个 \(C^\infty\)-自同态
+\[
+f=\sum_{k\in\Lambda}\chi_k f_k+\chi_{X_1}f_{X_1}.
+\]
+
+同时可得如下引理：
+
+\begin{lemma}
+\(f|_Y\) 保持 \(F|_Y\) 上的各过滤 \({}^i\mathcal F\)（\(i=1,\dots,\ell\)）。此外，在 \(\ell\Gr_a(F|_Y)\) 上的诱导自同态等于乘以 \(\psi(a)\)。
+\end{lemma}
+
+于是得到特征分解
+\[
+(F,f)|_Y=\bigoplus_{\alpha\in\mathbb C}(K_\alpha,\alpha\cdot \id_{K_\alpha}).
+\]
+存在 \(Y\) 的一个邻域 \(U\) 及分解
+\[
+(F,f)|_U=\bigoplus_{\alpha\in\mathbb C}(K_{U,\alpha},f_\alpha)
+\]
+使得 \(K_{U,\alpha}|_Y=K_\alpha\)。若 \(U\) 足够小，则 \(f_\alpha|_P\)（\(P\in U\)）的任意特征值都靠近 \(\alpha\)。特别地，可设 \(f_\alpha\) 与 \(f_\beta\)（\(\alpha\ne\beta\)）没有公共特征值。定义
+\[
+G_a:=K_{U,\psi(a)}.
+\]
+由于 \(f|_{D_i\cap U}\) 保持过滤 \({}^i\mathcal F\)，有
+\[
+{}^iF_b|_Y=\bigoplus_{q_i(a)\ge b}K_{\psi(a)}.
+\]
+从而
+\[
+\bigoplus_{q_i(a)\ge @}G_a|_{D_i\cap U}
+=
+{}^i\mathcal F|_{D_i\cap U}.
+\]
+又因为 \(\chi_{X_1}=1\) 于 \(X_2\) 上，所以 \(G_a|_{X_2}={}^1G_a|_{X_2}\)。
+\end{proof}
+
+\paragraph{全局分解}
+借助上面的命题，很容易在 \(D\) 附近得到一个整体的 \(C^\infty\)-分解。设 \(X\) 是复流形，\(D=\bigcup_{i\in\Gamma}D_i\) 为简单正规交叉除子。对任意 \(I\subset \Gamma\)，记
+\[
+D_I=\bigcap_{i\in I}D_i,\qquad
+\partial D_I=\bigcup_{j\in \Gamma\setminus I}(D_I\cap D_j),\qquad
+D_I^\circ=D_I\setminus \partial D_I.
+\]
+对任意 \(I\subset J\subset \Gamma\)，令
+\[
+q_{I,J}:S^J\to S^I
+\]
+表示投影。与前面一样，设 \(F_*=(F,\mathcal F)\) 是 \(X\) 上一个抛物丛，其中 \(\mathcal F=({}^i\mathcal F\mid i\in\Gamma)\) 是其抛物结构。
+
+\begin{proposition}
+存在每个 \(D_i\) 的邻域 \(U_i\) 及 \(C^\infty\)-分解
+\[
+F|_{U_i}=\bigoplus_{a\in S} {}^iG_a
+\]
+使得：
+\begin{itemize}
+\item 对任意 \(b\in S\)，有
+\[
+\bigoplus_{a\ge b} {}^iG_a|_{D_i}={}^iF_b;
+\]
+\item 对任意 \(I\subset \Gamma\) 及 \(a=(a_i\mid i\in I)\in S^I\)，在
+\[
+U_I=\bigcap_{i\in I}U_i
+\]
+上定义
+\[
+{}^IG_a:=\bigcap_{i\in I} {}^iG_{a_i}|_{U_I},
+\]
+则有
+\[
+F|_{U_I}=\bigoplus_{a\in S^I} {}^IG_a.
+\]
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+通过对 \(|I|\) 作递降归纳，可构造 \(D_I\) 的邻域 \(V_I\) 及分解
+\[
+F|_{V_I}=\bigoplus_{a\in S^I} {}^IG_a
+\]
+满足：
+\begin{enumerate}[label=(\alph*)]
+\item 对任意 \(b\in S\)，
+\[
+\bigoplus_{q_{i,I}(a)\ge b} {}^IG_a|_{D_i\cap V_I}
+=
+{}^iF_b|_{D_i\cap V_I};
+\]
+\item 若 \(I\subset J\)，则对任意 \(a\in S^I\)，
+\[
+{}^IG_a|_{V_J}
+=
+\bigoplus_{q_{I,J}(b)=a} {}^JG_b.
+\]
+\end{enumerate}
+
+设对所有满足 \(|J|\ge k_0+1\) 的 \(J\subset \Gamma\) 已构造完毕。取 \(|I|=k_0\)。对 \(I\subset J\subset \Gamma\) 且 \(U_J\neq\emptyset\)，以及 \(a\in S^I\)，定义
+\[
+{}^JG_a:=\bigoplus_{q_{I,J}(b)=a} {}^JG_b.
+\]
+于是得到
+\[
+F|_{U_J}=\bigoplus_{a\in S^I} {}^JG_a.
+\]
+由条件 (b)，若 \(J\subset K\)，则有 \({}^JG_a|_{U_K}={}^KG_a\)。从而由 \({}^JG_a\)（\(I\subsetneq J\)）可在
+\[
+U_{I,1}:=\bigcup_{I\subsetneq J}U_J
+\]
+上得到一个 \(C^\infty\)-子丛 \({}^{1,I}G_a\)，并有分解
+\[
+F|_{U_{I,1}}=\bigoplus_{a\in S^I} {}^{1,I}G_a.
+\]
+
+取 \(\partial D_I\) 的一个开邻域 \(U_{I,2}\subset U_{I,1}\)，且其闭包包含于 \(U_{I,1}\) 中。由命题 5.7，存在 \(D_I\) 的一个邻域 \(V_I\) 及分解
+\[
+F|_{U_I}=\bigoplus_{a\in S^I} {}^IG_a
+\]
+使得 \(I\) 满足条件 (a)，并且
+\[
+{}^IG_a|_{U_{I,2}}={} ^{1,I}G_a|_{U_{I,2}}.
+\]
+对任意 \(J\supsetneq I\)，用 \(V_J\cap U_I\) 替换 \(V_J\)，即可得到命题结论。
+\end{proof}
+
+\subsection{度量的构造}
+
+设 \(H_1\) 是 \(F\) 的一个 Hermitian 度量，使得：
+\begin{itemize}
+\item 分解
+\[
+F|_{U_I}=\bigoplus {}^IG_a
+\]
+相对于 \(H_1|_{U_I}\) 是正交的。
+\end{itemize}
+
+设 \(h^{(i)}\)（\(i\in\Gamma\)）是 \( \mathcal O_X(D_i)\) 的 Hermitian 度量。令
+\[
+\tau_i=h^{(i)}(1,1).
+\]
+可假定 \(\tau_i\equiv 1\) 于 \(X\setminus U_i\) 上。再记
+\[
+\tau:=\prod_{i\in\Gamma}\tau_i
+\]
+为 \(D\) 的典范截面的诱导平方长度。定义 \(F|_{X\setminus D_i}\) 上的自同态 \(s_i\)，满足：
+\begin{itemize}
+\item 在 \(X\setminus U_i\) 上，\(s_i=\id\)；
+\item 在 \(U_i\) 上，
+\[
+s_i=\sum_{a\in S}\tau_i^{-a}\id_{{}^iG_a}.
+\]
+\end{itemize}
+于是得到 \(F\) 上的自同态
+\[
+s=\prod_{i\in\Gamma} s_i,
+\]
+且它关于 \(H_1\) 自伴。于是定义 \(F|_{X\setminus D}\) 上的 \(C^\infty\)-Hermitian 度量 \(H_0\) 为
+\[
+H_0(u,v)=H_1(su,v)
+\]
+对任意局部截面 \(u,v\) 成立。并且可将 \(H_0\) 光滑延拓到 \(X\)。
+
+\subsection{适配性}
+
+由构造可知，对任意 \([\eta]\in H^{n-1,n-1}(X,\mathbb C)\)，有：
+
+\begin{proposition}
+\[
+\ch_1(F_*)\cdot [\eta]
+=
+\frac{\sqrt{-1}}{2\pi}
+\int_{X\setminus D}\tr(F_{\nabla_{H_0}})\wedge \eta.
+\]
+\end{proposition}
+
+设 \(\epsilon\) 为权重间最大间隔，\(\kappa\) 为最小间隔。
+
+设 \((U,z_1,\dots,z_n)\) 是 \(X\) 的一个全纯坐标邻域，使得
+\[
+D\cap U=\bigcup_{i=1}^\ell \{z_i=0\}.
+\]
+对 \(1\le k\le \ell\)，存在 \(\lambda(k)\in \Gamma\) 使得
+\[
+D_{U,\lambda(k)}:=D_{\lambda(k)}\cap U=\{z_k=0\}.
+\]
+记
+\[
+I=\{\lambda(i)\mid i=1,\dots,\ell\}.
+\]
+缩小 \(U\) 后可设 \(U\subset U_I\)。于是得到诱导的 \(C^\infty\)-分解
+\[
+F|_U=\bigoplus_{a\in S^I} {}^IG_a.
+\]
+对任意 \(1\le k\le \ell\) 与 \(a\in S\)，记
+\[
+{}^kG_a=\bigoplus_{q_{\lambda(k)}(a)=a} {}^IG_a.
+\]
+则有分解
+\[
+F|_U=\bigoplus_{a\in S} {}^kG_a. \tag{4}
+\]
+
+设 \(\iota_a\) 是从 \({}^IG_a\) 到 \(F\) 的嵌入，\(\pi_a\) 是相对于 \(H_1\) 从 \(F\) 到 \({}^IG_a\) 的正交投影。定义 \({}^IG_a\) 上的诱导联络
+\[
+\nabla_a:=\pi_a\circ \nabla_{H_1}\circ \iota_a.
+\]
+则
+\[
+\nabla^\dagger:=\bigoplus_a \nabla_a
+\]
+是保持该分解的酉联络。对任意 \(a,k\)，限制在
+\[
+{}^kG_a|_{D_k}={}^k\Gr_a F_*
+\]
+上，有 \(\nabla^\dagger=\nabla_{H_1}\)。
+
+考虑分解
+\[
+\nabla_{H_1}=\nabla^\dagger+\Gamma,
+\]
+其中 \(\Gamma\) 是
+\[
+\bigoplus_{a\ne b} A^1(\Hom({}^IG_b,{}^IG_a))
+\]
+的一个截面。写成
+\[
+\Gamma=\Gamma^{1,0}+\Gamma^{0,1},
+\]
+并令
+\[
+\Gamma^{1,0}=\sum \Gamma_j^{1,0}dz_j,\qquad
+\Gamma^{0,1}=\sum \Gamma_j^{0,1}d\bar z_j.
+\]
+又分解为
+\[
+\Gamma_j^{p,q}=\sum (\Gamma_j^{p,q})_{a,b},
+\qquad
+(\Gamma_j^{p,q})_{a,b}\in A^0(\Hom({}^IG_b,{}^IG_a)).
+\]
+由构造，对任意 \(j,a\)，有
+\[
+(\Gamma_j^{p,q})_{a,a}=0.
+\]
+
+记 \(F_\nabla\) 为联络 \(\nabla\) 的曲率张量，则有：
+
+\begin{lemma}
+\[
+|F_{\nabla_{H_0}}|_{H_0}=O\bigl(\tau^{-(1+\epsilon)/2}\bigr).
+\]
+\end{lemma}
+
+\begin{proof}
+只需在 \(U\) 中考虑。我们有
+\[
+F_{\nabla_{H_1}}
+=
+F_{\nabla^\dagger}
++\nabla^\dagger(\Gamma)
++\Gamma\wedge \Gamma.
+\]
+因此
+\[
+F_{\nabla_{H_0}}
+=
+F_{\nabla_{H_1}}
++\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)
+=
+F_{\nabla^\dagger}
++\nabla^\dagger(\Gamma)
++\Gamma\wedge \Gamma
++\bar\partial\bigl(s^{-1}\nabla^{1,0,\dagger}s+s^{-1}[\Gamma,s]\bigr)
+=
+B+\bar\partial(s^{-1}\Gamma s),
+\]
+其中 \(B\) 光滑。记
+\[
+A:=s^{-1}\Gamma s.
+\]
+则有
+\[
+(\bar\partial A)_{a,b}=O(|\tau_I|^{b-a-1/2}),
+\]
+其中 \(\frac12\in S^I\)。由于 \(H_0\) 关于该分解是对角的，因此只需估计
+\[
+\left(
+(\bar\partial A)_{a,b}\cdot \overline{(\bar\partial A)_{a,b}}\cdot H_{2,a,a}\cdot H_{2,b,b}^{-1}
+\right)^{1/2}.
+\]
+简单计算得
+\[
+\left(
+(\bar\partial A)_{a,b}\cdot \overline{(\bar\partial A)_{a,b}}\cdot H_{2,a,a}\cdot H_{2,b,b}^{-1}
+\right)^{1/2}
+=
+O(\tau_I^{\,b-a-1/2})
+=
+O(\tau^{-(1+\epsilon)/2}).
+\]
+\end{proof}
+
+接下来证明其在余维 2 上的适配性。
+
+我们仍在 \(U\) 中工作，并固定 \(1\le k\le \ell\)。继续考虑上述分解
+\[
+\nabla_{H_1}=\nabla^\dagger+\Gamma.
+\]
+同样写
+\[
+\Gamma=\Gamma^{1,0}+\Gamma^{0,1},
+\qquad
+\Gamma^{1,0}=\sum \Gamma_j^{1,0}dz_j,\qquad
+\Gamma^{0,1}=\sum \Gamma_j^{0,1}d\bar z_j.
+\]
+并写成
+\[
+\Gamma_j^{p,q}=\sum (\Gamma_j^{p,q})_{a,b},
+\qquad
+(\Gamma_j^{p,q})_{a,b}\in A^0(\Hom(G_b,G_a)).
+\]
+由构造，对任意 \(1\le j\le n\) 及 \(a\in S\)，仍有
+\[
+(\Gamma_j^{p,q})_{a,a}=0.
+\]
+
+\begin{lemma}
+若 \(j\ne k\) 且 \(a<b\)，则
+\[
+(\Gamma_j^{0,1})_{a,b}=O(|z_k|).
+\]
+\end{lemma}
+
+\begin{proof}
+注意 \({}^k\mathcal F\) 是 \(F|_{D_k}\) 上按全纯子丛组成的左连续递减过滤。因此对任意 \(b\in S\)，
+\[
+(\Gamma_j^{0,1})|_{D_k\cap U}({}^kF_b)\subset {}^kF_{\ge b}.
+\]
+这便推出引理结论。
+\end{proof}
+
+由于
+\[
+\Gamma^{0,1}=-(\Gamma^{1,0})^{\dagger_{H_1}},
+\]
+于是当 \(j\ne k\) 且 \(a>b\) 时，有
+\[
+(\Gamma_j^{1,0})_{a,b}=O(|z_k|).
+\]
+因此可得：
+
+\begin{lemma}
+若 \(a>b\) 且 \(j\ne k\)，则
+\[
+(s^{-1}\Gamma_j^{1,0}s)_{a,b}
+=
+O\left(
+|z_k|^{1-2\epsilon}\prod_{i\ne k}|z_i|^{-2\epsilon}
+\right).
+\]
+若 \(a<b\)，则对任意 \(j\)，
+\[
+(s^{-1}\Gamma_j^{1,0}s)_{a,b}
+=
+O\left(
+\prod_{1\le i\le \ell}|z_i|^{-2\epsilon}
+\right).
+\]
+\end{lemma}
+
+记 \(F_{\nabla_{H_1}}\) 为 \(\nabla_{H_1}\) 的曲率，\(F_{\nabla^\dagger}\) 为 \(\nabla^\dagger\) 的曲率，则
+\[
+F_{\nabla_{H_1}}=F_{\nabla^\dagger}+\nabla^\dagger(\Gamma)+\Gamma\wedge \Gamma.
+\]
+设
+\[
+\nabla^\dagger=\nabla^{1,0,\dagger}+\nabla^{0,1,\dagger}
+\]
+是其型分解，则
+\[
+s^{-1}\nabla^{1,0}_{H_1}(s)=s^{-1}\nabla^{1,0,\dagger}s+s^{-1}[\Gamma^{1,0},s].
+\]
+进一步
+\begin{align}
+\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)
+&=
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)
++\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s]) \nonumber\\
+&\quad
++[\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]
++[\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]. \tag{5}
+\end{align}
+
+由于任意 \(\Hom(G_a,G_b)\)（\(a\ne b\)）的截面的迹为 0，可得
+\begin{align}
+\tr\bigl(F_{\nabla_{H_1}}\cdot s^{-1}\nabla^{1,0}_{H_1}s\bigr)
+&=
+\tr\Bigl(
+F_{\nabla^\dagger}\cdot s^{-1}\nabla^{1,0,\dagger}s
++\nabla^\dagger(\Gamma)\cdot s^{-1}[\Gamma^{1,0},s]\nonumber\\
+&\qquad
++(\Gamma\wedge\Gamma)\cdot(s^{-1}\nabla^{1,0,\dagger}s)
++(\Gamma\wedge\Gamma)\cdot s^{-1}[\Gamma^{1,0},s]
+\Bigr). \tag{6}
+\end{align}
+
+还可得
+\begin{align}
+\tr\bigl(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\cdot s^{-1}\nabla^{1,0}_{H_1}s\bigr)
+&=
+\tr\bigl(\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++\tr\bigl(\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s])\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
++\tr\bigl([\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
++\tr\bigl([\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++2\tr\Bigl(\Gamma^{0,1}\cdot (s^{-1}[\Gamma^{1,0},s])^2\Bigr). \tag{7}
+\end{align}
+
+注意到
+\begin{align}
+\tr\bigl(\nabla^{0,1,\dagger}(s^{-1}[\Gamma^{1,0},s])\cdot s^{-1}[\Gamma^{1,0},s]\bigr)
+&=
+\tr\bigl(s^{-1}[\nabla^{0,1,\dagger}\Gamma^{1,0},s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)\nonumber\\
+&\quad
+-\tr\bigl([s^{-1}\Gamma^{1,0}s,s^{-1}\nabla^{0,1,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr), \tag{8}
+\end{align}
+\begin{align}
+\tr\bigl([\Gamma^{0,1},s^{-1}\nabla^{1,0,\dagger}s]\cdot s^{-1}[\Gamma^{1,0},s]\bigr)
+&=
+-\tr\bigl(s^{-1}\nabla^{1,0,\dagger}s\cdot[\Gamma^{0,1},\Gamma^{1,0}]\bigr)\nonumber\\
+&\quad
++\tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr), \tag{9}
+\end{align}
+\begin{align}
+\tr\bigl([\Gamma^{0,1},s^{-1}[\Gamma^{1,0},s]]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)
+&=
+-\tr\bigl([\Gamma^{0,1},\Gamma^{1,0}]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr)\nonumber\\
+&\quad
++\tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]\cdot s^{-1}\nabla^{1,0,\dagger}s\bigr). \tag{10}
+\end{align}
+
+于是，对任意 2-形式 \(\tau\)，记 \(\tau^{1,1}\) 为其 \((1,1)\)-部分，可得
+\begin{align}
+&2\tr\bigl(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s\bigr)
++\tr\bigl(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\nabla^{1,0}_{H_1}s\bigr)\nonumber\\
+&=
+\tr\Bigl(
+2F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
++\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\nonumber\\
+&\quad
++\tr\Bigl(
+2\nabla^\dagger(\Gamma)^{1,1}s^{-1}[\Gamma^{1,0},s]
++
+2(\Gamma\wedge\Gamma)^{1,1}s^{-1}[\Gamma^{1,0},s]
+\Bigr)\nonumber\\
+&\quad
++\tr\Bigl(
+s^{-1}[\nabla^{0,1,\dagger}\Gamma^{1,0},s]s^{-1}[\Gamma^{1,0},s]
+-
+[s^{-1}\Gamma^{1,0}s,s^{-1}\nabla^{0,1,\dagger}s]s^{-1}[\Gamma^{1,0},s]
+\Bigr)\nonumber\\
+&\quad
++2\tr\bigl([\Gamma^{0,1},s^{-1}\Gamma^{1,0}s]s^{-1}\nabla^{1,0,\dagger}s\bigr)
++2\tr\Bigl(\Gamma^{0,1}(s^{-1}[\Gamma^{1,0},s])^2\Bigr). \tag{11}
+\end{align}
+
+定义
+\[
+Z_{U,\lambda(k)}(\delta)
+=
+U\cap \{\tau_{\lambda(k)}=\delta\}\cap \bigcap_{i\ne k}\{\tau_{\lambda(i)}\ge \delta\}.
+\]
+给定 \([\eta]\in H^{n-2,n-2}(X,\mathbb C)\)。利用引理 5.13 及式 (11)，可得
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Bigl(
+2\tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)\nabla^{1,0}_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+2F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
++
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta. \tag{12}
+\end{align}
+
+令
+\[
+s_{\ne k}:=\prod_{i\ne k}s_i.
+\]
+则
+\[
+s=s_{\ne k}\cdot s_k=s_k\cdot s_{\ne k},
+\]
+从而
+\[
+s^{-1}\nabla^{1,0,\dagger}s
+=
+s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k}
++
+s_k^{-1}\nabla^{1,0,\dagger}s_k. \tag{13}
+\]
+于是极限表达式化为
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+\nabla^{0,1,\dagger}(s^{-1}\nabla^{1,0,\dagger}s)\cdot s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\eta
+\nonumber\\
+&=
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+\bigl(\nabla^{0,1,\dagger}(s_k^{-1}\nabla^{1,0,\dagger}s_k)
++\nabla^{0,1,\dagger}(s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k})\bigr)
+s_k^{-1}\nabla^{1,0,\dagger}s_k
+\Bigr)\cdot \eta. \tag{14}
+\end{align}
+
+定义
+\[
+{}^k\Omega=\sum (-a)\cdot \id_{{}^kG_a}.
+\]
+则有恒等式
+\[
+s_k^{-1}\nabla^{1,0,\dagger}(s_k)={}^k\Omega\cdot \partial \log\tau_k, \tag{15}
+\]
+以及
+\[
+\nabla^{0,1,\dagger}\bigl(s_k^{-1}\nabla^{1,0,\dagger}(s_k)\bigr)
+=
+{}^k\Omega\,(\partial\bar\partial \log\tau_k). \tag{16}
+\]
+对
+\[
+{}^k\Gr_aF_*={}^kF_a/{}^kF_{>a}
+\]
+有
+\[
+\tr({}^k\Omega^2)=\sum_{a\in S} a^2\,\rank({}^k\Gr_aF_*).
+\]
+于是极限计算为
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+\nabla^{0,1,\dagger}(s_k^{-1}\nabla^{1,0,\dagger}s_k)\cdot s_k^{-1}\nabla^{1,0,\dagger}s_k
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+a^2 \rank({}^k\Gr_aF_*)\,\partial\bar\partial(\log\tau_k)\cdot \eta. \tag{17}
+\end{align}
+
+分解
+\[
+F|_{D_k}=\bigoplus {}^kG_a
+\]
+诱导出同构
+\[
+F|_{D_k}\cong \bigoplus {}^k\Gr_aF_*.
+\]
+在此同构下，\(\nabla^\dagger\) 限制到 \(F|_{D_k\cap U}\) 与 \(\bigoplus {}^k\Gr_aF_*\) 的 Chern 联络一致。
+
+设 \({}^kH_{1,a}\) 是由 \(H_1\) 在 \({}^k\Gr_aF_*\) 上诱导的 Hermitian 度量，则
+\begin{align}
+\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+F_{\nabla^\dagger}^{1,1}s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta
+=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\tr F_{\nabla^kH_{1,a}}\cdot \eta. \tag{18}
+\end{align}
+
+设 \({}^k\widetilde H_{1,a}\) 是 \(H_1\cdot s_{\ne k}\) 在 \({}^k\Gr_aF_*|_{D_k^\circ}\) 上诱导的 Hermitian 度量，则得到
+\begin{align}
+&\lim_{\delta\to 0}
+\int_{Z_{U,\lambda(k)}(\delta)}
+\tr\Bigl(
+\bigl(F_{\nabla^\dagger}^{1,1}
++\nabla^{0,1,\dagger}(s_{\ne k}^{-1}\nabla^{1,0,\dagger}s_{\ne k})\bigr)
+s^{-1}\nabla^{1,0,\dagger}s
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\pm \sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\tr F_{{}^k\widetilde H_{1,a}}\cdot \eta. \tag{19}
+\end{align}
+
+综上可得
+\begin{align}
+&\lim_{\delta\to 0}
+\pm
+\int_{Z_{U,\lambda(k)}(\delta)}
+\Bigl(
+2\tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)s^{-1}\nabla_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+(-a)\bigl(
+\tr F_{\nabla^kH_{1,a}}
++
+\tr F_{\nabla^k\widetilde H_{1,a}}
+\bigr)\cdot \eta
+\nonumber\\
+&\quad
++
+\sum_a \frac{2\pi}{\sqrt{-1}}
+\int_{U\cap H_{\lambda(k)}}
+a^2\rank({}^k\Gr_aF_*)\partial\bar\partial(\log\tau_k)\cdot \eta. \tag{20}
+\end{align}
+
+类似地，固定 \(1\le j,k\le \ell\)，在集合
+\[
+Z_{U,\lambda(j),\lambda(k)}(\delta)
+=
+U\cap\{\tau_{\lambda(j)}=\tau_{\lambda(k)}=\delta\}\cap
+\bigcap_{i\ne j,k}\{\tau_{\lambda(i)}\ge \delta\}
+\]
+上分部积分并取极限，可得
+\begin{align}
+&\lim_{\delta\to 0}
+\pm\int_{Z_{U,\lambda(j),\lambda(k)}(\delta)}
+\Bigl(
+2\tr(F_{\nabla_{H_1}}s^{-1}\nabla^{1,0}_{H_1}s)
++
+\tr(\bar\partial(s^{-1}\nabla^{1,0}_{H_1}s)s^{-1}\nabla_{H_1}s)
+\Bigr)\cdot \eta
+\nonumber\\
+&=
+\sum_{i\in\{j,k\}}\sum_{{}^ia}
+\frac{2\pi}{\sqrt{-1}}
+\int_{U\cap D_{\lambda(i)}}
+(-{}^ia)\bigl(
+\tr F_{\nabla^iH_{1,{}^ia}}
++
+\tr F_{\nabla^i\widetilde H_{1,{}^ia}}
+\bigr)\cdot \eta
+\nonumber\\
+&\quad
++
+\sum_{i\in\{j,k\}}\sum_{{}^ia}
+\frac{2\pi}{\sqrt{-1}}
+\int_{U\cap D_{\lambda(i)}}
+({}^ia)^2\rank({}^i\Gr_aF_*)\partial\bar\partial(\log\tau_{\lambda(i)})\cdot \eta
+\nonumber\\
+&\quad
+-
+\sum_{a\in S^{(j,k)}}
+(2\pi)^2
+\int_{U\cap D_{j,k}}
+{}^ja\cdot {}^ka\cdot \rank({}^{jk}\Gr_aF_*)\cdot \eta. \tag{21}
+\end{align}
+
+结合式 (20) 与 (21)，即可得到余维 2 适配性，即下述命题。
+
+\begin{proposition}
+\[
+\ch_2(F_*)\cdot \eta
+=
+\frac12\left(\frac{\sqrt{-1}}{2\pi}\right)^2
+\int_{X\setminus D}
+\tr(F_{\nabla_{H_0}}\wedge F_{\nabla_{H_0}})\wedge \eta.
+\]
+\end{proposition}
+
+现在回到我们此前的整体设定，即 \((X,D)\) 上的一个抛物层 \(F_*\)。如在本小节开头所述，我们可在 \(F_*\) 的正则部分上构造一个度量 \(\widehat{H}\)，它在余维 2 上适配于 \(F_*\)。也就是：
+
+\begin{proposition}
+\(\widehat{H}\) 在余维 2 上适配于 \(F_*\)。
+\end{proposition}
+
+此外，还可利用第 3 节中使用的爆破技巧证明下面的命题。由于证明是形式上的，这里略去。
+
+\begin{proposition}
+\(\widehat{H}\) 在余维 1 上适配于 \(F_*\) 的任意抛物子层 \(S_*\)。
+\end{proposition}
+
+由引理 5.11 立即推出 \(\widehat{H}\) 的曲率估计：
+
+\begin{lemma}
+\[
+|F_{\widehat{H}}|_{\widehat{H}}=O(|\sigma|^{-(1+\epsilon)}).
+\]
+\end{lemma}

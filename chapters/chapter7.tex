@@ -1,0 +1,653 @@
+\chapter{Kobayashi--Hitchin 对应}
+
+我们利用 H-Y-M 流来变形 \(\widehat{H}\)。我们将证明：若抛物层是稳定的（分别地，半稳定的），则在丛 \(F|_{X^\circ\setminus D}\) 上存在一个与抛物结构相容的 H-E（分别地，近似 H-E）结构。由于 \(\widehat{H}\) 只定义在 \(X^\circ-D\) 上，而我们并不完全清楚它在奇性集 \(W\) 附近的性质，因此先在 \(\widetilde X\setminus D\) 上研究 H-Y-M 流的行为；在那里 \(\widehat{H}\) 是 \(\mathcal E|_{\widetilde X\setminus D}\) 上一个良定义的度量，并且在逼近 \(D\) 时具有多项式衰减。
+
+\section{H-Y-M 流}
+
+对第 5 章节中在 \(\widetilde X\setminus D\) 上构造的任意锥型 Kähler 度量 \(\omega_{\varepsilon\delta}\)，考虑 H-Y-M 流
+\[
+H^{-1}\frac{dH}{dt}
+=
+-2\left(\sqrt{-1}\Lambda_{\omega_{\varepsilon\delta}}F_H-\lambda^\varepsilon_\delta\cdot \id_{\mathcal E'}\right), \tag{22}
+\]
+其定义在 \(\mathcal E|_{\widetilde X\setminus D}\) 上，其中
+\[
+\lambda^\varepsilon_\delta
+:=
+\frac{\sqrt{-1}}{\Vol(X,\omega_{\varepsilon\delta})}
+\int_{X\setminus D^*}
+\tr(F_{\widehat{H}})\wedge \frac{(\omega_{\varepsilon\delta})^{n-1}}{(n-1)!}.
+\]
+
+下面的命题由 Simpson \cite{Si1} 得到。
+
+\begin{proposition}
+设 \((\widetilde X\setminus D,\omega_{\varepsilon\delta})\) 满足命题 4.3 中的三个假设。设 \(H\) 是一个度量，满足
+\[
+\|\Lambda_{\omega_{\varepsilon\delta}}F_{\widehat{H}}\|_{L^\infty(\widehat{H})}\le B
+\]
+其中 \(B\) 为正常数。则存在唯一解 \(H(t)\) 满足 H-Y-M 流，且
+\[
+\det(H)=\det(\widehat{H}),\qquad H(0)=H^\varepsilon,
+\]
+并且在任意有限时间区间上 \(\|H\|_{L^\infty(H^\varepsilon)}\) 有界。对于此解，对所有 \(t\) 仍有
+\[
+\|\Lambda_{\omega_{\varepsilon\delta}}F_H\|_{L^\infty(H)}\le B.
+\]
+\end{proposition}
+
+由引理 4.17，当 \(\delta\) 足够小时，有
+\[
+\|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}\|_{L^\infty(H^\varepsilon)}\le B.
+\]
+因此可应用上面的命题，得到一族具有相同初值 \(H^\varepsilon\) 的解 \(H^\varepsilon_\delta\)。我们希望证明 \(H^\varepsilon_\delta\) 收敛到定义在丛
+\[
+F:=F|_{X\setminus(D\cup W)}
+\]
+上的 H-Y-M 流解：
+\[
+H^{-1}\frac{dH}{dt}
+=
+-2\left(\sqrt{-1}\Lambda_\omega F_H-\lambda\cdot \id_F\right), \tag{23}
+\]
+其中
+\[
+\lambda:=\frac{2\pi\cdot \mu_\omega(F_*)}{\Vol(X,\omega)}.
+\]
+进一步地，在抛物层稳定假设下，我们希望初始度量 \(H^\varepsilon\) 沿流变形成一个关于 \(\omega\) 的 H-E 度量。证明思路基本来自 \cite{B-S}。首先进行一些估计。
+
+\begin{lemma}
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon}\|_{L^1(H^\varepsilon,\omega_{\varepsilon\delta})}\le C_6,
+\]
+其中 \(C_6\) 与 \(\varepsilon,\delta\) 无关。也就是说，\(\Lambda^\varepsilon_\delta F_{H^\varepsilon}\) 一致可积。
+\end{lemma}
+
+\begin{proof}
+由引理 4.17，可固定 \(\varepsilon_1,\delta_1\)，使得
+\[
+\sqrt{-1}\tr(F_{H^\varepsilon})\le C_7\cdot \omega^{\varepsilon_1}_{\delta_1}.
+\]
+于是
+\begin{align*}
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|\,(\omega_{\varepsilon\delta})^n
+&\le
+\left(
+\bigl|\Lambda^\varepsilon_\delta(C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon})\bigr|
++
+|C_7\Lambda^\varepsilon_\delta \omega^{\varepsilon_1}_{\delta_1}\cdot I|
+\right)
+(\omega_{\varepsilon\delta})^n
+\\
+&\le
+n\tr\bigl(2C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon}\bigr)\wedge (\omega_{\varepsilon\delta})^{n-1}.
+\end{align*}
+对两边积分得
+\begin{align*}
+\int_{X\setminus D}
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|(\omega_{\varepsilon\delta})^n
+&\le
+n\int_{X\setminus D}
+(2rC_7\omega^{\varepsilon_1}_{\delta_1}-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge (\omega_{\varepsilon\delta})^{n-1}
+\\
+&\le
+n\int_{X\setminus D}
+(2rC_7\omega_{1,\delta_1}-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge \omega_{1,\delta}^{n-1}
+\\
+&=
+n\int_{X\setminus D}
+(2rC_7\omega_1-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge \omega_1^{n-1}
+\\
+&=C_6.
+\end{align*}
+\end{proof}
+
+若无特别说明，本文其余部分估计中的常数均默认为对 \(\varepsilon,\delta\) 一致。
+
+沿热流 (22)，有如下不等式（参见 \cite{Do1}）：
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+\le 0,
+\]
+以及
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}^2
+\le 0.
+\]
+记
+\[
+f(t):=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}.
+\]
+
+\begin{lemma}
+\(\|f_t\|_{L^1}\) 与 \(\|f_t\|_{L^2}\) 随时间单调不增。
+\end{lemma}
+
+\begin{proof}
+只证明 \(L^1\) 情形。若反设存在 \(t_2>t_1\)，使得
+\[
+\|f(t_2)\|_{L^1}=\|f(t_1)\|_{L^1}+\delta
+\]
+其中 \(\delta>0\)。由于 \(\|f_t\|_{L^\infty}\le B\) 且 \(|dV_{\omega_{\varepsilon\delta}}|<\infty\)，可取一个相对紧区域 \(Z\subset X\)，使
+\[
+B|dV_{\omega_{\varepsilon\delta}}|(X-Z)<\delta/8.
+\]
+于是
+\[
+\|f(t_2)\|_{L^1(Z)}\ge \|f(t_1)\|_{L^1(Z)}+\frac34\delta.
+\]
+
+另一方面，取一族具有光滑边界的嵌套紧区域 \(\{X_\varphi\}\)，其极限穷尽 \(X_k-D^*\)。Simpson \cite[Section 6]{Si1} 证明：解 \(H^\varepsilon_\delta\) 可由定义在 \(X_\varphi\) 上、满足 Neumann 边界条件的 H-Y-M 流解 \(H^{\varphi,\varepsilon}_\delta\) 的 \(C^\infty_{\mathrm{loc}}\)-极限得到。记
+\[
+f^\varphi(t):=
+|\Lambda^\varepsilon_\delta F_{H^{\varphi,\varepsilon}_\delta}|_{H^{\varphi,\varepsilon}_\delta}.
+\]
+则
+\[
+\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)f^\varphi\le 0.
+\]
+对 \(X_\varphi\) 积分并分部积分，再利用 Neumann 边界条件，可得
+\[
+\frac{\partial}{\partial t}\|f^\varphi\|_{L^1(X_\varphi)}\le 0.
+\]
+当 \(\varphi\to\infty\) 时，\(H^\varphi(t_i)\) 在 \(Z\) 上 \(C^\infty\)-收敛到 \(H(t_i)\)（\(i=1,2\)），故当 \(\varphi\) 足够大时，
+\[
+\bigl|\|f^\varphi(t_i)\|_{L^1(Z)}-\|f(t_i)\|_{L^1(Z)}\bigr|\le \delta/8.
+\]
+但
+\[
+\|f^\varphi(t_2)\|_{L^1(X_\varphi)}\le \|f^\varphi(t_1)\|_{L^1(X_\varphi)},
+\]
+因此
+\[
+\|f^\varphi(t_2)\|_{L^1(Z)}\le \|f^\varphi(t_1)\|_{L^1(Z)}+\delta/4,
+\]
+从而
+\[
+\|f(t_2)\|_{L^1(Z)}\le \|f(t_1)\|_{L^1(Z)}+\delta/2,
+\]
+矛盾。\(L^2\) 情形同理。
+\end{proof}
+
+作为推论，有：
+
+\begin{lemma}
+对任意 \(t\in [0,\infty)\)，有
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^1(H^\varepsilon_\delta)}\le C_6.
+\]
+\end{lemma}
+
+\begin{lemma}
+对任意 \(t>0\)，有
+\[
+\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^\infty(H^\varepsilon_\delta,\omega_{\varepsilon\delta})}
+\le
+C_8\max(t^{-1},1).
+\]
+\end{lemma}
+
+\begin{proof}
+回忆我们在引理 4.5 中已对测度空间 \((\widetilde X\setminus D^*,\omega_{\varepsilon\delta})\) 上紧支撑光滑函数建立了一致 Sobolev 不等式，且 Sobolev 常数与 \(\varepsilon,\delta\) 无关。可考虑函数
+\[
+f^\varsigma:=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
++\varsigma(\log|\sigma|^2-At),
+\]
+其中 \(A\) 取得足够大，以保证 \(f^\varsigma_\nu\) 是热方程的次解。随后取
+\[
+\phi:=\eta_a(t)^2\,(f^\varsigma_\nu)^{2a-1},\qquad a\ge 1
+\]
+作为抛物型 Moser 迭代的测试函数，这里 \(\eta_a(t)\) 是适当的时间截断函数。于是对任意 \(T>0\)，得到
+\[
+\|f^\varsigma(t)\|_{L^\infty((X\setminus D)\times [1.5T,2T])}
+\le
+C_8(T^{-1})
+\|f^\varsigma(t)\|_{L^1((X\setminus D)\times [T,2T])}.
+\]
+令 \(\varsigma\to 0\) 即得引理。
+\end{proof}
+
+记
+\[
+B_{\omega_1}(d):=\{x\in X\mid d_{\omega_1}(x,E)<d\}.
+\]
+由引理 4.17 易得：在 \(B_{\omega_1}(d)^c\) 上，
+\[
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}|_{H^\varepsilon}
+\le C_9(d^{-1})|\sigma|^{-2},
+\]
+其中 \(C_9(d^{-1})\) 与 \(\varepsilon,\delta\) 无关。于是有：
+
+\begin{lemma}
+对任意 \(t\ge 0\)，存在常数 \(C_{10}(d^{-1})\)，使得对所有
+\[
+(x,t)\in B_{\omega_1}(d)^c\times [0,\infty)
+\]
+均有
+\[
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+\le
+C_{10}(d^{-1})|\sigma|^{-2}.
+\]
+\end{lemma}
+
+\begin{proof}
+证明的关键是热核 \(K^\varepsilon_\delta\) 的一致高斯上界，而这已在命题 4.6 中得到。其余证明完全类似于 \cite[Lemma 2.2]{Li-Zh-Zh} 的做法。
+\end{proof}
+
+令
+\[
+h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
+\]
+我们知道 \(|H^\varepsilon_\delta|_{H^\varepsilon}\) 与 \(|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\) 都可与正量
+\[
+\Phi^\varepsilon_\delta
+=
+\log(h^\varepsilon_\delta)+\log((h^\varepsilon_\delta)^{-1})-2\rank(E)
+\]
+相比。并且
+\[
+\frac{\partial}{\partial t}\Phi^\varepsilon_\delta
+\le
+2\bigl(
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
++
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}|_{H^\varepsilon}
+\bigr). \tag{24}
+\]
+因此得到：
+
+\begin{lemma}
+对 \((x,t)\in B_{\omega_1}(d)^c\times [0,T]\)，有
+\[
+|H^\varepsilon_\delta|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2},
+\qquad
+|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2}.
+\]
+\end{lemma}
+
+为了得到 H-Y-M 流的收敛，我们还需要 \cite[Proposition 1]{B-S} 中的一个命题。
+
+\begin{proposition}
+设 \(H\) 是定义在 Kähler 流形 \((Y,\omega)\) 上的一个 Hermitian 矩阵值函数，属于 Sobolev 空间 \(L_1^2\)。假设 \(H\) 与 \(H^{-1}\) 一致有界，且它在弱意义下满足椭圆方程
+\[
+\Lambda_\omega \bar\partial(\partial H\cdot H^{-1})=f,
+\]
+其中 \(f\) 一致有界。则 \(H\in C_{\mathrm{loc}}^{1,\alpha}\)（任意 \(0<\alpha<1\)），并满足仅依赖于 \(\|H\|_{L^\infty}\)、\(\|H^{-1}\|_{L^\infty}\)、\(\|f\|_{L^\infty}\) 以及 \(Y\) 的几何的估计。
+\end{proposition}
+
+现在可将上面命题应用于 \((X^\circ-D,\omega_{\varepsilon\delta})\) 上的 \(H^\varepsilon_\delta\) 做内部估计。注意 \(\omega_{\varepsilon\delta}\) 在局部上一致拟等距于固定 Kähler 度量 \(\omega_1\)。于是可简单地将 \(\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}\) 视为上命题中的 \(f\)。因此，对任意 \(t\ge 0\)，\(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{1,\alpha}\)-拓扑下一致有界。另一方面，由 H-Y-M 流方程可见，对任意 \(t>0\)，\(\frac{d}{dt}H^\varepsilon_\delta\) 在 \(C^0_{\mathrm{loc}}\)-拓扑下一致有界。故 \(H^\varepsilon_\delta\) 在 \(C^{1/0}_{\mathrm{loc}}\)-拓扑下收敛到定义在
+\[
+\mathcal E|_{\widetilde X\setminus D^*-\pi^{-1}(W)}
+\]
+上的一个时间依赖 Hermitian 度量流 \(H\)，等价地说，定义在
+\[
+F:=F|_{X\setminus(D\cup W)}
+\]
+上的流，初值为 \(H^\varepsilon\)。再利用抛物型 Schauder 估计，可知 \(H\) 实际上是一个光滑解，并且 \(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{\infty/\infty}\)-拓扑下收敛到 \(H\)。此外，由引理 (24)，对任意 \(t>0\)，\(H(t)\) 在逼近 \(D\) 时局部具有多项式衰减。
+
+\section{对应}
+
+\paragraph{从稳定性到 H-E 度量}
+基于 H-Y-M 流 \(H(t)\)，我们希望证明：在抛物层 \(F_*\) 稳定的条件下，\(H\) 将收敛到 \(X^\circ\setminus D\) 上一个与抛物结构相容的 H-E 度量。类似地，在半稳定条件下，\(H(t)\) 将给出一族都与抛物结构相容的近似 H-E 度量。
+
+困难在于 \(|\Lambda F_{H^\varepsilon}|_{H^\varepsilon}\) 在 \(X^\circ\setminus D\) 上并不有界，因此 Simpson \cite{Si1} 的论证不能直接套用。一个可能的想法是从正时间开始考虑 H-Y-M 流，再应用 Simpson 的结果。虽然由上面的分析可知，对任意 \(t>0\)，\(|\Lambda F_{H(t)}|_{H(t)}\) 有界，但似乎很难证明 \(F|_{X^\circ\setminus D}\) 关于 \(H(t)\) 的解析稳定性。不过这一困难已由第二作者在 \cite[Proposition 4.1]{Li-Zh-Zh} 中解决：在半稳定条件下，仍有
+\[
+\lim_{t\to\infty}\|\Phi(t)\|_{L^2(H(t))}=0,
+\]
+其中
+\[
+\Phi(t):=\|\sqrt{-1}\Lambda F_{H(t)}-\lambda\cdot \id_F\|_{L^2(H(t))}.
+\]
+这便蕴含了近似 H-E 度量的存在。实际上，
+\[
+\left(\frac{\partial}{\partial t}+\Delta_\omega\right)\Phi(t)^2\le 0.
+\]
+然后像引理 6.5 那样选取 Moser 迭代的测试函数，便得到
+\[
+\|\Phi(t)\|_{L^\infty(H(t))(X\setminus D\times [1.5T,2T])}
+\le
+C_{12}\|\Phi(t)\|_{L^2(H(t))(X\setminus D\times [T,2T])}.
+\]
+
+对于稳定情形，\cite[Proposition 4.1]{Li-Zh-Zh} 中所用的同样技巧可应用于 \(H(t)\)，以证明 \cite[Proposition 5.3]{Si1} 对 \(H(t)\) 成立，而这正是使用稳定性条件的关键估计。然后 \cite{Si1} 第 7 节中的论证即可推出 \(H(t)\) 收敛到一个 H-E 度量 \(H(\infty)\)。
+
+因此我们只需证明：所得度量（H-E 或近似 H-E）与抛物结构相容，并且按定义 1.1 是可容许的。只需证明近似 H-E 情形，因为 H-E 情形可直接由 Fatou 引理推出。
+
+先需要一个引理。
+
+\begin{lemma}[{\cite[Lemma 5.2]{Si1}}]
+设 \(Y\) 是一个非紧 Kähler 流形，它有一个 exhaustion 函数 \(\phi\)，满足
+\[
+\int_Y |\Delta \phi|<\infty.
+\]
+设 \(\eta\) 是一个 \((2n-1)\)-形式，满足
+\[
+\int_Y |\eta|^2<\infty.
+\]
+如果 \(d\eta\) 可积，则
+\[
+\int_Y d\eta=0.
+\]
+\end{lemma}
+
+固定 \(X\setminus D\) 上一个沿 \(D\) 具有 cusp 奇性的 Kähler 度量 \(\omega_c\)。则体积密度函数
+\[
+\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}
+\]
+在 \(\varepsilon,\delta\) 中一致有界。
+
+\begin{proposition}
+若 \(F_*\) 半稳定，则对任意 \(t>0\)，\(H(t)\) 与抛物结构相容。
+\end{proposition}
+
+\begin{proof}
+由于
+\[
+\det(H^\varepsilon)=\det(H(t)),
+\]
+故 \(H(t)\) 在余维 1 上适配于 \(F_*\)。因此只需证明：对任意真抛物子层 \(S_*\)，都有
+\[
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\le
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H(t)|_S})\wedge \omega^{n-1}.
+\]
+
+由第 3 节中的爆破过程可知
+\[
+\int_{X^\circ\setminus D^*}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+=
+\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}.
+\]
+对引理 6.2 的证明进行适当改写，可得到
+\[
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon|_S}|(\omega_{\varepsilon\delta})^n
+\le
+n\tr\bigl(2C_7\omega_{1,\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon|_S}\bigr)\wedge \omega_{1,\delta}^{n-1}.
+\]
+右侧积分有限且与 \(\delta\) 无关，故由广义支配收敛定理，
+\[
+\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_{X^\circ\setminus D^*}\tr(F_{H^\varepsilon|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
+\]
+
+对固定的 \(\varepsilon,\delta,t\)，记
+\[
+h^\varepsilon_{\delta|S}:=H^\varepsilon_\delta(t)|_S\cdot (H^\varepsilon|_S)^{-1},
+\qquad
+h^\varepsilon_\delta:=H^\varepsilon_\delta(t)\cdot (H^\varepsilon)^{-1}.
+\]
+Simpson \cite{Si1} 证明了 \(H^\varepsilon\) 与 \(H^\varepsilon_\delta(t)\) 彼此有界，且
+\[
+\partial h^\varepsilon_\delta\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\]
+因此 \(h^\varepsilon_\delta\) 关于 \(H^\varepsilon\) 或 \(H^\varepsilon_\delta(t)\) 都有界。
+
+又因为
+\[
+h^\varepsilon_{\delta|S}=p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta \cdot \iota, \tag{25}
+\]
+以及
+\[
+p_{S,H^\varepsilon_\delta(t)}
+=
+(h^\varepsilon_{\delta|S})^{-1}\cdot p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta, \tag{26}
+\]
+其中 \(\iota\) 是 \(S\) 到 \(E\) 的嵌入。所以
+\[
+\partial h^\varepsilon_{\delta|S}
+=
+\partial p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta\cdot \iota
++
+p_{S,H^\varepsilon}\cdot \partial h^\varepsilon_\delta\cdot \iota,
+\]
+从而
+\[
+\partial h^\varepsilon_{\delta|S}\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\]
+再由 Chern--Weil 公式及式 (26)，
+\[
+\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+\]
+可积。
+
+另一方面，
+\[
+\tr(F_{H^\varepsilon_\delta|_S})-\tr(F_{H^\varepsilon|_S})
+=
+\tr\bigl(\bar\partial(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})\bigr).
+\]
+而上面的论证表明
+\[
+\tr(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})
+\wedge (\omega_{\varepsilon\delta})^{n-1}
+\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\]
+于是由引理 6.9，
+\[
+\int_{X^\circ\setminus D^*}
+\tr(F_{H^\varepsilon|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+=
+\int_{X^\circ\setminus D^*}
+\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
+\]
+
+再用一次 Chern--Weil 公式，有
+\[
+\sqrt{-1}\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+\le
+\sqrt{-1}\tr(p_{S,H^\varepsilon_\delta}\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta})
+\cdot
+\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}\cdot \omega_c^n.
+\]
+右侧项是一致有界的，因为 \(|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}\) 与 \(\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}\) 都一致有界。对两边取极限并使用 Fatou 引理，即得所需不等式：
+\[
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\le
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H(t)|_S})\wedge \omega^{n-1}.
+\]
+\end{proof}
+
+\begin{proposition}
+对任意 \(t>0\)，\(H(t)\) 是可容许的。
+\end{proposition}
+
+\begin{proof}
+由引理 6.5，对任意 \(t>0\)，\(|\Lambda F_H|_H\) 在 \(X\setminus D\) 上有界。此外有
+\begin{align}
+-8\pi^2
+\int_X \ch_2(F_*)\wedge \frac{\omega^{n-2}}{(n-2)!}
+&=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\operatorname{tr}(F_{H^\varepsilon}\wedge F_{H^\varepsilon})\wedge \frac{(\omega_{\varepsilon\delta})^{n-2}}{(n-2)!}
+\nonumber\\
+&\ge
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\operatorname{tr}(F_{H^\varepsilon_\delta(t)}\wedge F_{H^\varepsilon_\delta(t)})\wedge
+\frac{(\omega_{\varepsilon\delta})^{n-2}}{(n-2)!}
+\nonumber\\
+&=
+\lim_{\varepsilon\to 0,\ \delta\to 0}
+\int_X
+\Bigl(
+|F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t),\omega_{\varepsilon\delta}}
+-
+|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t)}
+\Bigr)
+\cdot
+\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}
+\cdot
+\frac{\omega_c^n}{n!}
+\nonumber\\
+&\ge
+\int_X
+\left(
+|F_{H(t)}|^2_{H(t),\omega}
+-
+|\sqrt{-1}\Lambda_\omega F_{H(t)}|^2_{H(t)}
+\right)\cdot \frac{\omega^n}{n!}. \tag{27}
+\end{align}
+第一步不等式来自 \cite[Lemma 7.1]{Li}，第二步不等式是相对于 \(\omega_c\) 诱导测度应用 Fatou 引理所得。因此对任意 \(t>0\)，\(F_{H(t)}\) 是平方可积的。
+\end{proof}
+
+\paragraph{从 H-E 度量到稳定性}
+至此，我们已经完成了 Kobayashi--Hitchin 对应的一个方向。
+
+为证明逆命题，设 \(H(t)\) 是一族与抛物结构相容的近似 H-E 度量，则由定义和 Chern--Weil 公式，对任意真子层 \(S_*\)，有
+\[
+\mu_\omega(S_*)
+\le
+\liminf_{t\to\infty}
+\frac{\sqrt{-1}}{2\pi \rank(S)}
+\int_{X\setminus D}\tr(F_{H|_S}(t))\wedge \omega^{n-1}
+\le
+\lim_{t\to\infty}
+\frac{\sqrt{-1}}{2\pi \rank(F)}
+\int_{X\setminus D}\tr(F_{H(t)})\wedge \omega^{n-1}
+=
+\mu_\omega(F_*).
+\]
+于是半稳定情形得证。
+
+为证明多稳定情形的逆命题，先需要一个命题，它是 \cite[Theorem 2(b)]{B-S} 的一个轻微推广。
+
+\begin{proposition}
+设 \((\Delta^n,z_1,\dots,z_n)\) 为多圆盘，\(D\) 是由
+\[
+z_1z_2\cdots z_m=0
+\]
+定义的除子。设 \(S\) 是一个实余维 4、局部有限 Hausdorff 测度的闭子集。设 \(F_*\) 是 \(\Delta^n\) 上的一个饱和自反抛物层，其正则部分 \(F\) 定义在
+\[
+\Delta^n\setminus (D\cap S)
+\]
+上。若 \(F_*\) 在 \(F\) 上 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)，则 \(F\) 的任意局部截面 \(s\) 满足 \(H(s,s)\) 局部有界，且属于 \(L_{1,\mathrm{loc}}^2\)。
+\end{proposition}
+
+\begin{proof}
+证明基本遵循 \cite[Section 1]{B-S}。
+
+取沿一般方向的投影
+\[
+p:\Delta^n\to \Delta^{n-2},
+\]
+则 \(S\cap p^{-1}(0)\) 由可数多个点组成，这些点只可能在 0 处聚集。并且存在 \(\Delta^2\) 的一个紧子集 \(K\)，使得
+\[
+S\subset K\times \Delta^{n-2}.
+\]
+记
+\[
+X_t:=p^{-1}(t).
+\]
+除去 \(\Delta^{n-2}\) 中一个零测子集外，对每个 \(t\) 有：
+\begin{itemize}
+\item \(S_t:=X_t\cap S\) 只包含有限个点；
+\item \(D_t:=D\cap p^{-1}(t)\) 是简单正规交叉除子。
+\end{itemize}
+令
+\[
+u:=\log^+(H(s,s)),\qquad u_t:=u|_{X_t}.
+\]
+我们在每个切片 \(X_t\) 内分析 \(u_t\)。
+
+若 \(x_0\) 是 \(S_t\) 的一个孤立点，且不在 \(D_t\) 中，则 \cite[Section 3]{Ba} 已证明 \(u_t\) 在 \(x_0\) 附近属于 \(L_1^2\)，并在弱意义下满足
+\[
+\Delta_t u_t\le 4|F_t|.
+\]
+
+若 \(x_0\in D_t\)，则不失一般性，可在 \(X_t\) 中取以 \(x_0\) 为中心的局部坐标邻域 \((U_{x_0},z_1,z_2)\)，使得
+\[
+D_t=\{z_1z_2=0\}.
+\]
+由于 \(F_*\) 是饱和自反抛物层，而切片 \(U_{x_0}\) 的复维数是 2，因此知道 \(F_*|_{U_{x_0}}\) 是一个抛物丛。
+
+另一方面，\(F|_{U_{x_0}\setminus D_t}\) 上有一个可容许 H-E 度量 \(H_t\)。来自规范理论中四维实维度、实余维 2 奇性的正则性定理（参见 \cite{Si-Si}）蕴含：如果 H-E 度量 \(H_t\) 的曲率张量 \(F_{H_t}\) 属于 \(L^2\)，则它实际上属于某个 \(L^p\)（\(p>2\)）。随后 O. Biquard \cite[Theorem 2.1]{Bi2} 证明：通过选择适当的复规范变换，\(F|_{U_{x_0}\setminus D_t}\) 可唯一延拓成 \(U_{x_0}\) 上的一个抛物丛 \(\widetilde F_*\)。特别地，对 \(\widetilde F_*\) 的任意全纯截面 \(s\)，\(|s|_{H_t}\) 有界。由延拓的唯一性可知
+\[
+\widetilde F_*\cong F_*|_{U_{x_0}}.
+\]
+因此在这种情形下也有弱不等式
+\[
+\Delta_t u_t\le 4|F_t|.
+\]
+
+\begin{remark}
+Biquard 处理的是光滑除子情形下的延拓问题。他所选取的复规范涉及在穿孔多圆盘 \(\Delta^*\times \Delta\) 上求解 \(\bar\partial\)-问题。但这个证明很容易适配到简单正规交叉除子情形，即在 \(\Delta^*\times \Delta^*\) 上求解同样的 \(\bar\partial\)-问题。
+\end{remark}
+
+证明的其余部分完全照搬 \cite[Section 1]{B-S}。事实上，对任意包含 0 的紧区域 \(K'\subset \Delta^{n-2}\)，可利用上述不等式证明：沿投影方向的梯度 \(\nabla_t u\) 在 \(K\times K'\) 上平方可积。由于投影方向是一般的，故得到
+\[
+u\in L_{1,\mathrm{loc}}^2(\Delta^n).
+\]
+一旦知道这一点，再利用
+\[
+\Delta u\le 2|\Lambda F_H|
+\]
+及 \(\Lambda F_H\in L^\infty_{\mathrm{loc}}\)，便容易推出
+\[
+u\in L^\infty_{\mathrm{loc}}.
+\]
+\end{proof}
+
+现在设 \(F_*\) 是一个饱和自反抛物层，它 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)。则由 \(H\) 的定义及 Chern--Weil 公式，容易得到对任意真抛物子层 \(S_*\)，均有
+\[
+\mu_\omega(S_*)\le \mu_\omega(F_*).
+\]
+若等号成立，记
+\[
+G_*:=\wedge^k F_*\otimes \det(S_*)^{-1}.
+\]
+由于 \(\det(S_*)^{-1}\) 是一个抛物线丛，因此其上存在一个与抛物结构相容的可容许 H-E 度量 \(H'\)。于是 \(G\) 的正则部分从 \(H\) 与 \(H'\) 继承一个可容许 H-E 度量 \(H''\)，并且
+\[
+\lambda(G)
+=
+\frac{2k\pi}{\Vol(X,\omega)}(\mu_\omega(F_*)-\mu_\omega(S_*))
+=0.
+\]
+另一方面，由上述命题知道，对任意局部截面 \(s\)，\(|s|_{H''}\) 在 \(X\) 上有界且属于 \(L_1^2(X)\)。因此
+\[
+\Delta_\omega |s|_{H''}^2
+\le
+2\lambda(G)|s|_{H''}^2-2|\partial s|_{H''}^2
+\le 0,
+\]
+从而得到 \(s\equiv C\neq 0\)。因此有全纯分裂
+\[
+F|_{X^\circ}=S|_{X^\circ}\oplus Q|_{X^\circ},
+\]
+其中 \(Q\) 是 \(F\) 的一个子层。
+
+由于 \(W\) 的余维至少为 3，有
+\[
+\operatorname{Ext}^1(S,Q)\cong \operatorname{Ext}^1(S|_{X^\circ},Q|_{X^\circ}).
+\]
+因此
+\[
+F_*=S_*\oplus Q_*.
+\]
+
+于是，我们建立了如下 Kobayashi--Hitchin 对应：
+
+\begin{theorem}
+\((X,\omega,D)\) 上的一个饱和自反抛物层 \(F_*\) 是 \(\mu_\omega\)-多稳定的，当且仅当在 \(F_*|_{X^\circ\setminus D}\) 上存在一个关于 \(\omega\) 的、与 \(F_*\) 相容的可容许 H-E 度量。
+\end{theorem}
+
+\begin{theorem}
+\((X,\omega,D)\) 上的一个饱和自反抛物层 \(F_*\) 是 \(\mu_\omega\)-半稳定的，当且仅当在 \(F_*|_{X^\circ\setminus D}\) 上存在一族关于 \(\omega\) 的近似 H-E 度量，并且它们都与 \(F_*\) 相容。
+\end{theorem}
+
+\begin{corollary}
+若 \(F_*\) 关于 \(\omega\) 是 \(\mu_\omega\)-半稳定的，则
+\[
+\Delta(F_*)\cdot [\omega]^{n-2}\ge 0.
+\]
+此外，若 \(F_*\) 是多稳定的，则等号成立当且仅当 \(F|_{X\setminus D}\) 是一个向量丛，并带有一个与 \(F_*\) 的抛物结构相容的射影平坦 H-E 联络。
+\end{corollary}
+
+\begin{proof}
+对式 (27) 中的计算稍作显然修改即可得到证明。
+\end{proof}

@@ -48,10 +48,10 @@ h=h_{i\bar{j}}\diff z^i\otimes \diff \overline{z}^j\quad \omega=\frac{i}{2} h_{i
 
 
 \section{向量丛与层}
-\section{抛物丛}
+\section{抛物丛起源}
 全纯向量丛上的抛物结构最早应出自\cite{Me-Se}。文章作者通过研究平坦向量丛在非紧黎曼面上的无穷远渐进行为获得了抛物结构。本小节将简单介绍抛物结构的来源以及定义抛物结构的动机。
 
-令 $G\subset \PSU(2,\R)$ 是一个离散子群，使得它自由地作用于上半平面$\HH$且其商空间是有限体积的。令$\HH^+=P\cup \HH$其中$P$为群作用的抛物点，则$X=\HH^+/G$是一个紧黎曼面。给定一个$n$维厄米特向量空间$V$以及一个酉表示$\rho: G\to \GL(n,V)$, 我们得到一个带$G$作用的向量丛$E=\HH\times V$. 我们总是可以通过共轭变换将抛物点变到无穷远点，因此我们只考虑抛物点为无穷远点的情况。令$y\in P$ 是$X$上的一个抛物尖点，则对于$\delta$充分大，存在一个领域$\U_y=\HH_\delta/G_\infty$, 其中$\HH_\delta\coloneqq \{z=x+iy\in \HH|y>\delta\}$, $G_\infty$由一个抛物元素$T:z\mapsto z+a$生成，其中$a\in \R$，为简单起见我们取$a=1$。
+令 $G\subset \PSU(2,\R)$ 是一个离散子群，使得它自由地作用于上半平面$\HH$且其商空间是有限体积的。令$\HH^+=P\cup \HH$其中$P$为群作用的抛物点，则$X=\HH^+/G$是一个紧黎曼面。给定一个$n$维厄米特向量空间$V$以及一个酉表示$\rho: G\to \GL(n,V)$, 我们得到一个带$G$作用的向量丛$E=\HH\times V$. 我们总是可以通过共轭变换将抛物点变到无穷远点，因此我们只考虑抛物点为无穷远点的情况。令$y\in P$ 是$X$上的一个抛物尖点，则对于$\delta$充分大，存在一个邻域$\U_y=\HH_\delta/G_\infty$, 其中$\HH_\delta\coloneqq \{z=x+iy\in \HH|y>\delta\}$, $G_\infty$由一个抛物元素$T:z\mapsto z+a$生成，其中$a\in \R$，为简单起见我们取$a=1$。
 
 由以上设定，我们考虑丛$E$限制在$\HH_\delta$上的$G$不变的有界全纯截面，即有界全纯映射$F:\HH^+_\delta\to \HH^+_\delta\times V$其形式为$F(z)=(z,f(z))$并且满足$f(z+1)=\rho(T)\cdot f(z)$. 在合适的酉标架$\{e_i\}_i$下，$\rho(T)$可以被对角化为
 \[
@@ -79,41 +79,60 @@ h=h_{i\bar{j}}\diff z^i\otimes \diff \overline{z}^j\quad \omega=\frac{i}{2} h_{i
 \end{proposition}
 因此记录抛物结构是有必要的。
 
-以上的内容成为了抛物丛定义的动机以及 Kobayashi--Hinchin 对应的雏形。
+以上的内容成为了抛物丛定义的动机。
 % \section{脚注}
-\section{抛物Higgs丛}
-
+\section{Hodge丛}
+由于本篇文章极大地受到了Simpson~\cite{Si1}的启发，在本预备章节的最后我们重新回顾~\cite{Si1}当中的结果。
 令$X$为一个非紧黎曼面，$\overline{X}$为$X$的一个光滑紧化，令$\omega$为$\overline{X}$上的一个 K\"ahler 形式，其在$X$上的限制依然记为$\omega$。令$j:X\to \overline{X}$为其嵌入映射，令$Y=\overline{X}-X$. 
 \begin{definition}\label{regularsytemofhodgebundle}
-    一个$X^{alg}$上的\textbf{正则丛}是一个代数Higgs丛$E$并存在以下滤链：
+    一个$X^{alg}$上的\textbf{正则Hodge丛}是一个代数Hodge丛$E$并存在以下尊重Hodge分解的滤链：
     \[
     j_*^{alg}E=\bigcup_{\alpha\in \R^{Y}} E_{\alpha}
     \]
-其中$E_\alpha$皆为凝聚子层，我们赋予$\R^{Y}$自然的偏序结构。并且我们要求Higgs场满足
+其中$E_\alpha$皆为凝聚子层，我们赋予$\R^{Y}$自然的偏序结构，我们要求该滤链关于偏序结构是左连续并且递降的。并且我们要求Higgs场满足
 \[
-\theta: E_\alpha \to E_\alpha\otimes \Omega_X^1\langle\log(Y)\rangle
+\theta: E^{p,q}_\alpha \to E^{p-1,p+1}_\alpha\otimes \Omega_X^1\langle\log(Y)\rangle
 \]
-下面我们会看到这样的定义是自然的。假设我们有一个全纯的Higgs丛$E\to X$，如果$E$上存在一个在奇点附近行为较好的度量$h$，我们可以通过如下方式构造出一族子层$a_hE=\bigcup_{\alpha\in \R^{Y}} E_\alpha$：我们定义$E_\alpha$为$j^{an}_*E$当中满足以下条件的子层，对任意的$y\in Y$，假设$y\in\U$，我们只选取增长速度满足
+\end{definition}
+下面我们会看到这样的定义是自然的。假设我们有一个全纯的Hodge丛$E\to X$，如果$E$上存在一个在奇点附近行为较好的和Hodge结构相容的度量$h$ （我们总是假设度量和Hodge结构相容），我们可以通过如下方式构造出一族子层$a_hE^{p,q}=\bigcup_{\alpha\in \R^{Y}} E^{p,q}_\alpha$：我们定义$E^{p,q}_\alpha$为$j^{an}_*E^{p,q}$当中满足以下条件的子层，对任意的$y\in Y$，假设$y\in\U$，我们只选取增长速度满足
 \[
-|s|_h\leq C r^{\alpha_y+\epsilon},\quad \forall\epsilon>0
+|s|_h\leq C r^{\alpha_y-\epsilon},\quad \text{对充分小的}\epsilon>0
 \]
 的那些截面$s$。
 
 Simpson\cite{Si1}证明了以下定理，
 \begin{theorem}
-    假设$(E,\overline{\partial},\theta, h)$是一个带度量的抛物Higgs丛，并且度量$h$满足
+    假设$(E,\overline{\partial},\theta, h)$是一个带度量的Hodge丛，并且度量$h$满足
     \[
     \int_X |F_{\nabla^{hs}_h}|^p <\infty,\quad p>1
     \]
     则如上定义的$E_\alpha$是凝聚层，并且$\theta$满足
     \[
-    \theta: E_\alpha \to E_\alpha \otimes \Omega_X^2\langle\log Y\rangle
+    \theta: E^{p,q}_\alpha \to E^{p+1,q-1}_\alpha \otimes \Omega_X^1\langle\log Y\rangle
     \]
-    因此$E$是一个正则丛。上述的构造 $a$ 和取行列式，对偶，张量积可交换。假设
+    因此$E$是一个正则Hodge丛。上述的构造 $a$ 和取行列式，对偶，张量积可交换。如果$h$和$h'$两个度量满足$a_h=a_h'$，那$h$和$h'$是可比的。并且我们有$a$作为从带$L^p$--曲率度量的Hodge丛打到正则Hodge丛的函子，它是一个范畴等价。
 \end{theorem}
 
+我们先证明以下引理：
 
-任给切向量$v\in T^{1,0}$，$\theta(v)$是周期域$G_0/K_0$的切向量，由\cite{griffiths1969locally}中的结论，周期域的全纯截面曲率在$\g^{-1,1}$方向上是严格负的，因此我们有
+\begin{lemma}\label{boundofHiggs}
+    对于Hodge丛$(E,\overline{\partial},\theta)$，固定某个$p>1$。对任意的度量$h$满足
+    \[
+    \int_X |F_{\nabla^{hs}_{h}}|^p<\infty,
+    \]
+    则Higgs场满足
+    \[
+    \sup |\theta|\leq \frac{C}{|z\log|z||}
+    \]
+    这里$z$是某个$y\in Y$附近的一个小坐标邻域，常数$C$被曲率的$L^p$--范数所决定。
+\end{lemma}
+\begin{proof}
+   不妨给坐标邻域赋予标准欧式度量。因此张量丛$(\En(E))^{-1,1}\otimes \Omega_X^1$的Chern曲率完全由$\nabla_h^2$的伴随作用给出，其中$\nabla_h$是丛$(E,\overline{\partial},h)$的Chern曲率张量。由于全纯子丛的曲率小于等于整体曲率的限制，因此如果我们把$\theta$看成$(\En(E))^{-1,1}\otimes \Omega_X^1$的一个线丛子丛的话，在$\theta$不为0处，我们有以下不等式
+   \[
+   \Delta \log|\theta|^2\leq \frac{\langle2i\ad\Lambda\nabla_h^2(\theta),\theta \rangle_h}{|\theta|^2}.
+   \]
+
+   令一方面，任给切向量$v\in T^{1,0}$，$\theta(v)$是周期域$G_0/K_0$的切向量，由\cite{griffiths1969locally}中的结论，周期域的全纯截面曲率在$\g^{-1,1}$方向上是严格负的，因此我们有
 \[
 \frac{R(\theta(v),\overline{\theta}(\bar{v}),\theta(v),\overline{\theta}(\bar{v}))}{|\theta(v)|^4}=-\langle [[\theta(v),\overline{\theta}(\bar{v})],\theta(v)],\theta(v)\rangle\leq -C
 \]
@@ -128,10 +147,31 @@ i\Lambda[\theta,\theta^\dagger]=2(\phi\phi^\dagger-\phi^\dagger\phi)=2[\theta(\f
 \]
 因此我们有
 \[
-\frac{\langle [2i\Lambda[\theta,\overline{\theta}],\theta],\theta\rangle}{|\theta|^2}\geq C|\theta|^2
+\frac{\langle [2i\Lambda[\theta,\overline{\theta}],\theta],\theta\rangle}{|\theta|^2}\geq C|\theta|^2.
+\] 
+令$f$为一个在去心圆盘上的$L^p$光滑函数使得$|F_{\nabla^hs}|\leq f$。如果$\sigma$满足$\Delta\sigma=-f$。由椭圆正则性理论可知我们可以选取$\sigma$为有界连续函数，因此$e^{-\sigma}$也是有界的。我们不妨将$h$修改为$he^{-\sigma}$而它们是可比的，因此我们不妨假设$i\Lambda F_{\nabla^hs}$是负定的。然而我们有$F_{\nabla^{hs}}=\nabla_h^2-[\theta,\overline{\theta}]$。因此在$\theta$不为0处我们有
+\[
+\Delta\log|\theta|^2\leq -C|\theta|^2
 \]
+由于$\theta$趋于0时我们有$\log|\theta|^2\to -\infty$，因此上述不等式在分布意义下成立，故我们可以利用Ahlfors'引理得证。
+\end{proof}
+为了得到$E_{\alpha}$的凝聚性，我们需要调用一些Cornalba--Griffiths~\cite{cornalba1975analytic}当中的结果，我们称$A$为特殊仿射光滑代数簇，如果$A=\overline{A}-D$其中$\overline{A}$是光滑射影簇，$D=\cup_{i=1}^{N} D_i$是一个简单正规充沛的除子。$A$总是可以被有限个形如${\Delta^*}^k\times \Delta^{n-k}$的坐标邻域所覆盖，其中$\Delta$是单位圆盘，$\Delta^*$是去心单位圆盘。$A$上总是存在一个和Poincar\'e度量可比的K\"ahler度量我们记为$\omega_P=\diff\diff^c\tau$. 令$\sigma=\sigma_1\otimes\cdots \otimes \sigma_N$为除子$D$的典范截面。则\[\tau=C\log|\sigma|^{-2}-\log((\log|\sigma_1|^2)^2\cdots(\log|\sigma_N|^2)^2)\]
+\begin{theorem}[pp.23]\label{GAGAforbundle}
+    设$E$是一个特殊仿射光滑代数簇$A$上面的全纯向量丛，那么$E$是代数的当且仅当$E$上面存在度量$h$使得$|\nabla_h^2|_{h,\omega_P}<C$。
+\end{theorem}
+\begin{theorem}[pp.24]\label{GAGAforbundle2}
+    如果$E$满足上述条件，\[H^0(A,E^{alg})=\{s\in H^0(A^{an},E^{an})|\int_A |s|^2e^{-N\tau}\omega_p^n< \infty\quad\text{对某些整数N成立}\}\]
+\end{theorem}
 
-\end{definition}
+回到主定理的证明，由上述引理中的讨论我们还可以得到\[|\nabla_h^2|\leq f+\frac{C}{||z|\log|z||^2}\]
+虽然$|\nabla_h^2|$和Cornalba--Griffiths理论的要求相差了一个$f$，但是他们证明主要的技巧是通过修改$h$，使得$i\Lambda\nabla_h^2$变成负定算子。在我们的条件下，此方法依然奏效。令$\chi=\sigma-C\log\log|z|^{-1}$，将原始的度量修改为与其可比的度量$he^{-\chi}$。因此$i\Lambda\nabla_h^2$是负定的。因此我们依然可以运用以上定理到去心黎曼面的场景，通过简单的计算结合以上定理我们知道$E$是代数的并且其作为代数凝聚层
+\[
+\bigcup_\alpha E_\alpha = E^{alg}
+\]
+因此$E$可以紧化为$\overline{X}$上面的凝聚层$\overline{E}$，令$\{e_1,\cdots,e_r\}$为包含$y\in Y$的一个Zariski开集上的代数标架，则在包含$y$的单位圆盘上，$|e_i|_h<|z|^{\alpha_i+\epsilon}$。通过乘适当的$z^{k_i}$作调整，以及调整标架的顺序，我们不妨假设$0\leq\alpha_i\leq\alpha_{i+1}<1$，因此我们得到$y$处的抛物结构。因此$\overline{E}=E_0$。由此不难看出$E_\alpha$是$\overline{X}$上的局部自由层，并且对任意的$\alpha$，$E_\alpha$和$E_0$给出的抛物信息是一样的。
+
+在局部坐标下$\theta=f_{ij}e_i\otimes e_j^* \otimes \diff z$，由引理~\ref{boundofHiggs}易知$f_{ij}$最多只能有一阶极点，因此我们证明了$\theta\in H^0(\En(E_\alpha)\otimes \Omega_{\overline{X}}\langle\log Y\rangle)$。由于$h$和$E$的Hodge结构是相容的，因此上述讨论对于分量$E_\alpha^{p,q}$依然成立。
+
 % Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 % incididunt ut labore et dolore magna aliqua.
 % \footnote{Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

@@ -1,0 +1,166 @@
+\chapter{关于 nef 且 big 类的 Bogomolov--Gieseker 不等式}
+
+我们在本章节中证明一个更一般的 Bogomolov--Gieseker 型不等式，即如下定理。
+
+\begin{theorem}
+设 \(F_*\) 是紧 Kähler 流形 \((X,\omega)\) 上的一个饱和自反抛物层，并且它关于一个 nef 且 big 的类 \([\eta]\) 是半稳定的。则关于 \(\eta\) 的 Bogomolov--Gieseker 不等式成立，即
+\[
+\Delta(F_*)\cdot [\eta]^{n-2}\ge 0.
+\]
+\end{theorem}
+
+先简单回顾 nef 与 big 的定义。
+
+\begin{definition}
+若一个类 \([\eta]\in H^{k,k}(X,\mathbb R)\) 满足：对任意 \(\varepsilon>0\)，存在其代表元 \(\eta_\varepsilon\in [\eta]\)，使得
+\[
+\eta_\varepsilon\ge -\varepsilon \omega^k,
+\]
+则称 \([\eta]\) 是 \textbf{nef} 的。显然，这类构成 \(H^{k,k}(X,\mathbb R)\) 中的一个闭锥，记为 \(N^k\)。
+\end{definition}
+
+\begin{definition}
+若一个类 \([\eta]\in H^{k,k}(X,\mathbb R)\) 满足：存在常数 \(\varepsilon>0\)，使得
+\[
+\eta\ge \varepsilon[\omega^k]
+\]
+在流的意义下成立，则称 \([\eta]\) 是 \textbf{big} 的。显然，这类构成 \(H^{k,k}(X,\mathbb R)\) 中的一个开锥，记为 \(B^k\)。
+\end{definition}
+
+记
+\[
+[\eta_\varepsilon]:=[\eta+\varepsilon\omega],
+\]
+其中 \(\omega\) 是一个 Kähler 类。下面引理描述了 \(F_*\) 关于 \([\eta_\varepsilon]\) 稳定性的开性。
+
+\begin{lemma}
+设一个抛物层 \(F_*\)（不必自反）关于某个类 \([\eta]\in B^1\) 是稳定的。则对充分小的 \(\varepsilon\)，\(F_*\) 关于 \([\eta_\varepsilon]\) 也是稳定的。
+\end{lemma}
+
+\begin{proof}
+设 \(S_*\) 是 \(F_*\) 的一个真抛物子层。则
+\[
+\mu_{\eta_\varepsilon}(F_*)-\mu_{\eta_\varepsilon}(S_*)
+=
+\mu_\eta(F_*)-\mu_\eta(S_*)+\varepsilon\cdot \phi(\varepsilon).
+\]
+若我们能证明
+\begin{enumerate}[label=\arabic*.]
+\item \(|\phi(\varepsilon)|\le C_{12}\)；
+\item \(\mu_\eta(F_*)-\mu_\eta(S_*)\ge C_{13}\)；
+\end{enumerate}
+其中 \(C_{12},C_{13}\) 与 \(S_*,\varepsilon\) 的选择无关，则结论成立。
+
+先证明 \(\phi(\varepsilon)\) 的一致有界性。由于 \(\ch_1(S_*)\) 是 \(\ch_1(S)\) 与各 \(D_i\) 的线性组合，所以 \(\phi(\varepsilon)\) 是 \(\ch_1(F)\)、\(\ch_1(S)\)、各 \(D_i\) 与一族由 \(\varepsilon\) 参数化且有界的 big 类的交数的线性组合。因此只需证明如下断言：
+
+\medskip
+\noindent
+给定一族有界的 big 类 \(\gamma_\varepsilon\)，当 \(S\) 与 \(\varepsilon\) 变化时，\(\ch_1(S)\cdot [\gamma_\varepsilon]\) 有一致上界。
+\medskip
+
+沿第 4 节的思路，我们可在无挠层 \(F\) 的正则部分上构造一个度量 \(H\)，它在余维 1 上适配于任意无挠子层 \(S\)（尽管那里处理的是抛物层，但该思想当然也可移植到普通层情形）。然后由 Gauss--Codazzi 公式，在流的意义下有
+\[
+\ch_1(S)
+=
+\frac{\sqrt{-1}}{2\pi}\tr(p_{S,H_0}\cdot F_{H_0})
+-
+\tr\bigl((\bar\partial p_{S,H_0})^\dagger\wedge \bar\partial p_{S,H_0}\bigr).
+\]
+于是容易看出 \(\ch_1(S)\cdot [\gamma_\varepsilon]\) 一致有界。
+
+证明将由下一个引理完成，它蕴含了第 2 点。
+\end{proof}
+
+\begin{lemma}
+设 \(F_*\) 是一个抛物层，\([\eta]\in B^1\)。定义
+\[
+\mu_\eta^{\max}:=\sup\{\mu_\eta(S_*)\mid S_*\subsetneq F_*\}.
+\]
+则 \(\mu_\eta^{\max}\) 可由某个真子层 \(S_*^{\max}\) 取得。
+\end{lemma}
+
+\begin{proof}
+由 \cite[Lemma 2.2]{Ca}，可将
+\[
+\eta^{n-1}=\sum_{i=1}^s \lambda_i e_i
+\]
+写成 \(\lambda_i\ge 0\)、\(e_i\in H^{2(n-1)}(X,\mathbb Q)\) 的形式，并且每个 \(e_i\) 都可由一个严格正的流表示（不一定是 \((n-1,n-1)\)-流）。于是
+\[
+\ch_1(S_*)\cdot [\eta^{n-1}]
+=
+\sum_{i=1}^s \lambda_i \cdot \ch_1(S_*)\cdot [e_i].
+\]
+因为我们想取得最大斜率，所以可以限制到满足
+\[
+-C_{14}<\deg_\eta(S_*)
+\]
+的一类子层上，其中 \(C_{14}>0\)。利用上个引理中的论证，可取 \(C_{14}\) 足够大，使得对所有子层，
+\[
+\ch_1(S_*)\cdot [\eta^{n-1}]<C_{14}.
+\]
+记
+\[
+A:=\{S_*\subsetneq F_*,\ S_*\ne 0\mid -C_{14}<\ch_1(S_*)\cdot [\eta^{n-1}]\}.
+\]
+则对任意 \(S_*\in A\) 及满足 \(\lambda_i\ne 0\) 的指标 \(i\)，有
+\[
+-C_{15}<\ch_1(S_*)\cdot [e_i]<C_{15}.
+\]
+回忆
+\[
+\ch_1(S_*)
+=
+\ch_1(S)
++
+\sum_{i\in I}\sum_{a\in[0,1)}
+a\cdot \rank_{D_i}({}^i\Gr_aS_*)\cdot [D_i].
+\]
+由于 \(A\) 是抛物子层的集合，当 \(S_*\) 在 \(A\) 中变化时，上式中非平凡的抛物权重 \(a\) 只取自某个有限实数集。而 \(\ch_1(S)\) 与 \([D_i]\) 属于 \(H^2(X,\mathbb Z)\)，\(e_i\in H^{2(n-1)}(X,\mathbb Q)\)，因此当 \(S_*\in A\) 及指标 \(i\) 变化时，\(\ch_1(S_*)\cdot e_i\) 只能取有限多个值，从而 \(\ch_1(S_*)\cdot [\eta^{n-1}]\) 也只能取有限多个值。证明完成。
+\end{proof}
+
+设 \(F_*\) 是一个关于 big 类 \([\eta]\in B^1\) 半稳定的饱和自反抛物层。与普通层情形一样，可证明存在 Jordan--H\"older 过滤
+\[
+0=F_{0*}\subset F_{1*}\subset F_{2*}\subset \cdots \subset F_{n*}=F_*,
+\]
+其中对每个 \(0\le i<n\)，\(F_{i*}\) 是饱和自反抛物层，商
+\[
+\Gr_iF_*:=F_{i+1,*}/F_{i*}
+\]
+是一个 \(\eta\)-稳定抛物层，且
+\[
+\mu_\eta(\Gr_iF_*)=\mu_\eta(F_*).
+\]
+于是由引理 7.2 立刻得到：存在 \(\varepsilon_0\)，使得对任意 \(0<\varepsilon<\varepsilon_0\)，商 \(F_{i+1,*}/F_{i*}\) 是 \(\eta_\varepsilon\)-稳定的。
+
+\begin{proof}[定理 7.1 的证明]
+\(F_{0*}\) 是一个关于 \(\eta_\varepsilon\) 稳定的饱和自反抛物层。在 \(\eta\) 是 nef 且 big 的假设下，\(\eta_\varepsilon\) 是一个 Kähler 度量。因此
+\[
+\Delta(F_{0*})\cdot [\eta_\varepsilon]^{n-1}\ge 0,
+\]
+从而令 \(\varepsilon\to 0\) 得
+\[
+\Delta(F_{0*})\cdot [\eta]^{n-1}\ge 0.
+\]
+另一方面，由引理 2.9，\(\Gr_iF_*\) 的自反饱和化 \(\Gr_iF'_*\) 也是 \(\eta_\varepsilon\)-稳定的。再由引理 2.8，
+\[
+\Delta(\Gr_iF_*)\cdot [\eta]^{n-1}
+\ge
+\Delta(\Gr_iF'_*)\cdot [\eta]^{n-1}
+\ge 0.
+\]
+
+因此只需说明：若存在抛物层的短正合列
+\[
+0\to F_{i*}\to F_{i+1,*}\to \Gr_iF_*\to 0,
+\]
+并且
+\[
+\Delta(F_{i*})\cdot [\eta]^{n-1}\ge 0,\qquad
+\Delta(\Gr_iF_*)\cdot [\eta]^{n-1}\ge 0,
+\]
+则可推出
+\[
+\Delta(F_{i+1,*})\cdot [\eta]^{n-1}\ge 0.
+\]
+但这是一条标准事实，参见 \cite[Lemma 3.7]{Cl}。
+\end{proof}
