@@ -1,8 +1,331 @@
 % !TEX root = ../main.tex
 
-\chapter{补充材料}
+\chapter{}
+本文的证明中使用了Simpson~\cite[Section~5]{Si1}中关于Danaldson泛函在非紧流形上的定义。Simpson在证明~\cite[Proposition~5.1]{Si1}当中声称证明该命题只需证明两个恒等式即可，但是这并不是显而易见的。笔者补充了其中的细节。
 
+Donaldson 泛函用于研究当 \(t\to\infty\) 时解 \(H_t\) 的行为。我们在此对其作一简要回顾。固定 向量丛 \(E\) 上的初始度量 \(K_0\)，令 \(S_{K_0}\) 表示相对于 \(K_0\) 的自伴随自同态所构成的实向量丛。记 \(P(S_{K_0})\) 为光滑截面 \(s\in S_{K_0}\) 所成的赋范向量空间，其范数定义为
+\[
+\|s\|_P=\sup_X |s|+\|\bar\partial s\|_{L^2}+\|\Delta'_{K_0}s\|_{L^1},
+\]
+其中 \(\Delta'_{K_0}\) 是关于 \(\partial_{K_0}\) 的 Hodge--Laplace 算子。
 
-\section{补充章节}
+一个光滑函数 \(\psi:\mathbb{R}\to\mathbb{R}\) 诱导一个映射
+\[
+S_{K_0}\to S_{K_0},
+\]
+其定义如下：在 \(X\) 的每一点，取 \(E\) 的一个酉标架 \(\{e_i\}\)，使得
+\[
+s(e_i)=\lambda_i e_i,
+\]
+并定义
+\[
+\psi(s)(e_i)=\psi(\lambda_i)e_i.
+\]
 
-补充内容。
+类似地，一个光滑函数 \(\Psi:\mathbb{R}\times\mathbb{R}\to\mathbb{R}\) 诱导一个映射
+\[
+S_{K_0}\to S_{K_0}(\En(E))
+\]
+如下定义：令 \(\{\hat e_i\}\) 为对偶基。对任意 \(A\in \En(E)\)，写成
+\[
+A=\sum_{i,j} a_{i,j}\,\hat e_i\otimes e_j.
+\]
+然后定义
+\[
+\Psi(s)(A)=\sum_{i,j}\Psi(\lambda_i,\lambda_j)a_{i,j}\,\hat e_i\otimes e_j.
+\]
+
+事实上，这样定义非线性算子 \(\Psi\) 是很自然的。设我们希望对 \(\psi(s)\) 施加 \(\bar\partial\)。若将差商 \(d\psi:\mathbb{R}\times\mathbb{R}\to\mathbb{R}\) 定义为
+\[
+d\psi(x,y)=\frac{\psi(x)-\psi(y)}{x-y},
+\]
+那么就有如下链式法则等式：
+\[
+\bar\partial\psi(s)=d\psi(s)(\bar\partial s). 
+\]
+
+令 \(\mathcal P\) 表示满足
+\[
+\int_X |\Lambda_\alpha F_K|_K<\infty
+\]
+的光滑 Hermitian 度量 \(K\) 的空间。Simpson在~\cite[Section~4]{Si1}中证明了$\mathcal P$是一个解析Banach流形。指数映射
+\[
+\exp:P(S_{K_0})\to P,\qquad s\mapsto K_0e^s,
+\]
+可视为解析流形 \(\mathcal P\) 在 \(K_0\) 处的一张局部坐标图。此映射的像是 \(\mathcal P\) 中包含 \(K_0\) 的一个连通分支，记为 \(\mathcal{P}_0\)。
+
+从启发式角度看，Donaldson 泛函是定义在无限维空间 \(\mathcal P\) 上的一个势函数。若取 \(K_0\) 作为势函数的基点，则对任意 \(H\in \mathcal{P}_0\)，可写
+\[
+H=K_0e^s,
+\]
+此时 Donaldson 泛函为
+\[
+M(K_0,H)
+=
+\sqrt{-1}\int_X \tr(s\Lambda_\alpha F_{K_0})
++\int_X \{\Psi(s)(\bar\partial s),\bar\partial s\}_{K_0,\omega_\alpha},
+\]
+其中
+\[
+\Psi(x,y)=\frac{e^{\,y-x}-(y-x)-1}{(y-x)^2}.
+\]
+
+\begin{proposition}[{\cite[Proposition~5.1]{Si1}}]
+    对任意位于同一连通分支 \(\mathcal{P}_0\) 中的三点 \(K,H,J\)，都有
+\[
+M(K,H)+M(H,J)=M(K,J).
+\]
+
+Simpson在该命题的证明中声称只需验证
+\[
+\frac{\partial^2}{\partial t_1\partial t_2}
+M\bigl(Ke^{t_1s_1},Ke^{t_1s_1}e^{t_2s_2}\bigr)
+=
+\frac{\partial^2}{\partial t_1\partial t_2}
+M\bigl(K,Ke^{t_1s_1}e^{t_2s_2}\bigr)
+\]
+在$t_1=t_2=0$处成立，以及
+\[
+\frac{\partial^2}{\partial t^2}M(K,Ke^{ts})
+=
+\frac{\partial^2}{\partial t\,\partial u}M\bigl(K,Ke^{(t+u)s}\bigr)
+\]
+在t=1，u=0处成立即可，但是这并不显然。我们证明上述条件的充分性。
+\begin{proof}
+先考虑第二个条件：
+\[
+\frac{\partial^2}{\partial t^2}M(K,Ke^{ts})
+=
+\left.\frac{\partial^2}{\partial t\,\partial u}M\bigl(K,Ke^{(t+u)s}\bigr)\right|_{t=1,u=0}.
+\]
+由于伸缩与平移的不变性（因为
+\[
+e^{(t+u)s}=e^{ts}e^{us},
+\]
+（注意而当矩阵 \(s\) 不同时这一点不成立）。我们可以把这部分问题归结为研究一个二元实函数 \(f(x,y)\)，它满足
+\[
+\frac{\partial^2}{\partial t^2}f(x,x+t)
+=
+\left.\frac{\partial^2}{\partial t\,\partial u}f(x+t,x+t+u)\right|_{u=0}
+\]
+对任意 \(x,t\) 都成立。
+
+我们来计算：
+\[
+\left.\frac{\partial}{\partial u}f(x+t,x+t+u)\right|_{u=0}
+=
+f_y(x,x+t),
+\]
+其中
+\[
+f_y:=\frac{\partial}{\partial y}f(x,y),
+\]
+其余偏导记号类似。
+
+因此，上式右端等于
+\[
+\frac{\partial}{\partial t}f_y(x+t,x+t)
+=
+f_{xy}(x+t,x+t)+f_{yy}(x+t,x+t).
+\]
+而左端则是
+\[
+f_{yy}(x,x+t).
+\]
+所以我们的条件变为
+\[
+f_{yy}(x,y)=f_{xy}(y,y)+f_{yy}(y,y).
+\]
+这说明 \(f_{yy}(x,y)\) 与 \(x\) 无关，因此我们可以写成
+\[
+f_{yy}(x,y)=g(y).
+\]
+于是又得到
+\[
+f_{xy}(y,y)=0.
+\]
+
+进一步可得
+\[
+f_y(x,y)=f_y(x,0)+\int_0^y g(z)\,dz=:f_y(x,0)+h(y),
+\]
+并且
+\[
+f(x,y)=f(x,0)+y\,f_y(x,0)+k(y),
+\]
+其中
+\[
+k(y):=\int_0^y h(z)\,dz.
+\]
+
+现在对这个表达式取 \(\partial^2/\partial x\partial y\)。由于 \(f(x,0)\) 和 \(k(y)\) 的混合二阶偏导都为零，于是只剩下
+\[
+\frac{\partial^2}{\partial x\partial y}\bigl(yf_y(x,0)\bigr)
+=
+\frac{\partial}{\partial x}f_y(x,0)
+=
+f_{xy}(x,0).
+\]
+换句话说，
+\[
+f_{xy}(x,y)=f_{xy}(x,0).
+\]
+再结合
+\[
+f_{xy}(y,y)=0,
+\]
+便推出
+\[
+f_{xy}(y,0)=0,
+\]
+从而
+\[
+f_{xy}(x,y)=0,\qquad \forall x,y.
+\]
+这正是我们所要的条件。它表明
+\[
+f(x,y)=a(x)+b(y)
+\]
+对某些函数 \(a,b\) 成立，而这样的形式自然满足 cocycle 性质。
+
+总之，由第二个方程我们得到：沿任意形如 \(\{Ke^{ts}\}_{t\in\mathbb R}\) 的直线，cocycle 性质成立。
+
+注意，此时还可推出
+\[
+M(K,H)=-M(H,K).
+\]
+
+现在我们需要利用第一个方程，把结论推广到任意的 \(K,H,J\) 的情形。
+
+我们希望证明表达式
+\[
+M(K,H)+M(H,J)
+\]
+与 \(H\) 无关。为此，只需证明它关于 \(H\) 的导数为零。等价地，只需证明 \(M(K,H)\) 关于 \(H\) 的导数与 \(M(J,H)\) 关于 \(H\) 的导数相等。
+
+如果我们能够证明
+\[
+\left.\frac{\partial}{\partial t_2}\right|_{t_2=0}M(K,He^{t_2s_2})
+\stackrel{?}{=}
+\left.\frac{\partial}{\partial t_2}\right|_{t_2=0}M(H,He^{t_2s_2}),
+\]
+那么对 \(M(J,H)\) 也有同样的公式，于是便得到所需的等式。
+
+考虑如下表达式：
+\[
+M\bigl(K,Ke^{(t+u)(s_1+vs_2)}\bigr),
+\]
+其中 \(u=0\)、\(v=0\) 附近，而 \(t\) 任意。由前一部分的结论可得
+\[
+M\bigl(K,Ke^{(t+u)(s_1+vs_2)}\bigr)
+=
+M\bigl(K,Ke^{t(s_1+vs_2)}\bigr)
++
+M\bigl(Ke^{t(s_1+vs_2)},Ke^{(t+u)(s_1+vs_2)}\bigr),
+\]
+类似地，
+\[
+M\bigl(K,Ke^{(t+u)s_1}\bigr)
+=
+M(K,Ke^{ts_1})
++
+M(Ke^{ts_1},Ke^{(t+u)s_1}).
+\]
+
+我们所需证明的关于导数的条件是
+\[
+\left.\frac{\partial}{\partial v}\right|_{v=0}
+M\bigl(K,Ke^{t(s_1+vs_2)}\bigr)
+=
+\left.\frac{\partial}{\partial v}\right|_{v=0}
+M\bigl(Ke^{ts_1},Ke^{t(s_1+vs_2)}\bigr).
+\]
+当 \(t=0\) 时它显然成立，因为此时所讨论的函数都等于 \(0\)。因此，只需证明它们对 \(t\) 的导数在任意 \(t\) 处相同即可。我们可以把这个条件写成：需要证明
+\[
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(K,Ke^{(t+u)(s_1+vs_2)}\bigr)
+\stackrel{?}{=}
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(Ke^{(t+u)s_1},Ke^{(t+u)(s_1+vs_2)}\bigr).
+\]
+然而，由
+\[
+M\bigl(K,Ke^{(t+u)(s_1+vs_2)}\bigr)
+=
+M\bigl(K,Ke^{t(s_1+vs_2)}\bigr)
++
+M\bigl(Ke^{t(s_1+vs_2)},Ke^{(t+u)(s_1+vs_2)}\bigr)
+\]
+可知，第一项与 \(u\) 无关，因此其混合二阶导数为零。于是我们只需证明
+\[
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(Ke^{t(s_1+vs_2)},Ke^{(t+u)(s_1+vs_2)}\bigr)
+\stackrel{?}{=}
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(Ke^{(t+u)s_1},Ke^{(t+u)(s_1+vs_2)}\bigr).
+\]
+
+策略是：这个公式现在是关于 \(u=v=0\) 处的一个混合二阶导数，而所有项在该点都彼此无穷小地接近（在 \(u=v=0\) 时它们都等于 \(Ke^{ts_1}\)）。因此它看起来与我们已知的公式很相似，只是不是完全一样。
+
+由于 \(M\) 是解析的，我们可以对它取 Fr\'echet 导数，并且对任何涉及 \(M\) 的光滑函数应用链式法则。例如，方程
+\[
+\frac{\partial^2}{\partial t_1\partial t_2}
+M\bigl(Ke^{t_1s_1},Ke^{t_1s_1}e^{t_2s_2}\bigr)
+=
+\frac{\partial^2}{\partial t_1\partial t_2}
+M\bigl(K,Ke^{t_1s_1}e^{t_2s_2}\bigr)
+\]
+可重写为
+\[
+M_{1,2}\frac{\partial b}{\partial t_2}\frac{\partial a}{\partial t_1}
++
+M_{2,2}\frac{\partial b}{\partial t_2}\frac{\partial b}{\partial t_1}
++
+M_2\frac{\partial^2 b}{\partial t_1\partial t_2}
+=
+M_{2,2}\frac{\partial b}{\partial t_2}\frac{\partial b}{\partial t_1}
++
+M_2\frac{\partial^2 b}{\partial t_1\partial t_2},
+\]
+其中 \(M_i\) 表示对第 \(i\) 个变量的一阶 Fr\'echet 偏导，\(M_{i,j}\) 表示二阶偏导；并且
+\[
+a=Ke^{t_1s_1},\qquad b=Ke^{t_1s_1}e^{t_2s_2}.
+\]
+
+因此，文中的条件等价于如下偏导条件：
+\[
+M_{1,2}\frac{\partial b}{\partial t_2}\frac{\partial a}{\partial t_1}
+=
+M_{1,2}(Ks_1,Ks_2)\equiv 0.
+\]
+由于 \(s_1,s_2\) 是任意的，我们得到 \(M_{1,2}\) 作为一个 \(2\)-张量恒为零；由对称性也有
+\[
+M_{2,1}\equiv 0.
+\]
+
+有了这个条件之后，我们回过头来检查如下等式是否成立：
+\[
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(Ke^{t(s_1+vs_2)},Ke^{(t+u)(s_1+vs_2)}\bigr)
+\stackrel{?}{=}
+\left.\frac{\partial^2}{\partial u\,\partial v}\right|_{u=v=0}
+M\bigl(Ke^{(t+u)s_1},Ke^{(t+u)(s_1+vs_2)}\bigr).
+\]
+再次将其改写成偏导形式，只需验证
+\[
+M_{2,1}\frac{\partial a}{\partial v}\frac{\partial b}{\partial u}
++
+M_{2,2}\frac{\partial b}{\partial u}\frac{\partial b}{\partial v}
++
+M_2\frac{\partial^2 b}{\partial u\partial v}
+=
+M_{2,1}\frac{\partial a'}{\partial u}\frac{\partial b}{\partial v}
++
+M_{2,2}\frac{\partial b}{\partial u}\frac{\partial b}{\partial v}
++
+M_2\frac{\partial^2 b}{\partial u\partial v}.
+\]
+由于混合导数项都为零，这个等式显然成立。
+\end{proof}
+\end{proposition}
+
