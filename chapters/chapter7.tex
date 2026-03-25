@@ -8,11 +8,11 @@
 \[
 H^{-1}\frac{dH}{dt}
 =
--2\left(\sqrt{-1}\Lambda_{\omega_{\varepsilon\delta}}F_H-\lambda^\varepsilon_\delta\cdot \id_{\mathcal E'}\right), \tag{22}
+-2\left(\sqrt{-1}\Lambda_{\omega_{\varepsilon\delta}}F_H-\lambda_{\varepsilon\delta}\cdot \id_{\mathcal E'}\right), \tag{22}
 \] 
 其定义在 \(\mathcal E|_{\widetilde X\setminus D}\) 上，其中
 \[
-\lambda^\varepsilon_\delta
+\lambda_{\varepsilon\delta}
 :=
 \frac{\sqrt{-1}}{\Vol(X,\omega_{\varepsilon\delta})}
 \int_{X\setminus D^*}
@@ -28,9 +28,9 @@ H^{-1}\frac{dH}{dt}
 \]
 其中 \(B\) 为正常数。则存在唯一解 \(H(t)\) 满足 H-Y-M 流，且
 \[
-\det(H)=\det(\widehat{H}),\qquad H(0)=H^\varepsilon,
+\det(H)=\det(\widehat{H}),\qquad H(0)=H_{\varepsilon},
 \]
-并且在任意有限时间区间上 \(\|H\|_{L^\infty(H^\varepsilon)}\) 有界。对于此解，对所有 \(t\) 仍有
+并且在任意有限时间区间上 \(\|H\|_{L^\infty(H_{\varepsilon})}\) 有界。对于此解，对所有 \(t\) 仍有
 \[
 \|\Lambda_{\omega_{\varepsilon\delta}}F_H\|_{L^\infty(H)}\le B.
 \]
@@ -38,9 +38,9 @@ H^{-1}\frac{dH}{dt}
 
 由引理 4.17，当 \(\delta\) 足够小时，有
 \[
-\|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}\|_{L^\infty(H^\varepsilon)}\le B.
+\|\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon}}\|_{L^\infty(H_{\varepsilon})}\le B.
 \]
-因此可应用上面的命题，得到一族具有相同初值 \(H^\varepsilon\) 的解 \(H^\varepsilon_\delta\)。我们希望证明 \(H^\varepsilon_\delta\) 收敛到定义在丛
+因此可应用上面的命题，得到一族具有相同初值 \(H_{\varepsilon}\) 的解 \(H_{\varepsilon\delta}\)。我们希望证明 \(H_{\varepsilon\delta}\) 收敛到定义在丛
 \[
 F:=F|_{X\setminus(D\cup W)}
 \]
@@ -54,49 +54,49 @@ H^{-1}\frac{dH}{dt}
 \[
 \lambda:=\frac{2\pi\cdot \mu_\omega(F_*)}{\Vol(X,\omega)}.
 \]
-进一步地，在抛物层稳定假设下，我们希望初始度量 \(H^\varepsilon\) 沿流变形成一个关于 \(\omega\) 的 H-E 度量。证明思路基本来自 \cite{B-S}。首先进行一些估计。
+进一步地，在抛物层稳定假设下，我们希望初始度量 \(H_{\varepsilon}\) 沿流变形成一个关于 \(\omega\) 的 H-E 度量。证明思路基本来自 \cite{B-S}。首先进行一些估计。
 
 \begin{lemma}
 \[
-\|\Lambda^\varepsilon_\delta F_{H^\varepsilon}\|_{L^1(H^\varepsilon,\omega_{\varepsilon\delta})}\le C_6,
+\|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon}}\|_{L^1(H_{\varepsilon},\omega_{\varepsilon\delta})}\le C_6,
 \]
-其中 \(C_6\) 与 \(\varepsilon,\delta\) 无关。也就是说，\(\Lambda^\varepsilon_\delta F_{H^\varepsilon}\) 一致可积。
+其中 \(C_6\) 与 \(\varepsilon,\delta\) 无关。也就是说，\(\Lambda_{\varepsilon\delta} F_{H_{\varepsilon}}\) 一致可积。
 \end{lemma}
 
 \begin{proof}
 由引理 4.17，可固定 \(\varepsilon_1,\delta_1\)，使得
 \[
-\sqrt{-1}\tr(F_{H^\varepsilon})\le C_7\cdot \omega^{\varepsilon_1}_{\delta_1}.
+\sqrt{-1}\tr(F_{H_{\varepsilon}})\le C_7\cdot \omega_{\varepsilon_1\delta_1}.
 \]
 于是
 \begin{align*}
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|\,(\omega_{\varepsilon\delta})^n
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon}}|\,(\omega_{\varepsilon\delta})^n
 &\le
 \left(
-\bigl|\Lambda^\varepsilon_\delta(C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon})\bigr|
+\bigl|\Lambda_{\varepsilon\delta}(C_7\omega_{\varepsilon_1\delta_1}\cdot I-\sqrt{-1}F_{H_{\varepsilon}})\bigr|
 +
-|C_7\Lambda^\varepsilon_\delta \omega^{\varepsilon_1}_{\delta_1}\cdot I|
+|C_7\Lambda_{\varepsilon\delta} \omega_{\varepsilon_1\delta_1}\cdot I|
 \right)
 (\omega_{\varepsilon\delta})^n
 \\
 &\le
-n\tr\bigl(2C_7\omega^{\varepsilon_1}_{\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon}\bigr)\wedge (\omega_{\varepsilon\delta})^{n-1}.
+n\tr\bigl(2C_7\omega_{\varepsilon_1\delta_1}\cdot I-\sqrt{-1}F_{H_{\varepsilon}}\bigr)\wedge (\omega_{\varepsilon\delta})^{n-1}.
 \end{align*}
 对两边积分得
 \begin{align*}
 \int_{X\setminus D}
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon}|(\omega_{\varepsilon\delta})^n
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon}}|(\omega_{\varepsilon\delta})^n
 &\le
 n\int_{X\setminus D}
-(2rC_7\omega^{\varepsilon_1}_{\delta_1}-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge (\omega_{\varepsilon\delta})^{n-1}
+(2rC_7\omega_{\varepsilon_1\delta_1}-\sqrt{-1}\tr(F_{H_{\varepsilon}}))\wedge (\omega_{\varepsilon\delta})^{n-1}
 \\
 &\le
 n\int_{X\setminus D}
-(2rC_7\omega_{1,\delta_1}-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge \omega_{1,\delta}^{n-1}
+(2rC_7\omega_{1,\delta_1}-\sqrt{-1}\tr(F_{H_{\varepsilon}}))\wedge \omega_{1,\delta}^{n-1}
 \\
 &=
 n\int_{X\setminus D}
-(2rC_7\omega_1-\sqrt{-1}\tr(F_{H^\varepsilon}))\wedge \omega_1^{n-1}
+(2rC_7\omega_1-\sqrt{-1}\tr(F_{H_{\varepsilon}}))\wedge \omega_1^{n-1}
 \\
 &=C_6.
 \end{align*}
@@ -106,19 +106,19 @@ n\int_{X\setminus D}
 
 沿热流 (22)，有如下不等式（参见 \cite{Do1}）：
 \[
-\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+\left(\Delta_{\varepsilon\delta}+\frac{\partial}{\partial t}\right)
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}
 \le 0,
 \]
 以及
 \[
-\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}^2
+\left(\Delta_{\varepsilon\delta}+\frac{\partial}{\partial t}\right)
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}^2
 \le 0.
 \]
 记
 \[
-f(t):=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}.
+f(t):=|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}.
 \]
 
 \begin{lemma}
@@ -139,14 +139,14 @@ B|dV_{\omega_{\varepsilon\delta}}|(X-Z)<\delta/8.
 \|f(t_2)\|_{L^1(Z)}\ge \|f(t_1)\|_{L^1(Z)}+\frac34\delta.
 \]
 
-另一方面，取一族具有光滑边界的嵌套紧区域 \(\{X_\varphi\}\)，其极限穷尽 \(X_k-D^*\)。Simpson \cite[Section 6]{Si1} 证明：解 \(H^\varepsilon_\delta\) 可由定义在 \(X_\varphi\) 上、满足 Neumann 边界条件的 H-Y-M 流解 \(H^{\varphi,\varepsilon}_\delta\) 的 \(C^\infty_{\mathrm{loc}}\)-极限得到。记
+另一方面，取一族具有光滑边界的嵌套紧区域 \(\{X_\varphi\}\)，其极限穷尽 \(X_k-D^*\)。Simpson \cite[Section 6]{Si1} 证明：解 \(H_{\varepsilon\delta}\) 可由定义在 \(X_\varphi\) 上、满足 Neumann 边界条件的 H-Y-M 流解 \(H^{\varphi,\varepsilon}_\delta\) 的 \(C^\infty_{\mathrm{loc}}\)-极限得到。记
 \[
 f^\varphi(t):=
-|\Lambda^\varepsilon_\delta F_{H^{\varphi,\varepsilon}_\delta}|_{H^{\varphi,\varepsilon}_\delta}.
+|\Lambda_{\varepsilon\delta} F_{H^{\varphi,\varepsilon}_\delta}|_{H^{\varphi,\varepsilon}_\delta}.
 \]
 则
 \[
-\left(\Delta^\varepsilon_\delta+\frac{\partial}{\partial t}\right)f^\varphi\le 0.
+\left(\Delta_{\varepsilon\delta}+\frac{\partial}{\partial t}\right)f^\varphi\le 0.
 \]
 对 \(X_\varphi\) 积分并分部积分，再利用 Neumann 边界条件，可得
 \[
@@ -176,14 +176,14 @@ f^\varphi(t):=
 \begin{lemma}
 对任意 \(t\in [0,\infty)\)，有
 \[
-\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^1(H^\varepsilon_\delta)}\le C_6.
+\|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}\|_{L^1(H_{\varepsilon\delta})}\le C_6.
 \]
 \end{lemma}
 
 \begin{lemma}
 对任意 \(t>0\)，有
 \[
-\|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}\|_{L^\infty(H^\varepsilon_\delta,\omega_{\varepsilon\delta})}
+\|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}\|_{L^\infty(H_{\varepsilon\delta},\omega_{\varepsilon\delta})}
 \le
 C_8\max(t^{-1},1).
 \]
@@ -192,7 +192,7 @@ C_8\max(t^{-1},1).
 \begin{proof}
 回忆我们在引理 4.5 中已对测度空间 \((\widetilde X\setminus D^*,\omega_{\varepsilon\delta})\) 上紧支撑光滑函数建立了一致 Sobolev 不等式，且 Sobolev 常数与 \(\varepsilon,\delta\) 无关。可考虑函数
 \[
-f^\varsigma:=|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+f^\varsigma:=|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}
 +\varsigma(\log|\sigma|^2-At),
 \]
 其中 \(A\) 取得足够大，以保证 \(f^\varsigma_\nu\) 是热方程的次解。随后取
@@ -215,7 +215,7 @@ B_{\omega_1}(d):=\{x\in X\mid d_{\omega_1}(x,E)<d\}.
 \]
 由引理 4.17 易得：在 \(B_{\omega_1}(d)^c\) 上，
 \[
-|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}|_{H^\varepsilon}
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon}}|_{H_{\varepsilon}}
 \le C_9(d^{-1})|\sigma|^{-2},
 \]
 其中 \(C_9(d^{-1})\) 与 \(\varepsilon,\delta\) 无关。于是有：
@@ -227,7 +227,7 @@ B_{\omega_1}(d):=\{x\in X\mid d_{\omega_1}(x,E)<d\}.
 \]
 均有
 \[
-|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}
 \le
 C_{10}(d^{-1})|\sigma|^{-2}.
 \]
@@ -239,22 +239,22 @@ C_{10}(d^{-1})|\sigma|^{-2}.
 
 令
 \[
-h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
+h_{\varepsilon\delta}:=H_{\varepsilon\delta} (H_{\varepsilon})^{-1}.
 \]
-我们知道 \(|H^\varepsilon_\delta|_{H^\varepsilon}\) 与 \(|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\) 都可与正量
+我们知道 \(|H_{\varepsilon\delta}|_{H_{\varepsilon}}\) 与 \(|(H_{\varepsilon\delta})^{-1}|_{H_{\varepsilon}}\) 都可与正量
 \[
 \Phi^\varepsilon_\delta
 =
-\log(h^\varepsilon_\delta)+\log((h^\varepsilon_\delta)^{-1})-2\rank(E)
+\log(h_{\varepsilon\delta})+\log((h_{\varepsilon\delta})^{-1})-2\rank(E)
 \]
 相比。并且
 \[
 \frac{\partial}{\partial t}\Phi^\varepsilon_\delta
 \le
 2\bigl(
-|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}
 +
-|\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon}|_{H^\varepsilon}
+|\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon}}|_{H_{\varepsilon}}
 \bigr). \tag{24}
 \]
 因此得到：
@@ -262,9 +262,9 @@ h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
 \begin{lemma}
 对 \((x,t)\in B_{\omega_1}(d)^c\times [0,T]\)，有
 \[
-|H^\varepsilon_\delta|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2},
+|H_{\varepsilon\delta}|_{H_{\varepsilon}}\le T\,C_{11}(d^{-1})|\sigma|^{-2},
 \qquad
-|(H^\varepsilon_\delta)^{-1}|_{H^\varepsilon}\le T\,C_{11}(d^{-1})|\sigma|^{-2}.
+|(H_{\varepsilon\delta})^{-1}|_{H_{\varepsilon}}\le T\,C_{11}(d^{-1})|\sigma|^{-2}.
 \]
 \end{lemma}
 
@@ -278,7 +278,7 @@ h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
 其中 \(f\) 一致有界。则 \(H\in C_{\mathrm{loc}}^{1,\alpha}\)（任意 \(0<\alpha<1\)），并满足仅依赖于 \(\|H\|_{L^\infty}\)、\(\|H^{-1}\|_{L^\infty}\)、\(\|f\|_{L^\infty}\) 以及 \(Y\) 的几何的估计。
 \end{proposition}
 
-现在可将上面命题应用于 \((X^\circ-D,\omega_{\varepsilon\delta})\) 上的 \(H^\varepsilon_\delta\) 做内部估计。注意 \(\omega_{\varepsilon\delta}\) 在局部上一致拟等距于固定 Kähler 度量 \(\omega_1\)。于是可简单地将 \(\Lambda_{\omega_{\varepsilon\delta}}F_{H^\varepsilon_\delta}\) 视为上命题中的 \(f\)。因此，对任意 \(t\ge 0\)，\(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{1,\alpha}\)-拓扑下一致有界。另一方面，由 H-Y-M 流方程可见，对任意 \(t>0\)，\(\frac{d}{dt}H^\varepsilon_\delta\) 在 \(C^0_{\mathrm{loc}}\)-拓扑下一致有界。故 \(H^\varepsilon_\delta\) 在 \(C^{1/0}_{\mathrm{loc}}\)-拓扑下收敛到定义在
+现在可将上面命题应用于 \((X^\circ-D,\omega_{\varepsilon\delta})\) 上的 \(H_{\varepsilon\delta}\) 做内部估计。注意 \(\omega_{\varepsilon\delta}\) 在局部上一致拟等距于固定 Kähler 度量 \(\omega_1\)。于是可简单地将 \(\Lambda_{\omega_{\varepsilon\delta}}F_{H_{\varepsilon\delta}}\) 视为上命题中的 \(f\)。因此，对任意 \(t\ge 0\)，\(H_{\varepsilon\delta}\) 在 \(C_{\mathrm{loc}}^{1,\alpha}\)-拓扑下一致有界。另一方面，由 H-Y-M 流方程可见，对任意 \(t>0\)，\(\frac{d}{dt}H_{\varepsilon\delta}\) 在 \(C^0_{\mathrm{loc}}\)-拓扑下一致有界。故 \(H_{\varepsilon\delta}\) 在 \(C^{1/0}_{\mathrm{loc}}\)-拓扑下收敛到定义在
 \[
 \mathcal E|_{\widetilde X\setminus D^*-\pi^{-1}(W)}
 \]
@@ -286,14 +286,14 @@ h^\varepsilon_\delta:=H^\varepsilon_\delta (H^\varepsilon)^{-1}.
 \[
 F:=F|_{X\setminus(D\cup W)}
 \]
-上的流，初值为 \(H^\varepsilon\)。再利用抛物型 Schauder 估计，可知 \(H\) 实际上是一个光滑解，并且 \(H^\varepsilon_\delta\) 在 \(C_{\mathrm{loc}}^{\infty/\infty}\)-拓扑下收敛到 \(H\)。此外，由引理 (24)，对任意 \(t>0\)，\(H(t)\) 在逼近 \(D\) 时局部具有多项式衰减。
+上的流，初值为 \(H_{\varepsilon}\)。再利用抛物型 Schauder 估计，可知 \(H\) 实际上是一个光滑解，并且 \(H_{\varepsilon\delta}\) 在 \(C_{\mathrm{loc}}^{\infty/\infty}\)-拓扑下收敛到 \(H\)。此外，由引理 (24)，对任意 \(t>0\)，\(H(t)\) 在逼近 \(D\) 时局部具有多项式衰减。
 
 \section{对应}
 
 \paragraph{从稳定性到 H-E 度量}
 基于 H-Y-M 流 \(H(t)\)，我们希望证明：在抛物层 \(F_*\) 稳定的条件下，\(H\) 将收敛到 \(X^\circ\setminus D\) 上一个与抛物结构相容的 H-E 度量。类似地，在半稳定条件下，\(H(t)\) 将给出一族都与抛物结构相容的近似 H-E 度量。
 
-困难在于 \(|\Lambda F_{H^\varepsilon}|_{H^\varepsilon}\) 在 \(X^\circ\setminus D\) 上并不有界，因此 Simpson \cite{Si1} 的论证不能直接套用。一个可能的想法是从正时间开始考虑 H-Y-M 流，再应用 Simpson 的结果。虽然由上面的分析可知，对任意 \(t>0\)，\(|\Lambda F_{H(t)}|_{H(t)}\) 有界，但似乎很难证明 \(F|_{X^\circ\setminus D}\) 关于 \(H(t)\) 的解析稳定性。不过这一困难已由第二作者在 \cite[Proposition 4.1]{Li-Zh-Zh} 中解决：在半稳定条件下，仍有
+困难在于 \(|\Lambda F_{H_{\varepsilon}}|_{H_{\varepsilon}}\) 在 \(X^\circ\setminus D\) 上并不有界，因此 Simpson \cite{Si1} 的论证不能直接套用。一个可能的想法是从正时间开始考虑 H-Y-M 流，再应用 Simpson 的结果。虽然由上面的分析可知，对任意 \(t>0\)，\(|\Lambda F_{H(t)}|_{H(t)}\) 有界，但似乎很难证明 \(F|_{X^\circ\setminus D}\) 关于 \(H(t)\) 的解析稳定性。不过这一困难已由第二作者在 \cite[Proposition 4.1]{Li-Zh-Zh} 中解决：在半稳定条件下，仍有
 \[
 \lim_{t\to\infty}\|\Phi(t)\|_{L^2(H(t))}=0,
 \]
@@ -333,7 +333,7 @@ C_{12}\|\Phi(t)\|_{L^2(H(t))(X\setminus D\times [T,2T])}.
 \]
 \end{lemma}
 
-固定 \(X\setminus D\) 上一个沿 \(D\) 具有 cusp 奇性的 Kähler 度量 \(\omega_c\)。则体积密度函数
+固定 \(X\setminus D\) 上一个沿 \(D\) 具有 Poincar\'e 奇性的 Kähler 度量 \(\omega_c\)。则体积密度函数
 \[
 \frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}
 \]
@@ -346,107 +346,107 @@ C_{12}\|\Phi(t)\|_{L^2(H(t))(X\setminus D\times [T,2T])}.
 \begin{proof}
 由于
 \[
-\det(H^\varepsilon)=\det(H(t)),
+\det(H_{\varepsilon})=\det(H(t)),
 \]
 故 \(H(t)\) 在余维 1 上适配于 \(F_*\)。因此只需证明：对任意真抛物子层 \(S_*\)，都有
 \[
-\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H_{\varepsilon}|_S})\wedge \omega^{n-1}
 \le
 \sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H(t)|_S})\wedge \omega^{n-1}.
 \]
 
 由第 3 节中的爆破过程可知
 \[
-\int_{X^\circ\setminus D^*}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\int_{X^\circ\setminus D^*}\tr(F_{H_{\varepsilon}|_S})\wedge \omega^{n-1}
 =
-\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}.
+\int_{X^\circ\setminus D}\tr(F_{H_{\varepsilon}|_S})\wedge \omega^{n-1}.
 \]
 对引理 6.2 的证明进行适当改写，可得到
 \[
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon|_S}|(\omega_{\varepsilon\delta})^n
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon}|_S}|(\omega_{\varepsilon\delta})^n
 \le
-n\tr\bigl(2C_7\omega_{1,\delta_1}\cdot I-\sqrt{-1}F_{H^\varepsilon|_S}\bigr)\wedge \omega_{1,\delta}^{n-1}.
+n\tr\bigl(2C_7\omega_{1,\delta_1}\cdot I-\sqrt{-1}F_{H_{\varepsilon}|_S}\bigr)\wedge \omega_{1,\delta}^{n-1}.
 \]
 右侧积分有限且与 \(\delta\) 无关，故由广义支配收敛定理，
 \[
-\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\int_{X^\circ\setminus D}\tr(F_{H_{\varepsilon}|_S})\wedge \omega^{n-1}
 =
 \lim_{\varepsilon\to 0,\ \delta\to 0}
-\int_{X^\circ\setminus D^*}\tr(F_{H^\varepsilon|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
+\int_{X^\circ\setminus D^*}\tr(F_{H_{\varepsilon}|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
 \]
 
 对固定的 \(\varepsilon,\delta,t\)，记
 \[
-h^\varepsilon_{\delta|S}:=H^\varepsilon_\delta(t)|_S\cdot (H^\varepsilon|_S)^{-1},
+h_{\varepsilon\delta|S}:=H_{\varepsilon\delta}(t)|_S\cdot (H_{\varepsilon}|_S)^{-1},
 \qquad
-h^\varepsilon_\delta:=H^\varepsilon_\delta(t)\cdot (H^\varepsilon)^{-1}.
+h_{\varepsilon\delta}:=H_{\varepsilon\delta}(t)\cdot (H_{\varepsilon})^{-1}.
 \]
-Simpson \cite{Si1} 证明了 \(H^\varepsilon\) 与 \(H^\varepsilon_\delta(t)\) 彼此有界，且
+Simpson \cite{Si1} 证明了 \(H_{\varepsilon}\) 与 \(H_{\varepsilon\delta}(t)\) 彼此有界，且
 \[
-\partial h^\varepsilon_\delta\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\partial h_{\varepsilon\delta}\in L^2(H_{\varepsilon},\omega_{\varepsilon\delta}).
 \]
-因此 \(h^\varepsilon_\delta\) 关于 \(H^\varepsilon\) 或 \(H^\varepsilon_\delta(t)\) 都有界。
+因此 \(h_{\varepsilon\delta}\) 关于 \(H_{\varepsilon}\) 或 \(H_{\varepsilon\delta}(t)\) 都有界。
 
 又因为
 \[
-h^\varepsilon_{\delta|S}=p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta \cdot \iota, \tag{25}
+h_{\varepsilon\delta|S}=p_{S,H_{\varepsilon}}\cdot h_{\varepsilon\delta} \cdot \iota, \tag{25}
 \]
 以及
 \[
-p_{S,H^\varepsilon_\delta(t)}
+p_{S,H_{\varepsilon\delta}(t)}
 =
-(h^\varepsilon_{\delta|S})^{-1}\cdot p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta, \tag{26}
+(h_{\varepsilon\delta|S})^{-1}\cdot p_{S,H_{\varepsilon}}\cdot h_{\varepsilon\delta}, \tag{26}
 \]
 其中 \(\iota\) 是 \(S\) 到 \(E\) 的嵌入。所以
 \[
-\partial h^\varepsilon_{\delta|S}
+\partial h_{\varepsilon\delta|S}
 =
-\partial p_{S,H^\varepsilon}\cdot h^\varepsilon_\delta\cdot \iota
+\partial p_{S,H_{\varepsilon}}\cdot h_{\varepsilon\delta}\cdot \iota
 +
-p_{S,H^\varepsilon}\cdot \partial h^\varepsilon_\delta\cdot \iota,
+p_{S,H_{\varepsilon}}\cdot \partial h_{\varepsilon\delta}\cdot \iota,
 \]
 从而
 \[
-\partial h^\varepsilon_{\delta|S}\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\partial h_{\varepsilon\delta|S}\in L^2(H_{\varepsilon},\omega_{\varepsilon\delta}).
 \]
 再由 Chern--Weil 公式及式 (26)，
 \[
-\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+\tr(F_{H_{\varepsilon\delta}|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
 \]
 可积。
 
 另一方面，
 \[
-\tr(F_{H^\varepsilon_\delta|_S})-\tr(F_{H^\varepsilon|_S})
+\tr(F_{H_{\varepsilon\delta}|_S})-\tr(F_{H_{\varepsilon}|_S})
 =
-\tr\bigl(\bar\partial(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})\bigr).
+\tr\bigl(\bar\partial(\partial H_{\varepsilon}|_S\cdot h_{\varepsilon\delta|S}\cdot (h_{\varepsilon\delta|S})^{-1})\bigr).
 \]
 而上面的论证表明
 \[
-\tr(\partial H^\varepsilon|_S\cdot h^\varepsilon_{\delta|S}\cdot (h^\varepsilon_{\delta|S})^{-1})
+\tr(\partial H_{\varepsilon}|_S\cdot h_{\varepsilon\delta|S}\cdot (h_{\varepsilon\delta|S})^{-1})
 \wedge (\omega_{\varepsilon\delta})^{n-1}
-\in L^2(H^\varepsilon,\omega_{\varepsilon\delta}).
+\in L^2(H_{\varepsilon},\omega_{\varepsilon\delta}).
 \]
 于是由引理 6.9，
 \[
 \int_{X^\circ\setminus D^*}
-\tr(F_{H^\varepsilon|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+\tr(F_{H_{\varepsilon}|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
 =
 \int_{X^\circ\setminus D^*}
-\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
+\tr(F_{H_{\varepsilon\delta}|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}.
 \]
 
 再用一次 Chern--Weil 公式，有
 \[
-\sqrt{-1}\tr(F_{H^\varepsilon_\delta|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
+\sqrt{-1}\tr(F_{H_{\varepsilon\delta}|_S})\wedge (\omega_{\varepsilon\delta})^{n-1}
 \le
-\sqrt{-1}\tr(p_{S,H^\varepsilon_\delta}\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta})
+\sqrt{-1}\tr(p_{S,H_{\varepsilon\delta}}\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}})
 \cdot
 \frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}\cdot \omega_c^n.
 \]
-右侧项是一致有界的，因为 \(|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta}|_{H^\varepsilon_\delta}\) 与 \(\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}\) 都一致有界。对两边取极限并使用 Fatou 引理，即得所需不等式：
+右侧项是一致有界的，因为 \(|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}}|_{H_{\varepsilon\delta}}\) 与 \(\frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}\) 都一致有界。对两边取极限并使用 Fatou 引理，即得所需不等式：
 \[
-\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H^\varepsilon|_S})\wedge \omega^{n-1}
+\sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H_{\varepsilon}|_S})\wedge \omega^{n-1}
 \le
 \sqrt{-1}\int_{X^\circ\setminus D}\tr(F_{H(t)|_S})\wedge \omega^{n-1}.
 \]
@@ -459,26 +459,26 @@ p_{S,H^\varepsilon}\cdot \partial h^\varepsilon_\delta\cdot \iota,
 \begin{proof}
 由引理 6.5，对任意 \(t>0\)，\(|\Lambda F_H|_H\) 在 \(X\setminus D\) 上有界。此外有
 \begin{align}
--8\pi^2
+&-8\pi^2
 \int_X \ch_2(F_*)\wedge \frac{\omega^{n-2}}{(n-2)!}
-&=
+=
 \lim_{\varepsilon\to 0,\ \delta\to 0}
 \int_X
-\operatorname{tr}(F_{H^\varepsilon}\wedge F_{H^\varepsilon})\wedge \frac{(\omega_{\varepsilon\delta})^{n-2}}{(n-2)!}
+\operatorname{tr}(F_{H_{\varepsilon}}\wedge F_{H_{\varepsilon}})\wedge \frac{(\omega_{\varepsilon\delta})^{n-2}}{(n-2)!}
 \nonumber\\
 &\ge
 \lim_{\varepsilon\to 0,\ \delta\to 0}
 \int_X
-\operatorname{tr}(F_{H^\varepsilon_\delta(t)}\wedge F_{H^\varepsilon_\delta(t)})\wedge
+\operatorname{tr}(F_{H_{\varepsilon\delta}(t)}\wedge F_{H_{\varepsilon\delta}(t)})\wedge
 \frac{(\omega_{\varepsilon\delta})^{n-2}}{(n-2)!}
 \nonumber\\
 &=
 \lim_{\varepsilon\to 0,\ \delta\to 0}
 \int_X
 \Bigl(
-|F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t),\omega_{\varepsilon\delta}}
+|F_{H_{\varepsilon\delta}(t)}|^2_{H_{\varepsilon\delta}(t),\omega_{\varepsilon\delta}}
 -
-|\Lambda^\varepsilon_\delta F_{H^\varepsilon_\delta(t)}|^2_{H^\varepsilon_\delta(t)}
+|\Lambda_{\varepsilon\delta} F_{H_{\varepsilon\delta}(t)}|^2_{H_{\varepsilon\delta}(t)}
 \Bigr)
 \cdot
 \frac{(\omega_{\varepsilon\delta})^n}{\omega_c^n}
@@ -500,19 +500,19 @@ p_{S,H^\varepsilon}\cdot \partial h^\varepsilon_\delta\cdot \iota,
 至此，我们已经完成了 Kobayashi--Hitchin 对应的一个方向。
 
 为证明逆命题，设 \(H(t)\) 是一族与抛物结构相容的近似 H-E 度量，则由定义和 Chern--Weil 公式，对任意真子层 \(S_*\)，有
-\[
-\mu_\omega(S_*)
-\le
+\begin{align*}
+    \mu_\omega(S_*)
+&\le
 \liminf_{t\to\infty}
 \frac{\sqrt{-1}}{2\pi \rank(S)}
-\int_{X\setminus D}\tr(F_{H|_S}(t))\wedge \omega^{n-1}
-\le
+\int_{X\setminus D}\tr(F_{H|_S}(t))\wedge \omega^{n-1}\\
+&\le
 \lim_{t\to\infty}
 \frac{\sqrt{-1}}{2\pi \rank(F)}
 \int_{X\setminus D}\tr(F_{H(t)})\wedge \omega^{n-1}
 =
 \mu_\omega(F_*).
-\]
+\end{align*}
 于是半稳定情形得证。
 
 为证明多稳定情形的逆命题，先需要一个命题，它是 \cite[Theorem 2(b)]{B-S} 的一个轻微推广。
@@ -526,7 +526,7 @@ z_1z_2\cdots z_m=0
 \[
 \Delta^n\setminus (D\cap S)
 \]
-上。若 \(F_*\) 在 \(F\) 上 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)，则 \(F\) 的任意局部截面 \(s\) 满足 \(H(s,s)\) 局部有界，且属于 \(L_{1,\mathrm{loc}}^2\)。
+上。若 \(F_*\) 在 \(F\) 上存在一个与抛物结构相容的可容许 H-E 度量 \(H\)，则 \(F\) 的任意局部截面 \(s\) 满足 \(H(s,s)\) 局部有界，且属于 \(L_{1,\mathrm{loc}}^2\)。
 \end{proposition}
 
 \begin{proof}
@@ -593,7 +593,7 @@ u\in L^\infty_{\mathrm{loc}}.
 \]
 \end{proof}
 
-现在设 \(F_*\) 是一个饱和自反抛物层，它 admits 一个与抛物结构相容的可容许 H-E 度量 \(H\)。则由 \(H\) 的定义及 Chern--Weil 公式，容易得到对任意真抛物子层 \(S_*\)，均有
+现在设 \(F_*\) 是一个饱和自反抛物层，它存在一个与抛物结构相容的可容许 H-E 度量 \(H\)。则由 \(H\) 的定义及 Chern--Weil 公式，容易得到对任意真抛物子层 \(S_*\)，均有
 \[
 \mu_\omega(S_*)\le \mu_\omega(F_*).
 \]

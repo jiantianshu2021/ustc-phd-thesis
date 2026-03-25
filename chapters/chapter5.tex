@@ -164,9 +164,9 @@ C_3\frac1{V_\omega}\int_X |\nabla u|^2\omega^n,
 
 现在回到第三条的证明。我们将把上述定理应用到 \(\widetilde X\) 上的一族度量
 \[
-\omega^\epsilon_{\delta,\nu}:=\omega_{\nu\delta}+\epsilon\omega_{\widetilde X}.
+\omega_{\epsilon\delta\nu}:=\omega_{\nu\delta}+\epsilon\omega_{\widetilde X}.
 \]
-这是一族 \(\widetilde X\) 上的光滑 Kähler 度量。由于 \(\omega^0_{\delta,\nu}\) 仅在例外除子 \(E\) 上退化，所以 \(\omega^\epsilon_{\delta,\nu}\) 可由一个零点集 Hausdorff 维数为 \(2n-2\) 的连续函数 \(\gamma\) 所支撑。为了应用上述定理，我们只需检查 Nash--Yau 熵条件。回忆 \(E\cup D\) 是简单正规交叉的。因此可取局部坐标图
+这是一族 \(\widetilde X\) 上的光滑 Kähler 度量。由于 \(\omega^0_{\delta,\nu}\) 仅在例外除子 \(E\) 上退化，所以 \(\omega_{\epsilon\delta\nu}\) 可由一个零点集 Hausdorff 维数为 \(2n-2\) 的连续函数 \(\gamma\) 所支撑。为了应用上述定理，我们只需检查 Nash--Yau 熵条件。回忆 \(E\cup D\) 是简单正规交叉的。因此可取局部坐标图
 \[
 z=(z',z'',z'''),
 \]
@@ -178,7 +178,7 @@ E=\bigcup_{j=1}^{k''}\{z''_j=0\}.
 并可设 \(|z|<1\)。记
 \[
 f_{\epsilon\delta\nu}:=
-\frac{(\omega^\epsilon_{\delta,\nu})^n}{\omega_{\widetilde X}^n}.
+\frac{(\omega_{\epsilon\delta\nu})^n}{\omega_{\widetilde X}^n}.
 \]
 则 \(f_{\epsilon\delta\nu}\) 要么在 \(E\) 上以 \(\prod_j |z''_j|^a\) 的速度退化到 0，要么在 \(D\) 上以 \(\prod_i |z'_i|^{-a}\) 的速度爆炸到无穷，其中 \(a>0\) 可取一致。于是若固定 \(p>n\)，有
 \[
@@ -191,12 +191,12 @@ f_{\epsilon\delta\nu}:=
 \]
 其中 \(C_{15}\) 与 \(\delta,\epsilon,\nu\) 无关。再由引理 5.2，
 \[
-|\log(f_{\epsilon\delta\nu})|^p(\omega^\epsilon_{\delta,\nu})^n
+|\log(f_{\epsilon\delta\nu})|^p(\omega_{\epsilon\delta\nu})^n
 \le
 \frac{C_{15}\delta^{k'}}
 {\prod_{i=1}^{k'}|z'_i|^{2-3\delta/2}\cdot \prod_{j=1}^{k''}|z''_j|^{1/2}}.
 \]
-因此 \(\int |\log(f_{\epsilon\delta\nu})|^p(\omega^\epsilon_{\delta,\nu})^n\) 一致有界。于是可取合适的 \(p>n\)、\(A\) 和 \(K\)，使得度量族 \(\omega^\epsilon_{\delta,\nu}\) 属于 \(\mathcal W(n,p,A,K,\gamma)\)。由上定理可推出下面的引理。
+因此 \(\int |\log(f_{\epsilon\delta\nu})|^p(\omega_{\epsilon\delta\nu})^n\) 一致有界。于是可取合适的 \(p>n\)、\(A\) 和 \(K\)，使得度量族 \(\omega_{\epsilon\delta\nu}\) 属于 \(\mathcal W(n,p,A,K,\gamma)\)。由上定理可推出下面的引理。
 \end{proof}
 
 \begin{lemma}
@@ -208,7 +208,7 @@ f_{\epsilon\delta\nu}:=
 \end{lemma}
 
 \begin{proof}
-这是因为 \(f\) 紧支撑于 \(\widetilde X\setminus D^*\) 中，而 \(\omega^\epsilon_{\delta,\nu}\) 在 \(\nu\to 0\) 时以 \(C^\infty_{\mathrm{loc}}\)-拓扑收敛到 \(\omega_{\epsilon\delta}\)。
+这是因为 \(f\) 紧支撑于 \(\widetilde X\setminus D^*\) 中，而 \(\omega_{\epsilon\delta\nu}\) 在 \(\nu\to 0\) 时以 \(C^\infty_{\mathrm{loc}}\)-拓扑收敛到 \(\omega_{\epsilon\delta}\)。
 \end{proof}
 
 现在我们可用 Moser 迭代证明命题 5.3 的第三条。设 \(f\) 是一个满足假设的有界正函数，即
@@ -235,27 +235,27 @@ f_\nu:=(f+\nu\log|\sigma|)^+,\qquad 0<\nu<1.
 一致 Sobolev 不等式还导出相对于锥型度量族 \(\omega_{\epsilon\delta}\) 的热核的一致上界。
 
 \begin{proposition}
-设 \(K^\epsilon_\delta\) 是相对于 \(\omega_{\epsilon\delta}\) 的热核。则对任意 \(\tau>0\)，存在与 \(\epsilon,\delta\) 无关的常数 \(C_K(\tau)\)，使得
+设 \(K_{\epsilon\delta}\) 是相对于 \(\omega_{\epsilon\delta}\) 的热核。则对任意 \(\tau>0\)，存在与 \(\epsilon,\delta\) 无关的常数 \(C_K(\tau)\)，使得
 \[
-0<K^\epsilon_\delta(x,y,t)\le
+0<K_{\epsilon\delta}(x,y,t)\le
 C_K(\tau)
 \left(
-\frac1{t^n}\exp\left(-\frac{d^\epsilon_\delta(x,y)}{(4+\tau)t}\right)+1
+\frac1{t^n}\exp\left(-\frac{d_{\epsilon\delta}(x,y)}{(4+\tau)t}\right)+1
 \right),
 \]
 其中 \(d^\epsilon_\delta(\cdot,\cdot)\) 是 \(\widetilde X\setminus D^*\) 上由度量 \(\omega_{\epsilon\delta}\) 诱导的距离函数。
 \end{proposition}
 
 \begin{proof}
-回忆 \(\omega^\epsilon_{\delta,\nu}\) 是紧流形 \(\widetilde X\) 上一族光滑度量，且满足一致 Sobolev 不等式。一方面，结合 \cite{Ch-Li} 中给出的对角热核估计和 \cite[Theorem 1.1]{GrYan} 中的高斯型热核上界估计，可得
+回忆 \(\omega_{\epsilon\delta\nu}\) 是紧流形 \(\widetilde X\) 上一族光滑度量，且满足一致 Sobolev 不等式。一方面，结合 \cite{Ch-Li} 中给出的对角热核估计和 \cite[Theorem 1.1]{GrYan} 中的高斯型热核上界估计，可得
 \[
 0<K^\epsilon_{\delta,\nu}(x,y,t)\le
 C_K(\tau)
 \left(
-\frac1{t^n}\exp\left(-\frac{d^\epsilon_{\delta,\nu}(x,y)}{(4+\tau)t}\right)+1
+\frac1{t^n}\exp\left(-\frac{d_{\epsilon\delta\nu}(x,y)}{(4+\tau)t}\right)+1
 \right).
 \]
-另一方面，容易证明当 \(\nu\to 0\) 时，\(K^\epsilon_{\delta,\nu}\) 在 \((\widetilde X\setminus D^*)\times (\widetilde X\setminus D^*)\) 的紧子集上一致收敛到热核 \(K^\epsilon_\delta\)。命题得证。
+另一方面，容易证明当 \(\nu\to 0\) 时，\(K_{\epsilon\delta\nu}\) 在 \((\widetilde X\setminus D^*)\times (\widetilde X\setminus D^*)\) 的紧子集上一致收敛到热核 \(K_{\epsilon\delta}\)。命题得证。
 \end{proof}
 
 \section{抛物度量}
@@ -1053,7 +1053,7 @@ U\cap\{\tau_{\lambda(j)}=\tau_{\lambda(k)}=\delta\}\cap
 \(\widehat{H}\) 在余维 2 上适配于 \(F_*\)。
 \end{proposition}
 
-此外，还可利用第 3 节中使用的爆破技巧证明下面的命题。由于证明是形式上的，这里略去。
+此外，还可利用第 3 节中使用的爆破技巧证明下面的命题。
 
 \begin{proposition}
 \(\widehat{H}\) 在余维 1 上适配于 \(F_*\) 的任意抛物子层 \(S_*\)。
